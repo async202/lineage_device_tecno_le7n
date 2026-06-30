@@ -100,5 +100,35 @@ BOARD_AVB_MAKE_VBMETA_IMAGE_ARGS += --flags 3
 # VINTF
 DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/manifest.xml
 
+ODM_MANIFEST_FILES += \
+    vendor/tecno/le7n/proprietary/odm/etc/vintf/manifest_dsds.xml:$(TARGET_COPY_OUT_ODM)/etc/vintf/manifest_dsds.xml \
+    vendor/tecno/le7n/proprietary/odm/etc/vintf/manifest_qsqs.xml:$(TARGET_COPY_OUT_ODM)/etc/vintf/manifest_qsqs.xml \
+    vendor/tecno/le7n/proprietary/odm/etc/vintf/manifest_ss.xml:$(TARGET_COPY_OUT_ODM)/etc/vintf/manifest_ss.xml \
+    vendor/tecno/le7n/proprietary/odm/etc/vintf/manifest_tsts.xml:$(TARGET_COPY_OUT_ODM)/etc/vintf/manifest_tsts.xml \
+    vendor/tecno/le7n/proprietary/vendor/etc/vintf/manifest/android.hardware.biometrics.fingerprint@2.1-service.xml:$(TARGET_COPY_OUT_VENDOR)/etc/vintf/manifest/android.hardware.biometrics.fingerprint@2.1-service.xml \
+    vendor/tecno/le7n/proprietary/vendor/etc/vintf/manifest/android.hardware.boot@1.1.xml:$(TARGET_COPY_OUT_VENDOR)/etc/vintf/manifest/android.hardware.boot@1.1.xml \
+    vendor/tecno/le7n/proprietary/vendor/etc/vintf/manifest/android.hardware.cas@1.2-service.xml:$(TARGET_COPY_OUT_VENDOR)/etc/vintf/manifest/android.hardware.cas@1.2-service.xml \
+    vendor/tecno/le7n/proprietary/vendor/etc/vintf/manifest/android.hardware.gpu@1.0-service.xml:$(TARGET_COPY_OUT_VENDOR)/etc/vintf/manifest/android.hardware.gpu@1.0-service.xml \
+    vendor/tecno/le7n/proprietary/vendor/etc/vintf/manifest/android.hardware.health@2.1.xml:$(TARGET_COPY_OUT_VENDOR)/etc/vintf/manifest/android.hardware.health@2.1.xml \
+    vendor/tecno/le7n/proprietary/vendor/etc/vintf/manifest/android.hardware.neuralnetworks@1.3-service-mtk-gpu.xml:$(TARGET_COPY_OUT_VENDOR)/etc/vintf/manifest/android.hardware.neuralnetworks@1.3-service-mtk-gpu.xml \
+    vendor/tecno/le7n/proprietary/vendor/etc/vintf/manifest/android.hardware.wifi.hostapd.xml:$(TARGET_COPY_OUT_VENDOR)/etc/vintf/manifest/android.hardware.wifi.hostapd.xml \
+    vendor/tecno/le7n/proprietary/vendor/etc/vintf/manifest/android.hardware.wifi@1.0-service.xml:$(TARGET_COPY_OUT_VENDOR)/etc/vintf/manifest/android.hardware.wifi@1.0-service.xml \
+    vendor/tecno/le7n/proprietary/vendor/etc/vintf/manifest/lights-mtk-default.xml:$(TARGET_COPY_OUT_VENDOR)/etc/vintf/manifest/lights-mtk-default.xml \
+    vendor/tecno/le7n/proprietary/vendor/etc/vintf/manifest/manifest.xml:$(TARGET_COPY_OUT_VENDOR)/etc/vintf/manifest/manifest.xml \
+    vendor/tecno/le7n/proprietary/vendor/etc/vintf/manifest/manifest_android.hardware.drm@1.3-service.clearkey.xml:$(TARGET_COPY_OUT_VENDOR)/etc/vintf/manifest/manifest_android.hardware.drm@1.3-service.clearkey.xml \
+    vendor/tecno/le7n/proprietary/vendor/etc/vintf/manifest/manifest_android.hardware.drm@1.3-service.widevine.xml:$(TARGET_COPY_OUT_VENDOR)/etc/vintf/manifest/manifest_android.hardware.drm@1.3-service.widevine.xml \
+    vendor/tecno/le7n/proprietary/vendor/etc/vintf/manifest/manifest_storage.xml:$(TARGET_COPY_OUT_VENDOR)/etc/vintf/manifest/manifest_storage.xml \
+    vendor/tecno/le7n/proprietary/vendor/etc/vintf/manifest/manifest_tneengine.xml:$(TARGET_COPY_OUT_VENDOR)/etc/vintf/manifest/manifest_tneengine.xml \
+    vendor/tecno/le7n/proprietary/vendor/etc/vintf/manifest/power-default.xml:$(TARGET_COPY_OUT_VENDOR)/etc/vintf/manifest/power-default.xml \
+    vendor/tecno/le7n/proprietary/vendor/etc/vintf/manifest/vendor.mediatek.hardware.dplanner@2.0-service.xml:$(TARGET_COPY_OUT_VENDOR)/etc/vintf/manifest/vendor.mediatek.hardware.dplanner@2.0-service.xml \
+    vendor/tecno/le7n/proprietary/vendor/etc/vintf/manifest/vendor.mediatek.hardware.paytrigger@1.0-service.xml:$(TARGET_COPY_OUT_VENDOR)/etc/vintf/manifest/vendor.mediatek.hardware.paytrigger@1.0-service.xml \
+    vendor/tecno/le7n/proprietary/vendor/etc/vintf/manifest/vendor.mediatek.hardware.tranHwInfo@1.0.xml:$(TARGET_COPY_OUT_VENDOR)/etc/vintf/manifest/vendor.mediatek.hardware.tranHwInfo@1.0.xml \
+    vendor/tecno/le7n/proprietary/vendor/etc/vintf/manifest/vendor.transsion.hardware.trancam.trancamserver@1.0.xml:$(TARGET_COPY_OUT_VENDOR)/etc/vintf/manifest/vendor.transsion.hardware.trancam.trancamserver@1.0.xml \
+    vendor/tecno/le7n/proprietary/vendor/etc/vintf/manifest/vibrator-mtk-default.xml:$(TARGET_COPY_OUT_VENDOR)/etc/vintf/manifest/vibrator-mtk-default.xml \
+    vendor/tecno/le7n/proprietary/vendor/odm/etc/vintf/manifest_dsds.xml:$(TARGET_COPY_OUT_ODM)/odm/etc/vintf/manifest_dsds.xml \
+    vendor/tecno/le7n/proprietary/vendor/odm/etc/vintf/manifest_qsqs.xml:$(TARGET_COPY_OUT_ODM)/odm/etc/vintf/manifest_qsqs.xml \
+    vendor/tecno/le7n/proprietary/vendor/odm/etc/vintf/manifest_ss.xml:$(TARGET_COPY_OUT_ODM)/odm/etc/vintf/manifest_ss.xml \
+    vendor/tecno/le7n/proprietary/vendor/odm/etc/vintf/manifest_tsts.xml:$(TARGET_COPY_OUT_ODM)/odm/etc/vintf/manifest_tsts.xml \
+
 # Inherit the proprietary files
 include vendor/tecno/le7n/BoardConfigVendor.mk
