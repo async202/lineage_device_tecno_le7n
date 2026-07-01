@@ -102,7 +102,6 @@ DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/manifest.xml
 
 # Vendor manifests
 DEVICE_MANIFEST_FILE += \
-    vendor/tecno/le7n/proprietary/vendor/etc/vintf/manifest/android.hardware.biometrics.fingerprint@2.1-service.xml \
     vendor/tecno/le7n/proprietary/vendor/etc/vintf/manifest/android.hardware.boot@1.1.xml \
     vendor/tecno/le7n/proprietary/vendor/etc/vintf/manifest/android.hardware.cas@1.2-service.xml \
     vendor/tecno/le7n/proprietary/vendor/etc/vintf/manifest/android.hardware.gpu@1.0-service.xml \
