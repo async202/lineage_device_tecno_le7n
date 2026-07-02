@@ -21,5 +21,5 @@ PRODUCT_MANUFACTURER := tecno
 PRODUCT_GMS_CLIENTID_BASE := android-transsion
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
-    BuildDesc="sys_tssi_64_tecno-user 11 RP1A.200720.011 100645 release-keys" \
-    BuildFingerprint := TECNO/TSSI/le7n:11/RP1A.200720.011/210420V289:user/release-keys
+    BUILD_DESCRIPTION="sys_tssi_64_tecno-user 11 RP1A.200720.011 100645 release-keys" \
+    BUILD_FINGERPRINT="TECNO/TSSI/le7n:11/RP1A.200720.011/210420V289:user/release-keys"
