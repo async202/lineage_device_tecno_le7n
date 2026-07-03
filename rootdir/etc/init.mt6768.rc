@@ -37,7 +37,7 @@ on init
     mkdir /mnt/cd-rom 0000 system system
 
 #BSP:add XLLSHLSSP-17 for tranfs by shentao.yang 20190603 start
-    mkdir /tranfs 0771 system system
+#    mkdir /tranfs 0771 system system
 #BSP:add XLLSHLSSP-17 for tranfs by shentao.yang 20190603 end
 
 # change lk_env permission
@@ -218,8 +218,8 @@ on post-fs-data
     chown system system /mnt/vendor/nvcfg/fg/car_tune_value
 
 #BSP:add XLLSHLSSP-17 for tranfs by shentao.yang 20190603 start
-    chown system system /tranfs
-    chmod 0777 /tranfs
+#    chown system system /tranfs
+#    chmod 0777 /tranfs
 #BSP:add XLLSHLSSP-17 for tranfs by shentao.yang 20190603 end
 
     # create basic filesystem structure
@@ -264,7 +264,7 @@ on post-fs-data
     chmod 0771 /data/vendor/flicker
 
 #BSP:add XLLSHLSSP-17 for tranfs by shentao.yang 20190603 start
-    restorecon_recursive /tranfs
+#    restorecon_recursive /tranfs
 #BSP:add XLLSHLSSP-17 for tranfs by shentao.yang 20190603 end
 
     # Set SELinux security contexts on upgrade or policy update.
