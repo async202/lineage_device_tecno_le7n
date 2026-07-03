@@ -36,10 +36,6 @@ on init
 
     mkdir /mnt/cd-rom 0000 system system
 
-#BSP:add XLLSHLSSP-17 for tranfs by shentao.yang 20190603 start
-#    mkdir /tranfs 0771 system system
-#BSP:add XLLSHLSSP-17 for tranfs by shentao.yang 20190603 end
-
 # change lk_env permission
     chown root system /proc/lk_env
     chmod 0660 /proc/lk_env
@@ -217,11 +213,6 @@ on post-fs-data
     chown system system /mnt/vendor/nvcfg/fg/old_fg_data
     chown system system /mnt/vendor/nvcfg/fg/car_tune_value
 
-#BSP:add XLLSHLSSP-17 for tranfs by shentao.yang 20190603 start
-#    chown system system /tranfs
-#    chmod 0777 /tranfs
-#BSP:add XLLSHLSSP-17 for tranfs by shentao.yang 20190603 end
-
     # create basic filesystem structure
     # We chown/chmod /mnt/vendor/nvdata again so because mount is run as root + defaults
     chown root system /mnt/vendor/nvdata
@@ -262,10 +253,6 @@ on post-fs-data
     mkdir /data/vendor/flicker
     chown root system /data/vendor/flicker
     chmod 0771 /data/vendor/flicker
-
-#BSP:add XLLSHLSSP-17 for tranfs by shentao.yang 20190603 start
-#    restorecon_recursive /tranfs
-#BSP:add XLLSHLSSP-17 for tranfs by shentao.yang 20190603 end
 
     # Set SELinux security contexts on upgrade or policy update.
     restorecon_recursive /mnt/vendor/nvdata
