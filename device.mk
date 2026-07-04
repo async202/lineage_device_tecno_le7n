@@ -10,9 +10,13 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/updatable_apex.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/virtual_ab_ota.mk)
 
 PRODUCT_PACKAGES += \
+    mtk_plpath_utils \
+    mtk_plpath_utils.recovery \
     android.hardware.boot@1.1-mtkimpl \
-    bootctrl \
-    mtk_plpath_utils
+    android.hardware.boot@1.1-mtkimpl.recovery
+
+PRODUCT_PACKAGES_DEBUG += \
+    bootctrl
 
 PRODUCT_PACKAGES += \
     update_engine \
@@ -80,6 +84,9 @@ PRODUCT_PACKAGES += \
     meta_init.rc \
     multi_init.rc \
     init.recovery.mt6768.rc \
+
+PRODUCT_VENDOR_PROPERTIES += \
+    ro.hardware.bootctrl=1.1-mtkimpl
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/rootdir/etc/fstab.mt6768:$(TARGET_VENDOR_RAMDISK_OUT)/first_stage_ramdisk/fstab.mt6768
