@@ -10,6 +10,10 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/updatable_apex.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/virtual_ab_ota.mk)
 
 PRODUCT_PACKAGES += \
+    android.hardware.boot@1.1-mtkimpl \
+    bootctrl
+
+PRODUCT_PACKAGES += \
     update_engine \
     update_engine_sideload \
     update_verifier
