@@ -11,7 +11,8 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/virtual_ab_ota.mk)
 
 PRODUCT_PACKAGES += \
     android.hardware.boot@1.1-mtkimpl \
-    bootctrl
+    bootctrl \
+    mtk_plpath_utils
 
 PRODUCT_PACKAGES += \
     update_engine \
