@@ -7,6 +7,9 @@ DEVICE_PATH := device/tecno/le7n
 
 BOARD_USES_RECOVERY_AS_BOOT := true
 
+# A/B
+AB_OTA_UPDATER := true
+
 # Architecture
 TARGET_ARCH := arm64
 TARGET_ARCH_VARIANT := armv8-a
