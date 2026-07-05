@@ -18,7 +18,6 @@ AB_OTA_PARTITIONS += \
     vbmeta_vendor \
     system_ext \
     vendor
-BOARD_USES_RECOVERY_AS_BOOT := true
 
 PRODUCT_PACKAGES += \
     mtk_plpath_utils \
