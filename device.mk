@@ -26,6 +26,9 @@ PRODUCT_PACKAGES += \
     android.hardware.boot@1.1-mtkimpl.recovery \
     android.hardware.boot@1.1-service
 
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/vintf/android.hardware.boot@1.1.xml:$(TARGET_COPY_OUT_VENDOR)/etc/vintf/manifest/android.hardware.boot@1.1.xml
+
 PRODUCT_PACKAGES_DEBUG += \
     bootctrl
 
