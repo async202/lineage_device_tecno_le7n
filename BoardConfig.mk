@@ -129,7 +129,7 @@ DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/manifest.xml
 
 # Vendor manifests
 DEVICE_MANIFEST_FILE += \
-    $(DEVICE_PATH)/vintf/android.hardware.boot@1.2.xml \
+    $(DEVICE_PATH)/vintf/android.hardware.boot@1.1.xml \
     $(DEVICE_PATH)/vintf/android.hardware.cas@1.2-service.xml \
     $(DEVICE_PATH)/vintf/android.hardware.gpu@1.0-service.xml \
     $(DEVICE_PATH)/vintf/android.hardware.health@2.1.xml \
