@@ -6,8 +6,19 @@
 # Enable updating of APEXes
 $(call inherit-product, $(SRC_TARGET_DIR)/product/updatable_apex.mk)
 
-# A/B
-$(call inherit-product, $(SRC_TARGET_DIR)/product/virtual_ab_ota.mk)
+# Virtual A/B
+$(call inherit-product, $(SRC_TARGET_DIR)/product/virtual_ab_ota.mk)/
+
+AB_OTA_UPDATER := true
+AB_OTA_PARTITIONS += \
+    boot \
+    vbmeta_system \
+    system \
+    product \
+    vbmeta_vendor \
+    system_ext \
+    vendor
+BOARD_USES_RECOVERY_AS_BOOT := true
 
 PRODUCT_PACKAGES += \
     mtk_plpath_utils \
