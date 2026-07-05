@@ -9,7 +9,7 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/updatable_apex.mk)
 # Virtual A/B
 $(call inherit-product, $(SRC_TARGET_DIR)/product/virtual_ab_ota.mk)/
 
-AB_OTA_UPDATER := true
+# A/B
 AB_OTA_PARTITIONS += \
     boot \
     vbmeta_system \
