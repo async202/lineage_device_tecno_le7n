@@ -5,16 +5,6 @@
 
 DEVICE_PATH := device/tecno/le7n
 
-# A/B
-AB_OTA_UPDATER := true
-AB_OTA_PARTITIONS += \
-    boot \
-    vbmeta_system \
-    system \
-    product \
-    vbmeta_vendor \
-    system_ext \
-    vendor
 BOARD_USES_RECOVERY_AS_BOOT := true
 
 # Architecture
