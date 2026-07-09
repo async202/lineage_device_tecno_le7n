@@ -16,6 +16,10 @@
 /dev/mdp_sync(/.*)?            u:object_r:mtk_mdp_sync:s0
 /dev/mtk_cmdq(/.*)?            u:object_r:mtk_cmdq_device:s0
 
+# MTK logging
+/dev/tranlog_user       u:object_r:tranlog_device:s0
+/dev/tranlog_reg        u:object_r:tranlog_device:s0
+
 # CCCI (modem) devices
 /dev/ccci.*                    u:object_r:ccci_device:s0
 /dev/ccci_monitor              u:object_r:ccci_monitor_device:s0
