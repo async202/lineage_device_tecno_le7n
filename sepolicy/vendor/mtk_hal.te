@@ -1,8 +1,11 @@
-# hal_audio_default: ccci_raw_audio device (modem-audio link)
-# Denial: { read write } for name="ccci_raw_audio" scontext=u:r:hal_audio_default:s0
+# hal_audio_default
 allow hal_audio_default audio_device:chr_file { open read write getattr };
 
-# hal_sensors_default: MTK sensor misc devices and sysfs nodes
+# mtk_hal
+allow mtk_hal ccci_device:chr_file ioctl;
+allowxperm mtk_hal ccci_device:chr_file ioctl { 0x5004 };
+
+# hal_sensors_default
 allow hal_sensors_default m_acc_misc_device:chr_file { open read write getattr };
 allow hal_sensors_default m_als_misc_device:chr_file { open read write getattr };
 allow hal_sensors_default m_fusion_misc_device:chr_file { open read write getattr };
@@ -13,54 +16,47 @@ allow hal_sensors_default m_situ_misc_device:chr_file { open read write getattr 
 allow hal_sensors_default m_step_c_misc_device:chr_file { open read write getattr };
 allow hal_sensors_default sensorlist_device:chr_file { open read write getattr };
 allow hal_sensors_default mnt_vendor_file:dir search;
-# sysfs sensor nodes (accactive, gyroactive, magactive, fusionactive, maglibinfo, step_cactive)
+# sysfs sensor nodes
 allow hal_sensors_default sysfs_sensor:dir { open read search getattr };
 allow hal_sensors_default sysfs_sensor:file { open read write getattr };
 # Fallback for generic unlabeled sysfs sensor nodes
 allow hal_sensors_default sysfs:dir { open read search getattr };
 allow hal_sensors_default sysfs:file { open read write getattr };
 
-# hal_graphics_composer_default: MTK display device nodes
-# Denials: mdp_sync, mtk_cmdq, vndbinder, property_socket
+# hal_graphics_composer_default
 allow hal_graphics_composer_default mtk_mdp_sync:chr_file { open read getattr };
 allow hal_graphics_composer_default mtk_cmdq_device:chr_file { open read getattr };
 allow hal_graphics_composer_default vndbinder_device:chr_file { open read write getattr };
 allow hal_graphics_composer_default property_socket:sock_file write;
 allow hal_graphics_composer_default init:unix_stream_socket connectto;
 
-# hal_memtrack_default: /proc/clients_summary
-# Denial: { read } for name="clients_summary" tcontext=u:object_r:proc:s0
+# hal_memtrack_default
 allow hal_memtrack_default proc:dir { open read search getattr };
 allow hal_memtrack_default proc:file { open read getattr };
 
-# hal_usb_default: configfs access
-# Denial: { search } for name="/" dev="configfs"
+# hal_usb_default
 allow hal_usb_default configfs:dir { open read search getattr };
 allow hal_usb_default configfs:file { open read write getattr };
 
-# hal_fingerprint_default: silead_fp device
-# Denial: { read write } for name="silead_fp"
+# hal_fingerprint_default
 allow hal_fingerprint_default silead_fpd_device:chr_file { open read write getattr };
 
-# hal_health_default: sysfs battery/power type files (e.g. "type")
-# Denial: { read } for name="type" dev="sysfs"
+# hal_health_default
 allow hal_health_default sysfs:dir { open read search getattr };
 allow hal_health_default sysfs:file { open read getattr };
 
-# hal_thermal_default: netlink uevent socket creation
+# hal_thermal_default
 # Denial: { create } tcontext=u:r:hal_thermal_default:s0 tclass=netlink_kobject_uevent_socket
 allow hal_thermal_default self:netlink_kobject_uevent_socket { bind create read setopt };
 
-# hal_camera_default: vndbinder, default_prop, mnt_user, shell_data
+# hal_camera_default
 allow hal_camera_default vndbinder_device:chr_file { open read write getattr };
 allow hal_camera_default default_prop:file { open read getattr };
 allow hal_camera_default mnt_user_file:dir search;
 allow hal_camera_default shell_data_file:dir search;
 
 # vendor_init: system_prop, system_data_file
-# Denial: { read } property=init.svc.dplanner-2-0
 allow vendor_init system_prop:file { open read getattr };
-# Denial: { create } for name="fpsensor" tcontext=u:object_r:system_data_file:s0 tclass=dir
 allow vendor_init system_data_file:dir { create add_name search write setattr open };
 
 # tee: mnt_vendor, property_socket
