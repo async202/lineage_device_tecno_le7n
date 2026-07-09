@@ -4,6 +4,11 @@ allow hal_audio_default audio_device:chr_file { open read write getattr };
 # mtk_hal
 allow mtk_hal ccci_device:chr_file ioctl;
 allowxperm mtk_hal ccci_device:chr_file ioctl { 0x5004 };
+allow mtk_hal tranlog_device:chr_file rw_file_perms;
+allow mtk_hal hwservicemanager_prop:file { read open getattr map };
+allow mtk_hal hwservicemanager:binder { call transfer };
+allow mtk_hal mnt_vendor_file:dir search;
+allow mtk_hal mnt_vendor_file:file rw_file_perms;
 
 # hal_sensors_default
 allow hal_sensors_default m_acc_misc_device:chr_file { open read write getattr };
