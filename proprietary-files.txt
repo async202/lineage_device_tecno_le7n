@@ -227,7 +227,9 @@ vendor/lib/libcam.halsensor.hwintegration.so
 vendor/lib/libcam3_transerverengine.so
 vendor/lib/libdpframework.so
 vendor/lib/libged.so
+vendor/lib/libged.so:vendor/lib/egl/libged.so
 vendor/lib/libgralloc_extra.so
+vendor/lib/libgralloc_extra.so:vendor/lib/egl/libgralloc_extra.so
 vendor/lib/libgz_uree.so
 vendor/lib/libion_mtk.so
 vendor/lib/libion_ulit.so
@@ -244,6 +246,7 @@ vendor/lib/libudf.so
 vendor/lib/vendor.mediatek.hardware.camera.bgservice@1.0.so
 vendor/lib/vendor.mediatek.hardware.camera.bgservice@1.1.so
 vendor/lib/vendor.mediatek.hardware.gpu@1.0.so
+vendor/lib/vendor.mediatek.hardware.gpu@1.0.so:vendor/lib/egl/vendor.mediatek.hardware.gpu@1.0.so
 vendor/lib/vendor.mediatek.hardware.power@2.0.so
 vendor/lib/vendor.transsion.hardware.trancam.trancamserver@1.0.so
 vendor/lib64/hw/vendor.mediatek.hardware.camera.bgservice@1.1-impl.so
@@ -368,7 +371,9 @@ vendor/lib64/libfeature_lmv.so
 vendor/lib64/libfeature_rss.so
 vendor/lib64/libfeatureiodrv_mem.so
 vendor/lib64/libged.so
+vendor/lib64/libged.so:vendor/lib64/egl/libged.so
 vendor/lib64/libgralloc_extra.so
+vendor/lib64/libgralloc_extra.so:vendor/lib64/egl/libgralloc_extra.so
 vendor/lib64/libgz_uree.so
 vendor/lib64/libimageio.so
 vendor/lib64/libimageio_plat_drv.so
@@ -486,6 +491,7 @@ vendor/lib64/vendor.mediatek.hardware.camera.lomoeffect@1.0.so
 vendor/lib64/vendor.mediatek.hardware.camera.postproc@1.0.so
 vendor/lib64/vendor.mediatek.hardware.camera.security@1.0.so
 vendor/lib64/vendor.mediatek.hardware.gpu@1.0.so
+vendor/lib64/vendor.mediatek.hardware.gpu@1.0.so:vendor/lib64/egl/vendor.mediatek.hardware.gpu@1.0.so
 vendor/lib64/vendor.mediatek.hardware.power@1.1.so
 vendor/lib64/vendor.mediatek.hardware.power@2.0.so
 vendor/lib64/vendor.transsion.hardware.trancam.trancamserver@1.0.so
@@ -532,12 +538,10 @@ lib64/vendor.mediatek.hardware.pq@2.0.so
 lib64/vendor.mediatek.hardware.pq@2.1.so
 lib64/vendor.mediatek.hardware.pq@2.2.so
 lib64/vendor.mediatek.hardware.pq@2.3.so
-vendor/bin/hw/android.hardware.graphics.allocator@4.0-service-mediatek
 vendor/bin/hw/android.hardware.graphics.composer@2.1-service
 vendor/bin/hw/android.hardware.memtrack@1.0-service
 vendor/bin/hw/vendor.mediatek.hardware.mms@1.5-service
 vendor/bin/hw/vendor.mediatek.hardware.pq@2.2-service
-vendor/etc/init/android.hardware.graphics.allocator@4.0-service-mediatek.rc
 vendor/etc/init/android.hardware.graphics.composer@2.1-service.rc
 vendor/etc/init/android.hardware.memtrack@1.0-service.rc
 vendor/etc/init/vendor.mediatek.hardware.mms@1.5-service.rc
@@ -559,7 +563,9 @@ vendor/lib/libNoFpsActor.so
 vendor/lib/libaal_mtk.so
 vendor/lib/libaalservice.so
 vendor/lib/libgpu_aux.so
+vendor/lib/libgpu_aux.so:vendor/lib/egl/libgpu_aux.so
 vendor/lib/libgpud.so
+vendor/lib/libgpud.so:vendor/lib/egl/libgpud.so
 vendor/lib/libhwc2onfbadapter.so
 vendor/lib/vendor.mediatek.hardware.mms@1.0.so
 vendor/lib/vendor.mediatek.hardware.mms@1.1.so
@@ -591,7 +597,9 @@ vendor/lib64/libNoFpsActor.so
 vendor/lib64/libaal_mtk.so
 vendor/lib64/libaalservice.so
 vendor/lib64/libgpu_aux.so
+vendor/lib64/libgpu_aux.so:vendor/lib64/egl/libgpu_aux.so
 vendor/lib64/libgpud.so
+vendor/lib64/libgpud.so:vendor/lib64/egl/libgpud.so
 vendor/lib64/libhwc2onfbadapter.so
 vendor/lib64/vendor.mediatek.hardware.mms@1.0.so
 vendor/lib64/vendor.mediatek.hardware.mms@1.1.so
@@ -708,7 +716,6 @@ vendor/lib/vendor.mediatek.hardware.keymaster_attestation@1.0.so
 vendor/lib/vendor.mediatek.hardware.keymaster_attestation@1.1.so
 vendor/lib64/hw/kmsetkey.beanpod.so
 vendor/lib64/hw/vendor.mediatek.hardware.keymaster_attestation@1.1-impl.so
-vendor/lib64/libkeymaster4.so
 vendor/lib64/vendor.mediatek.hardware.keymaster_attestation@1.0.so
 vendor/lib64/vendor.mediatek.hardware.keymaster_attestation@1.1.so
 
@@ -722,7 +729,7 @@ vendor/lib/hw/local_time.default.so
 vendor/lib64/hw/local_time.default.so
 
 # Media
-etc/seccomp_policy/mediacodec.policy
+#etc/seccomp_policy/mediacodec.policy
 lib/libmedia_codeclist.so
 lib/libstagefright_bufferpool@2.0.1.so
 lib/libstagefright_codecbase.so
@@ -946,8 +953,6 @@ vendor/lib64/hw/android.hardware.thermal@2.0-impl.so
 vendor/lib64/hw/thermal.mt6768.so
 
 # USB
-vendor/bin/hw/android.hardware.usb@1.1-service-mediatek
-vendor/etc/init/android.hardware.usb@1.1-service-mediatek.rc
 
 # Vibrator
 vendor/bin/hw/android.hardware.vibrator-service.mediatek
@@ -984,10 +989,10 @@ vendor/etc/wifi/wpa_supplicant.conf
 vendor/etc/wifi/wpa_supplicant_overlay.conf
 
 # Miscellaneous
-odm/etc/vintf/manifest_dsds.xml
-odm/etc/vintf/manifest_qsqs.xml
-odm/etc/vintf/manifest_ss.xml
-odm/etc/vintf/manifest_tsts.xml
+#odm/etc/vintf/manifest_dsds.xml
+#odm/etc/vintf/manifest_qsqs.xml
+#odm/etc/vintf/manifest_ss.xml
+#odm/etc/vintf/manifest_tsts.xml
 vendor/app/GoogleNetworkStackResOverlay/GoogleNetworkStackResOverlay.apk
 vendor/app/GoogleTetheringResOverlay/GoogleTetheringResOverlay.apk
 vendor/app/InProcessTetheringResOverlay/InProcessTetheringResOverlay.apk
@@ -1752,10 +1757,10 @@ vendor/lib64/vendor.transsion.hardware.tne.tneengine@1.0.so
 vendor/lib64/vendor.transsion.hardware.tranlog@1.0.so
 vendor/lib64/vendor.transsion.hardware.tranlogconfig@1.0.so
 vendor/lib64/vendor.transsion.hardware.transtorage.storage@1.0.so
-vendor/odm/etc/vintf/manifest_dsds.xml
-vendor/odm/etc/vintf/manifest_qsqs.xml
-vendor/odm/etc/vintf/manifest_ss.xml
-vendor/odm/etc/vintf/manifest_tsts.xml
+#vendor/odm/etc/vintf/manifest_dsds.xml
+#vendor/odm/etc/vintf/manifest_qsqs.xml
+#vendor/odm/etc/vintf/manifest_ss.xml
+#vendor/odm/etc/vintf/manifest_tsts.xml
 vendor/res/images/lcd_test_00.png
 vendor/res/images/lcd_test_01.png
 vendor/res/images/lcd_test_02.png
@@ -1764,3 +1769,70 @@ vendor/res/sound/testpattern1.wav
 vendor/ro.prop
 vendor/rw.prop
 vendor/ueventd.rc
+
+# Graphics Mediatek
+vendor/bin/hw/android.hardware.graphics.allocator@4.0-service-mediatek
+vendor/etc/init/android.hardware.graphics.allocator@4.0-service-mediatek.rc
+vendor/lib/hw/android.hardware.graphics.allocator@4.0-impl-mediatek.so
+vendor/lib64/hw/android.hardware.graphics.allocator@4.0-impl-mediatek.so
+vendor/lib/hw/android.hardware.graphics.mapper@4.0-impl-mediatek.so
+vendor/lib64/hw/android.hardware.graphics.mapper@4.0-impl-mediatek.so
+vendor/lib/libdrm.so
+vendor/lib64/libdrm.so
+
+# USB Mediatek
+vendor/bin/hw/android.hardware.usb@1.1-service-mediatek
+vendor/etc/init/android.hardware.usb@1.1-service-mediatek.rc
+vendor/lib/hw/android.hardware.bluetooth@1.0-impl-mediatek.so
+vendor/lib64/hw/android.hardware.bluetooth@1.0-impl-mediatek.so
+vendor/etc/permissions/android.hardware.audio.low_latency.xml
+vendor/etc/permissions/android.hardware.bluetooth.xml
+vendor/etc/permissions/android.hardware.bluetooth_le.xml
+vendor/etc/permissions/android.hardware.camera.xml
+vendor/etc/permissions/android.hardware.faketouch.xml
+vendor/etc/permissions/android.hardware.fingerprint.xml
+vendor/etc/permissions/android.hardware.location.gps.xml
+vendor/etc/permissions/android.hardware.microphone.xml
+vendor/etc/permissions/android.hardware.nfc.hce.xml
+vendor/etc/permissions/android.hardware.nfc.hcef.xml
+vendor/etc/permissions/android.hardware.nfc.xml
+vendor/etc/permissions/android.hardware.opengles.aep.xml
+vendor/etc/permissions/android.hardware.se.omapi.uicc.xml
+vendor/etc/permissions/android.hardware.sensor.accelerometer.xml
+vendor/etc/permissions/android.hardware.sensor.compass.xml
+vendor/etc/permissions/android.hardware.sensor.gyroscope.xml
+vendor/etc/permissions/android.hardware.sensor.light.xml
+vendor/etc/permissions/android.hardware.sensor.proximity.xml
+vendor/etc/permissions/android.hardware.sensor.stepcounter.xml
+vendor/etc/permissions/android.hardware.sensor.stepdetector.xml
+vendor/etc/permissions/android.hardware.telephony.gsm.xml
+vendor/etc/permissions/android.hardware.telephony.ims.xml
+vendor/etc/permissions/android.hardware.touchscreen.multitouch.distinct.xml
+vendor/etc/permissions/android.hardware.touchscreen.multitouch.jazzhand.xml
+vendor/etc/permissions/android.hardware.touchscreen.multitouch.xml
+vendor/etc/permissions/android.hardware.touchscreen.xml
+vendor/etc/permissions/android.hardware.usb.accessory.xml
+vendor/etc/permissions/android.hardware.usb.host.xml
+vendor/etc/permissions/android.hardware.vulkan.compute.xml
+vendor/etc/permissions/android.hardware.vulkan.level.xml
+vendor/etc/permissions/android.hardware.vulkan.version.xml
+vendor/etc/permissions/android.hardware.wifi.direct.xml
+vendor/etc/permissions/android.hardware.wifi.passpoint.xml
+vendor/etc/permissions/android.hardware.wifi.xml
+vendor/etc/permissions/android.software.ipsec_tunnels.xml
+vendor/etc/permissions/android.software.midi.xml
+vendor/etc/permissions/android.software.verified_boot.xml
+vendor/etc/permissions/android.software.vulkan.deqp.level-2020-03-01.xml
+vendor/etc/permissions/android.software.vulkan.deqp.level.xml
+vendor/etc/permissions/handheld_core_hardware.xml
+vendor/lib64/hw/android.hardware.gnss@2.1-impl-mediatek.so
+vendor/lib64/hw/android.hardware.camera.provider@2.6-impl-mediatek.so
+
+# Modules
+vendor/lib/modules/bt_drv.ko
+vendor/lib/modules/fmradio_drv.ko
+vendor/lib/modules/wmt_chrdev_wifi.ko
+vendor/lib/modules/wlan_drv_gen4m.ko
+vendor/lib/modules/wmt_drv.ko
+vendor/lib/modules/gps_drv.ko
+

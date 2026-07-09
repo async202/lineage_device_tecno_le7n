@@ -1,0 +1,14 @@
+type bootdevice_block_device, dev_type;
+
+allow hal_bootctl_default bootdevice_block_device:blk_file rw_file_perms;
+allow hal_bootctl_default bootdevice_block_device:blk_file ioctl;
+allowxperm hal_bootctl_default bootdevice_block_device:blk_file ioctl { 0x5388 MMC_IOC_CMD };
+
+allow recovery bootdevice_block_device:blk_file rw_file_perms;
+allow recovery bootdevice_block_device:blk_file ioctl;
+allowxperm recovery bootdevice_block_device:blk_file ioctl { 0x5388 MMC_IOC_CMD };
+
+allow fastbootd bootdevice_block_device:blk_file rw_file_perms;
+allow fastbootd bootdevice_block_device:blk_file ioctl;
+allowxperm fastbootd bootdevice_block_device:blk_file ioctl { BLKDISCARD BLKSECDISCARD MMC_IOC_CMD };
+allow hal_bootctl_default rootfs:file { entrypoint r_file_perms execute map };

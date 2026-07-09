@@ -1,0 +1,2 @@
+allow surfaceflinger proc_ged:file { read write open ioctl getattr };
+allowxperm surfaceflinger proc_ged:file ioctl { 0x6700-0x67ff };

@@ -127,27 +127,7 @@ BOARD_AVB_MAKE_VBMETA_IMAGE_ARGS += --flags 3
 # VINTF
 DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/manifest.xml
 
-# Vendor manifests
-DEVICE_MANIFEST_FILE += \
-    $(DEVICE_PATH)/vintf/android.hardware.boot@1.1.xml \
-    $(DEVICE_PATH)/vintf/android.hardware.cas@1.2-service.xml \
-    $(DEVICE_PATH)/vintf/android.hardware.gpu@1.0-service.xml \
-    $(DEVICE_PATH)/vintf/android.hardware.health@2.1.xml \
-    $(DEVICE_PATH)/vintf/android.hardware.neuralnetworks@1.3-service-mtk-gpu.xml \
-    $(DEVICE_PATH)/vintf/android.hardware.wifi.hostapd.xml \
-    $(DEVICE_PATH)/vintf/android.hardware.wifi@1.0-service.xml \
-    $(DEVICE_PATH)/vintf/lights-mtk-default.xml \
-    $(DEVICE_PATH)/vintf/manifest.xml \
-    $(DEVICE_PATH)/vintf/manifest_android.hardware.drm@1.3-service.clearkey.xml \
-    $(DEVICE_PATH)/vintf/manifest_android.hardware.drm@1.3-service.widevine.xml \
-    $(DEVICE_PATH)/vintf/manifest_storage.xml \
-    $(DEVICE_PATH)/vintf/manifest_tneengine.xml \
-    $(DEVICE_PATH)/vintf/power-default.xml \
-    $(DEVICE_PATH)/vintf/vendor.mediatek.hardware.dplanner@2.0-service.xml \
-    $(DEVICE_PATH)/vintf/vendor.mediatek.hardware.paytrigger@1.0-service.xml \
-    $(DEVICE_PATH)/vintf/vendor.mediatek.hardware.tranHwInfo@1.0.xml \
-    $(DEVICE_PATH)/vintf/vendor.transsion.hardware.trancam.trancamserver@1.0.xml \
-    $(DEVICE_PATH)/vintf/vibrator-mtk-default.xml
+
 
 # ODM manifests
 ODM_MANIFEST_FILES += \
@@ -156,5 +136,28 @@ ODM_MANIFEST_FILES += \
     $(DEVICE_PATH)/vintf/manifest_ss.xml \
     $(DEVICE_PATH)/vintf/manifest_tsts.xml
 
+# SELinux
+# Temporarily ignore neverallow violations during bringup (userdebug only)
+SELINUX_IGNORE_NEVERALLOWS := true
+BOARD_VENDOR_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/vendor
+BOARD_PLAT_PRIVATE_SEPOLICY_DIR += $(DEVICE_PATH)/sepolicy/private
+BOARD_PLAT_PUBLIC_SEPOLICY_DIR += $(DEVICE_PATH)/sepolicy/public
+
 # Inherit the proprietary files
 include vendor/tecno/le7n/BoardConfigVendor.mk
+
+BOARD_PLAT_PRIVATE_SEPOLICY_DIR += $(DEVICE_PATH)/sepolicy_plat
+BUILD_BROKEN_DUP_RULES := true
+
+# WLAN
+WPA_SUPPLICANT_VERSION := VER_0_8_X
+BOARD_WPA_SUPPLICANT_DRIVER := NL80211
+BOARD_HOSTAPD_DRIVER := NL80211
+WIFI_DRIVER_FW_PATH_PARAM := "/dev/wmtWifi"
+WIFI_DRIVER_FW_PATH_STA := "STA"
+WIFI_DRIVER_FW_PATH_AP := "AP"
+WIFI_DRIVER_FW_PATH_P2P := "P2P"
+WIFI_DRIVER_STATE_CTRL_PARAM := "/dev/wmtWifi"
+WIFI_DRIVER_STATE_ON := "1"
+WIFI_DRIVER_STATE_OFF := "0"
+

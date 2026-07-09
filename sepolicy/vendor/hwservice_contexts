@@ -1,0 +1,2 @@
+vendor.fpsensor.hardware.fpsensorhidlsvc::IFpsensorHidlSvc u:object_r:fp_ext_svc2_service:s0
+vendor.silead.hardware.fingerprintext::ISileadFingerprint u:object_r:silead_fingerprint_hwservice:s0

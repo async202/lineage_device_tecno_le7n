@@ -24,7 +24,8 @@ PRODUCT_PACKAGES += \
     mtk_plpath_utils.recovery \
     android.hardware.boot@1.1-mtkimpl \
     android.hardware.boot@1.1-mtkimpl.recovery \
-    android.hardware.boot@1.1-service
+    android.hardware.boot@1.1-service \
+    recovery_hal_symlinks
 
 PRODUCT_PACKAGES_DEBUG += \
     bootctrl
@@ -58,13 +59,30 @@ PRODUCT_PACKAGES += \
     android.hardware.fastboot@1.0-impl-mock \
     fastbootd
 
+# Power
+PRODUCT_PACKAGES += \
+    android.hardware.power-service.example
+
+# USB
+PRODUCT_PACKAGES += \
+    android.hardware.usb.gadget@1.1-service
+
 # Health
 PRODUCT_PACKAGES += \
     android.hardware.health@2.1-impl \
     android.hardware.health@2.1-service
 
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/init.adb.rc:$(TARGET_COPY_OUT_SYSTEM)/etc/init/init.adb.rc
+
 # Overlays
 PRODUCT_ENFORCE_RRO_TARGETS := *
+
+PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
+    ro.adb.secure=0 \
+    ro.secure=0 \
+    ro.debuggable=1 \
+    persist.sys.disable_rescue=true
 
 # Partitions
 PRODUCT_USE_DYNAMIC_PARTITIONS := true
@@ -76,6 +94,10 @@ PRODUCT_CHARACTERISTICS := default
 PRODUCT_PACKAGES += \
 
 PRODUCT_PACKAGES += \
+    libkeymaster4.vendor \
+    libkeymaster4support.vendor \
+    libkeymaster_messages.vendor \
+    libkeymaster_portable.vendor \
     fstab.mt6768 \
     factory_init.connectivity.rc \
     factory_init.project.rc \
@@ -100,11 +122,25 @@ PRODUCT_PACKAGES += \
 
 
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/rootdir/etc/fstab.mt6768:$(TARGET_VENDOR_RAMDISK_OUT)/first_stage_ramdisk/fstab.mt6768
+    $(LOCAL_PATH)/rootdir/etc/fstab.mt6768:recovery/root/first_stage_ramdisk/fstab.mt6768
 
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
     $(LOCAL_PATH)
 
+# Legacy VNDK dependencies for Mediatek blobs
+PRODUCT_PACKAGES += \
+    libhwbinder.vendor \
+    libhidltransport.vendor
+
 # Inherit the proprietary files
 $(call inherit-product, vendor/tecno/le7n/le7n-vendor.mk)
+
+# Audio
+PRODUCT_PACKAGES += \
+    android.hardware.audio@6.0-impl \
+    android.hardware.audio.effect@6.0-impl \
+    android.hardware.soundtrigger@2.3-impl \
+    android.hardware.bluetooth.audio@2.0-impl
+PRODUCT_PROPERTY_OVERRIDES += vendor.ril.mtk=1
+PRODUCT_PROPERTY_OVERRIDES += ro.vendor.wlan.gen=gen4m

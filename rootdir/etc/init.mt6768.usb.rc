@@ -14,7 +14,7 @@ on post-fs
     write /config/usb_gadget/g1/strings/0x409/serialnumber ${ro.serialno}
     write /config/usb_gadget/g1/strings/0x409/manufacturer ${ro.product.manufacturer}
     #SDD: add multi device name by lijia.chen 2020.08.10 start
-    #write /config/usb_gadget/g1/strings/0x409/product ${ro.product.model}
+    write /config/usb_gadget/g1/strings/0x409/product ${ro.product.model}
     #write /config/usb_gadget/g1/strings/0x409/product ${ro.vendor.tran.device.name}
     #SDD: add multi device name by lijia.chen 2020.08.10 end
     mkdir /config/usb_gadget/g1/functions/accessory.gs2
@@ -88,7 +88,7 @@ on charger
     write /config/usb_gadget/g1/strings/0x409/serialnumber ${ro.serialno}
     write /config/usb_gadget/g1/strings/0x409/manufacturer ${ro.product.manufacturer}
     #SDD: add multi device name by lijia.chen 2020.08.10 start
-    #write /config/usb_gadget/g1/strings/0x409/product ${ro.product.model}
+    write /config/usb_gadget/g1/strings/0x409/product ${ro.product.model}
     #write /config/usb_gadget/g1/strings/0x409/product ${ro.vendor.tran.device.name}
     #SDD: add multi device name by lijia.chen 2020.08.10 end
     mkdir /config/usb_gadget/g1/functions/hid.gs0

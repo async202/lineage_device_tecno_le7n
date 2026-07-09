@@ -1,0 +1,5 @@
+genfscon proc /ged u:object_r:proc_ged:s0
+genfscon sysfs /devices/platform/soc/soc:pwm_leds/leds/lcd-backlight u:object_r:sysfs_leds:s0
+genfscon sysfs /devices/platform/leds-mt65xx/leds u:object_r:sysfs_leds:s0
+genfscon sysfs /devices/platform/disp_leds/leds u:object_r:sysfs_leds:s0
+genfscon sysfs /devices/platform/pwmleds/leds u:object_r:sysfs_leds:s0

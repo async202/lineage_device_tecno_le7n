@@ -1,0 +1,4 @@
+vendor.mediatek.hardware.camera.isphal::IISPModule             u:object_r:hal_camera_hwservice:s0
+vendor.mediatek.hardware.camera.postproc::IPostDevice          u:object_r:hal_camera_hwservice:s0
+vendor.mediatek.hardware.camera.bgservice::IBGService          u:object_r:hal_camera_hwservice:s0
+vendor.silead.hardware.fingerprintext::ISileadFingerprint      u:object_r:hal_fingerprint_hwservice:s0

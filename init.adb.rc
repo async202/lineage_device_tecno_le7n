@@ -1,0 +1,5 @@
+on post-fs
+    setprop vendor.usb.controller "musb-hdrc"
+    setprop vendor.usb.acm_cnt 0
+    setprop sys.usb.configfs 1
+    setprop sys.usb.config adb
