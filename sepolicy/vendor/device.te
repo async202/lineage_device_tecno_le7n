@@ -14,6 +14,7 @@ type mtk_cmdq_device, dev_type;
 type mtk_mdp_sync, dev_type;
 type sensorlist_device, dev_type;
 type silead_fpd_device, dev_type;
+type tranlog_device, dev_type;
 
 # MTK sysfs types - intentionally NOT using sysfs_type attribute to avoid
 # triggering existing AOSP neverallow rules that expand to all sysfs_type.
