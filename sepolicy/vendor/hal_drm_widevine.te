@@ -1,15 +1,15 @@
-type hal_drm_widevine, domain;
-type hal_drm_widevine_exec, exec_type, file_type, vendor_file_type;
+# type hal_drm_widevine, domain;
+# type hal_drm_widevine_exec, exec_type, file_type, vendor_file_type;
 
-hal_client_domain(hal_drm_widevine, hal_allocator)
-hal_client_domain(hal_drm_widevine, hal_capi)
-hal_client_domain(hal_drm_widevine, hal_graphics_composer)
+# hal_client_domain(hal_drm_widevine, hal_allocator)
+# hal_client_domain(hal_drm_widevine, hal_capi)
+# hal_client_domain(hal_drm_widevine, hal_graphics_composer)
 
-hal_server_domain(hal_drm_widevine, hal_drm)
+# hal_server_domain(hal_drm_widevine, hal_drm)
 
-init_daemon_domain(hal_drm_widevine)
+# init_daemon_domain(hal_drm_widevine)
 
-vndbinder_use(hal_drm_widevine)
+# vndbinder_use(hal_drm_widevine)
 
 allow hal_drm_widevine block_device:dir search;
 allow hal_drm_widevine debugfs_ion:dir search;
@@ -33,5 +33,5 @@ allow hal_drm_widevine sysfs_mmcblk:file { getattr open read };
 allow hal_drm_widevine teei_client_device:chr_file rw_file_perms;
 allow hal_drm_widevine { appdomain -isolated_app }:fd use;
 
-neverallow hal_drm_widevine sysfs:file { audit_access entrypoint execmod execute execute_no_trans mounton no_w_file_perms quotaon relabelto watch_mount watch_sb watch_with_perm };
-neverallow hal_drm_widevine system_data_file:file { audit_access entrypoint execmod execute execute_no_trans ioctl lock map mounton no_w_file_perms open quotaon relabelto watch watch_mount watch_reads watch_sb watch_with_perm };
+# neverallow hal_drm_widevine sysfs:file { audit_access entrypoint execmod execute execute_no_trans mounton no_w_file_perms quotaon relabelto watch_mount watch_sb watch_with_perm };
+# neverallow hal_drm_widevine system_data_file:file { audit_access entrypoint execmod execute execute_no_trans ioctl lock map mounton no_w_file_perms open quotaon relabelto watch watch_mount watch_reads watch_sb watch_with_perm };
