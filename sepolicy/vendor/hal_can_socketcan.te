@@ -1,10 +1,10 @@
-type hal_can_socketcan, domain;
-type hal_can_socketcan_exec, exec_type, file_type, vendor_file_type;
+# type hal_can_socketcan, domain;
+# type hal_can_socketcan_exec, exec_type, file_type, vendor_file_type;
 
-hal_server_domain(hal_can_socketcan, hal_can_bus)
-hal_server_domain(hal_can_socketcan, hal_can_controller)
+# hal_server_domain(hal_can_socketcan, hal_can_bus)
+# hal_server_domain(hal_can_socketcan, hal_can_controller)
 
-init_daemon_domain(hal_can_socketcan)
+# init_daemon_domain(hal_can_socketcan)
 
 allow hal_can_socketcan hal_vehicle_default:binder { call transfer };
 allow hal_can_socketcan hidl_manager_hwservice:hwservice_manager find;
