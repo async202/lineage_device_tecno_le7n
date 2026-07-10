@@ -98,7 +98,7 @@ type gift_data_file, core_data_file_type, data_file_type, file_type, mlstrustedo
 type gps_data_file, data_file_type, file_type;
 type gsmrild_socket, file_type;
 # type hal_graphics_allocator_default_tmpfs, file_type;
-type hostapd_data_file, data_file_type, file_type;
+# type hostapd_data_file, data_file_type, file_type;
 type http_proxy_cfg_data_file, data_file_type, file_type;
 type ims_ipsec_data_file, data_file_type, file_type;
 # type iso9660, fs_type;
