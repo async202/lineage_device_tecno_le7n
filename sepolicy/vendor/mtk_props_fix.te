@@ -1,4 +1,3 @@
-typeattribute vendor_mtk_atci_prop property_type, vendor_property_type, vendor_internal_property_type;
 typeattribute vendor_mtk_atci_sys_prop property_type, vendor_property_type, vendor_internal_property_type;
 typeattribute vendor_mtk_atm_ipaddr_prop property_type, vendor_property_type, vendor_internal_property_type;
 typeattribute vendor_mtk_atm_mdmode_prop property_type, vendor_property_type, vendor_internal_property_type;
