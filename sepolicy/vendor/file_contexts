@@ -696,7 +696,7 @@
 /dev/socket/msap_c2k_socket4(/.*)? u:object_r:gsmrild_socket:s0
 /dev/socket/msap_uim_socket1(/.*)? u:object_r:gsmrild_socket:s0
 /dev/socket/msap_uim_socket2(/.*)? u:object_r:gsmrild_socket:s0
-/dev/socket/netd u:object_r:netd_socket:s0
+# /dev/socket/netd u:object_r:netd_socket:s0
 /dev/socket/netd(/.*)? u:object_r:netd_socket:s0
 /dev/socket/netdiag u:object_r:netdiag_socket:s0
 /dev/socket/netdiag(/.*)? u:object_r:netdiag_socket:s0
