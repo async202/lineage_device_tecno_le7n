@@ -1,9 +1,9 @@
-type hal_gnss_default, domain;
-type hal_gnss_default_exec, exec_type, file_type, vendor_file_type;
+# type hal_gnss_default, domain;
+# type hal_gnss_default_exec, exec_type, file_type, vendor_file_type;
 
-hal_server_domain(hal_gnss_default, hal_gnss)
+# hal_server_domain(hal_gnss_default, hal_gnss)
 
-init_daemon_domain(hal_gnss_default)
+# init_daemon_domain(hal_gnss_default)
 
 vndbinder_use(hal_gnss)
 
