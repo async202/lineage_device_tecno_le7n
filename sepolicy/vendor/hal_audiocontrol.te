@@ -1,6 +1,6 @@
-type hal_audiocontrol_default, domain;
-type hal_audiocontrol_default_exec, exec_type, file_type, vendor_file_type;
+# type hal_audiocontrol_default, domain;
+# type hal_audiocontrol_default_exec, exec_type, file_type, vendor_file_type;
 
-hal_server_domain(hal_audiocontrol_default, hal_audiocontrol)
+# hal_server_domain(hal_audiocontrol_default, hal_audiocontrol)
 
-init_daemon_domain(hal_audiocontrol_default)
+# init_daemon_domain(hal_audiocontrol_default)
