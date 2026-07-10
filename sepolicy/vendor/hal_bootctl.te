@@ -1,9 +1,9 @@
-type hal_bootctl_default, domain;
-type hal_bootctl_default_exec, exec_type, file_type, vendor_file_type;
+# type hal_bootctl_default, domain;
+# type hal_bootctl_default_exec, exec_type, file_type, vendor_file_type;
 
-hal_server_domain(hal_bootctl_default, hal_bootctl)
+# hal_server_domain(hal_bootctl_default, hal_bootctl)
 
-init_daemon_domain(hal_bootctl_default)
+# init_daemon_domain(hal_bootctl_default)
 
 allow hal_bootctl_default block_device:dir search;
 allow hal_bootctl_default bootdevice_block_device:blk_file rw_file_perms;
