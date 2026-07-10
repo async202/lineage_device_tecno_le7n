@@ -1,1 +1,0 @@
-allow hal_fingerprint_default silead_fpd_device:chr_file { read write open ioctl };
