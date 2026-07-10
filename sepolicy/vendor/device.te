@@ -233,7 +233,7 @@ type protect_s_device, dev_type;
 type psaux_device, dev_type;
 type ptyp_device, dev_type;
 # type qemu_pipe_device, dev_type;
-type rebootescrow_device, dev_type;
+# type rebootescrow_device, dev_type;
 type recovery_device, dev_type;
 # type rfkill_device, dev_type;
 type rpmb_block_device, dev_type;
