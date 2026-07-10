@@ -15,3 +15,4 @@ attribute mtk_hal_apm_server;
 attribute mtk_hal_dmc;
 attribute mtk_hal_dmc_client;
 attribute mtk_hal_dmc_server;
+attribute md_monitor_hal_client;
