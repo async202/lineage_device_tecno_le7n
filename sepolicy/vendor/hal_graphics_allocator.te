@@ -1,9 +1,9 @@
-type hal_graphics_allocator_default, domain;
-type hal_graphics_allocator_default_exec, exec_type, file_type, vendor_file_type;
+# type hal_graphics_allocator_default, domain;
+# type hal_graphics_allocator_default_exec, exec_type, file_type, vendor_file_type;
 
-hal_server_domain(hal_graphics_allocator_default, hal_graphics_allocator)
+# hal_server_domain(hal_graphics_allocator_default, hal_graphics_allocator)
 
-init_daemon_domain(hal_graphics_allocator_default)
+# init_daemon_domain(hal_graphics_allocator_default)
 
 tmpfs_domain(hal_graphics_allocator_default)
 
@@ -21,4 +21,4 @@ allowxperm hal_graphics_allocator_default proc_ged:file ioctl { 0x6700 0x6704 0x
 
 dontaudit hal_graphics_allocator_default unlabeled:dir search;
 
-neverallow hal_graphics_allocator_default proc:file { audit_access entrypoint execmod execute execute_no_trans mounton no_w_file_perms quotaon relabelto watch_mount watch_sb watch_with_perm };
+# neverallow hal_graphics_allocator_default proc:file { audit_access entrypoint execmod execute execute_no_trans mounton no_w_file_perms quotaon relabelto watch_mount watch_sb watch_with_perm };
