@@ -8,3 +8,4 @@ attribute hal_atci_server;
 attribute hal_atci;
 attribute mtkimsmddomain;
 attribute mtkimsapdomain;
+attribute mtk_hal_aee_client;
