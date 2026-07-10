@@ -1,3 +1,0 @@
-allow hal_graphics_allocator_default proc_ged:file rw_file_perms;
-allow hal_graphics_allocator_default proc_ged:dir r_dir_perms;
-allowxperm hal_graphics_allocator_default proc_ged:file ioctl { 0x6700-0x67ff };
