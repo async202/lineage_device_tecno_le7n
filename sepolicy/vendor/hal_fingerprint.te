@@ -1,11 +1,11 @@
-type hal_fingerprint_default, domain;
-type hal_fingerprint_default_exec, exec_type, file_type, vendor_file_type;
+# type hal_fingerprint_default, domain;
+# type hal_fingerprint_default_exec, exec_type, file_type, vendor_file_type;
 
 binder_call(hal_fingerprint_default, system_app)
 
-hal_server_domain(hal_fingerprint_default, hal_fingerprint)
+# hal_server_domain(hal_fingerprint_default, hal_fingerprint)
 
-init_daemon_domain(hal_fingerprint_default)
+# init_daemon_domain(hal_fingerprint_default)
 
 set_prop(hal_fingerprint_default, vendor_silead_fp_prop)
 
@@ -55,4 +55,4 @@ allow hal_fingerprint_default tranlog_device:chr_file { ioctl open read write };
 allow hal_fingerprint_default uhid_device:chr_file { ioctl open read write };
 allow hal_fingerprint_default uhid_device:chr_file rw_file_perms;
 
-neverallow hal_fingerprint_default sysfs:file { audit_access entrypoint execmod execute execute_no_trans mounton no_w_file_perms quotaon relabelto watch_mount watch_sb watch_with_perm };
+# neverallow hal_fingerprint_default sysfs:file { audit_access entrypoint execmod execute execute_no_trans mounton no_w_file_perms quotaon relabelto watch_mount watch_sb watch_with_perm };
