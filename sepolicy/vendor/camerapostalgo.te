@@ -1,3 +1,4 @@
+type camerapostalgo, domain;
 hal_client_domain(camerapostalgo, hal_graphics_allocator)
 
 allow camerapostalgo debugfs_ion:dir search;
