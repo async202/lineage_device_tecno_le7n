@@ -158,7 +158,7 @@ type proc_chip, fs_type, proc_type;
 type proc_cm_mgr, fs_type, proc_type;
 type proc_cmdq_debug, fs_type, proc_type;
 type proc_conninfradbg, fs_type, proc_type;
-type proc_cpu_alignment, fs_type, proc_type;
+# type proc_cpu_alignment, fs_type, proc_type;
 type proc_cpu_loading, fs_type, proc_type;
 type proc_cpufreq, fs_type, proc_type;
 type proc_cpuidle, fs_type, proc_type;
