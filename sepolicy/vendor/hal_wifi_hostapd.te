@@ -1,5 +1,5 @@
-type hal_wifi_hostapd_default, domain;
-type hal_wifi_hostapd_default_exec, exec_type, file_type, vendor_file_type;
+# type hal_wifi_hostapd_default, domain;
+# type hal_wifi_hostapd_default_exec, exec_type, file_type, vendor_file_type;
 
 hal_server_domain(hal_wifi_hostapd_default, hal_wifi_hostapd)
 

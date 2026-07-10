@@ -2,11 +2,11 @@ binder_call(vtservice, vtservice_hidl)
 
 get_prop(vtservice, vendor_mtk_vendor_vt_prop)
 
-hal_client_domain(vtservice, hal_allocator)
-hal_client_domain(vtservice, hal_codec2)
-hal_client_domain(vtservice, hal_graphics_allocator)
-hal_client_domain(vtservice, hal_omx)
-hal_client_domain(vtservice, hal_pq)
+# hal_client_domain(vtservice, hal_allocator)
+# hal_client_domain(vtservice, hal_codec2)
+# hal_client_domain(vtservice, hal_graphics_allocator)
+# hal_client_domain(vtservice, hal_omx)
+# hal_client_domain(vtservice, hal_pq)
 
 unix_socket_connect(vtservice, fwmarkd, netd)
 unix_socket_connect(vtservice, rild_oem, netd)

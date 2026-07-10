@@ -1,4 +1,4 @@
-type system_app, mlstrustedsubject;
+# type system_app, mlstrustedsubject;
 
 binder_call(system_app, hal_fingerprint_default)
 binder_call(system_app, loghidlvendorservice)

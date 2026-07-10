@@ -4,7 +4,7 @@ type mtk_hal_gpu_hwservice, hwservice_manager_type;
 
 hal_client_domain(mtk_hal_gpu, hal_allocator)
 
-hal_server_domain(mtk_hal_gpu, hal_gpu)
+# hal_server_domain(mtk_hal_gpu, hal_gpu)
 
 hwbinder_use(mtk_hal_gpu)
 

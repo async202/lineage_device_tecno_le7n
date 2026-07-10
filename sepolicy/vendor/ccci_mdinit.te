@@ -10,8 +10,8 @@ init_daemon_domain(ccci_mdinit)
 
 set_prop(ccci_mdinit, ctl_start_prop)
 set_prop(ccci_mdinit, system_mtk_ctl_emdlogger1_prop)
-set_prop(ccci_mdinit, system_mtk_ctl_emdlogger2_prop)
-set_prop(ccci_mdinit, system_mtk_ctl_emdlogger3_prop)
+# set_prop(ccci_mdinit, system_mtk_ctl_emdlogger2_prop)
+# set_prop(ccci_mdinit, system_mtk_ctl_emdlogger3_prop)
 set_prop(ccci_mdinit, system_mtk_ctl_mdlogger_prop)
 set_prop(ccci_mdinit, vendor_mtk_ctl_ccci2_fsd_prop)
 set_prop(ccci_mdinit, vendor_mtk_ctl_ccci2_rpcd_prop)
@@ -61,7 +61,7 @@ allow ccci_mdinit protect_f_data_file:file create_file_perms;
 allow ccci_mdinit protect_s_data_file:dir rw_dir_perms;
 allow ccci_mdinit protect_s_data_file:file create_file_perms;
 allow ccci_mdinit sec_ro_device:chr_file r_file_perms;
-allow ccci_mdinit sysfs_boot_info:file r_file_perms;
+# allow ccci_mdinit sysfs_boot_info:file r_file_perms;
 allow ccci_mdinit sysfs_ccci:dir search;
 allow ccci_mdinit sysfs_ccci:file rw_file_perms;
 allow ccci_mdinit sysfs_dt_firmware_android:dir search;

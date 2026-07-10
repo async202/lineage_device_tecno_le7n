@@ -1,4 +1,4 @@
-type vndservicemanager_exec, exec_type, file_type, vendor_file_type;
+# type vndservicemanager_exec, exec_type, file_type, vendor_file_type;
 
 add_service(vndservicemanager, service_manager_vndservice)
 

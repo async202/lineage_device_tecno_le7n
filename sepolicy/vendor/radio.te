@@ -1,4 +1,4 @@
-add_service(radio, mtk_gwsd_service)
+# add_service(radio, mtk_gwsd_service)
 add_service(radio, mtk_phonesubinfo_service)
 add_service(radio, mtk_radio_service)
 add_service(radio, mtk_simphonebook_service)

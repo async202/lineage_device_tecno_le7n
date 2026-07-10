@@ -10,4 +10,4 @@ allow mtkimsapdomain volte_vt_socket:dir { add_name ioctl open read remove_name 
 allow mtkimsapdomain volte_vt_socket:dir write;
 allow mtkimsapdomain volte_vt_socket:sock_file { create read unlink write };
 
-attribute mtkimsapdomain;
+# attribute mtkimsapdomain;

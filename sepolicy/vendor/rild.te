@@ -1,5 +1,5 @@
-type rild, domain, mtkimsapdomain;
-type rild_exec, exec_type, file_type, vendor_file_type;
+# type rild, domain, mtkimsapdomain;
+# type rild_exec, exec_type, file_type, vendor_file_type;
 
 binder_call(rild, mtk_hal_audio)
 

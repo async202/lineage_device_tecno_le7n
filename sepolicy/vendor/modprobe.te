@@ -1,4 +1,4 @@
-type vendor_modprobe, domain;
+# type vendor_modprobe, domain;
 
 r_dir_file(vendor_modprobe, vendor_file)
 

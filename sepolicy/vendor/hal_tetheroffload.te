@@ -1,5 +1,5 @@
-type hal_tetheroffload_default, domain;
-type hal_tetheroffload_default_exec, exec_type, file_type, vendor_file_type;
+# type hal_tetheroffload_default, domain;
+# type hal_tetheroffload_default_exec, exec_type, file_type, vendor_file_type;
 
 add_hwservice(hal_tetheroffload_default, hal_tetheroffload_hwservice)
 

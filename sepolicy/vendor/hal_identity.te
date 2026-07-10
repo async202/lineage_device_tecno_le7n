@@ -1,6 +1,6 @@
 # type hal_identity_default, domain;
 # type hal_identity_default_exec, exec_type, file_type, vendor_file_type;
 
-# hal_server_domain(hal_identity_default, hal_identity)
+hal_server_domain(hal_identity_default, hal_identity)
 
-# init_daemon_domain(hal_identity_default)
+init_daemon_domain(hal_identity_default)

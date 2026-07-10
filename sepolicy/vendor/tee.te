@@ -1,4 +1,4 @@
-type tee_exec, exec_type, file_type, vendor_file_type;
+# type tee_exec, exec_type, file_type, vendor_file_type;
 
 init_daemon_domain(tee)
 
@@ -23,7 +23,7 @@ allow tee proc_tkcore:dir search;
 allow tee proc_tkcore:file rw_file_perms;
 allow tee protect_f_data_file:dir search;
 allow tee rpmb_block_device:blk_file rw_file_perms;
-allow tee rpmb_device:chr_file rw_file_perms;
+# allow tee rpmb_device:chr_file rw_file_perms;
 allow tee self:capability { setgid setuid sys_rawio };
 allow tee self:capability setuid;
 allow tee self:capability sys_module;

@@ -1,4 +1,4 @@
-type platform_app, mlstrustedsubject;
+# type platform_app, mlstrustedsubject;
 
 binder_call(platform_app, mtk_hal_bgs)
 binder_call(platform_app, mtk_hal_camera)

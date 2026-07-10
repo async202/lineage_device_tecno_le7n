@@ -1,5 +1,5 @@
-type hal_wifi_supplicant_default, domain;
-type hal_wifi_supplicant_default_exec, exec_type, file_type, vendor_file_type;
+# type hal_wifi_supplicant_default, domain;
+# type hal_wifi_supplicant_default_exec, exec_type, file_type, vendor_file_type;
 
 binder_call(hal_wifi_supplicant_default, wifi_keystore_service_server)
 
@@ -25,4 +25,4 @@ dontaudit hal_wifi_supplicant_default wifi_data_file:dir search;
 
 neverallow hal_wifi_supplicant_default sysfs:file { audit_access entrypoint execmod execute execute_no_trans mounton no_w_file_perms quotaon relabelto watch_mount watch_sb watch_with_perm };
 
-type_transition hal_wifi_supplicant_default wifi_data_file:dir "sockets" wpa_socket;
+# type_transition hal_wifi_supplicant_default wifi_data_file:dir wpa_socket "sockets";

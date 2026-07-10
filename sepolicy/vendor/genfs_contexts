@@ -19,9 +19,9 @@ genfscon debugfs /mali/gpu_memory u:object_r:debugfs_gpu_mali_utgard:s0
 genfscon debugfs /page_owner_slim u:object_r:debugfs_page_owner_slim_debug:s0
 genfscon debugfs /vpu/device_dbg u:object_r:debugfs_vpu_device_dbg:s0
 genfscon debugfs /vpu/vpu_memory u:object_r:debugfs_vpu_memory:s0
-genfscon debugfs /dynamic_debug u:object_r:debugfs_dynamic_debug:s0
+# genfscon debugfs /dynamic_debug u:object_r:debugfs_dynamic_debug:s0
 genfscon debugfs /displowpower u:object_r:debugfs_fb:s0
-genfscon debugfs /apusys/power u:object_r:debugfs_apusys_power:s0
+# genfscon debugfs /apusys/power u:object_r:debugfs_apusys_power:s0
 genfscon debugfs /ion/clients u:object_r:debugfs_ion:s0
 genfscon debugfs /mdla/power u:object_r:debugfs_mdla_power:s0
 genfscon debugfs /ion/heaps u:object_r:debugfs_ion_mm_heap:s0
@@ -29,13 +29,13 @@ genfscon debugfs /mmprofile u:object_r:debugfs_fb:s0
 genfscon debugfs /musb-hdrc u:object_r:debugfs_usb_nonplat:s0
 genfscon debugfs /vpu/power u:object_r:debugfs_vpu_power:s0
 genfscon debugfs /fbconfig u:object_r:debugfs_fb:s0
-genfscon debugfs /kmemleak u:object_r:debugfs_kmemleak:s0
+# genfscon debugfs /kmemleak u:object_r:debugfs_kmemleak:s0
 genfscon debugfs /shrinker u:object_r:debugfs_shrinker_debug:s0
-genfscon debugfs /blockio u:object_r:debugfs_blockio:s0
+# genfscon debugfs /blockio u:object_r:debugfs_blockio:s0
 genfscon debugfs /cpuhvfs u:object_r:debugfs_cpuhvfs:s0
 genfscon debugfs /dispsys u:object_r:debugfs_fb:s0
 genfscon debugfs /smi_mon u:object_r:debugfs_smi_mon:s0
-genfscon debugfs /binder u:object_r:debugfs_binder:s0
+# genfscon debugfs /binder u:object_r:debugfs_binder:s0
 genfscon debugfs /fuseio u:object_r:debugfs_fuseio:s0
 genfscon debugfs /dmlog u:object_r:debugfs_dmlog_debug:s0
 genfscon debugfs /fpsgo u:object_r:debugfs_fpsgo:s0
@@ -45,8 +45,8 @@ genfscon debugfs /disp u:object_r:debugfs_fb:s0
 genfscon debugfs /ged u:object_r:debugfs_ged:s0
 genfscon debugfs /pvr u:object_r:debugfs_gpu_img:s0
 genfscon debugfs /rcu u:object_r:debugfs_rcu:s0
-genfscon fuseblk / u:object_r:fuseblk:s0
-genfscon iso9660 / u:object_r:iso9660:s0
+# genfscon fuseblk / u:object_r:fuseblk:s0
+# genfscon iso9660 / u:object_r:iso9660:s0
 genfscon proc /tran_dvfsrc/dvfsrc_force_vcore_dvfs_opp u:object_r:proc_dvfsrc:s0
 genfscon proc /tran_gc_debug/gc_to_static_detect_times u:object_r:tran_proc_f2fs_debug:s0
 genfscon proc /tran_release_wakelock/release_wakelock u:object_r:proc_usb_wake_lock_release:s0

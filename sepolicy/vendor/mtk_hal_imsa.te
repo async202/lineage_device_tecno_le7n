@@ -6,7 +6,7 @@ binder_call(mtk_hal_imsa, system_server)
 
 get_prop(mtk_hal_imsa, hwservicemanager_prop)
 
-hal_server_domain(mtk_hal_imsa, hal_imsa)
+# hal_server_domain(mtk_hal_imsa, hal_imsa)
 
 hwbinder_use(mtk_hal_imsa)
 
