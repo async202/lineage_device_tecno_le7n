@@ -1,0 +1,10 @@
+type vendor_modprobe, domain;
+
+r_dir_file(vendor_modprobe, vendor_file)
+
+allow vendor_modprobe debugfs_ged:dir search;
+allow vendor_modprobe kernel:key search;
+allow vendor_modprobe proc_cmdline:file r_file_perms;
+allow vendor_modprobe proc_modules:file r_file_perms;
+allow vendor_modprobe self:global_capability_class_set sys_module;
+allow vendor_modprobe vendor_file:system module_load;

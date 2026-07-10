@@ -1,0 +1,63 @@
+type osi, coredomain, domain;
+type osi_exec, exec_type, file_type, system_file_type;
+
+binder_call(osi, system_server)
+
+binder_use(osi)
+
+domain_auto_trans(osi, netutils_wrapper_exec, netutils_wrapper)
+
+init_daemon_domain(osi)
+
+net_domain(osi)
+
+set_prop(osi, system_prop)
+
+unix_socket_connect(osi, property, radio)
+unix_socket_connect(osi, property, system_app)
+
+allow osi fs_bpf:dir search;
+allow osi fs_bpf:file read;
+allow osi fuse:dir create_dir_perms;
+allow osi fuse:{ file lnk_file } create_file_perms;
+allow osi kernel:system module_request;
+allow osi media_rw_data_file:dir create_dir_perms;
+allow osi media_rw_data_file:{ file lnk_file } create_file_perms;
+allow osi mnt_user_file:dir create_dir_perms;
+allow osi mnt_user_file:{ file lnk_file } create_file_perms;
+allow osi osi:fifo_file rw_file_perms;
+allow osi osi_data_file:dir create_dir_perms;
+allow osi osi_data_file:dir ioctl;
+allow osi osi_data_file:file create_file_perms;
+allow osi package_service:service_manager find;
+allow osi postinstall_file:dir create_dir_perms;
+allow osi postinstall_file:file x_file_perms;
+allow osi postinstall_file:filesystem { mount relabelfrom relabelto unmount };
+allow osi postinstall_file:{ file lnk_file } create_file_perms;
+allow osi postinstall_mnt_dir:dir { create_dir_perms mounton };
+allow osi proc:dir r_dir_perms;
+allow osi proc_net:dir r_dir_perms;
+allow osi proc_net:file r_file_perms;
+allow osi proc_qtaguid_stat:dir r_dir_perms;
+allow osi proc_qtaguid_stat:file r_file_perms;
+allow osi rootfs:lnk_file r_file_perms;
+allow osi sdcardfs:dir create_dir_perms;
+allow osi sdcardfs:filesystem { mount relabelfrom unmount };
+allow osi sdcardfs:{ file lnk_file } create_file_perms;
+allow osi self:capability { chown fsetid net_admin net_raw sys_admin };
+allow osi self:capability sys_module;
+allow osi self:netlink_route_socket { nlmsg_read nlmsg_write };
+allow osi self:{ packet_socket unpriv_socket_class_set } create_stream_socket_perms;
+allow osi shell_exec:file rx_file_perms;
+allow osi storage_file:dir create_dir_perms;
+allow osi storage_file:{ file lnk_file } create_file_perms;
+allow osi sysfs:dir r_dir_perms;
+allow osi sysfs_net:dir r_dir_perms;
+allow osi sysfs_net:file r_file_perms;
+allow osi system_file:file rx_file_perms;
+allow osi tmpfs:dir create_dir_perms;
+allow osi tmpfs:{ file lnk_file } create_file_perms;
+allow osi toolbox_exec:file rx_file_perms;
+allow osi vendor_file:dir read;
+
+allowxperm osi self:{ packet_socket unpriv_socket_class_set } ioctl { I2OGETIOPS I2OLCTGET OSIOCGNETADDR OSIOCSNETADDR SIOCADDDLCI SIOCADDMULTI SIOCADDRT SIOCBONDCHANGEACTIVE SIOCBONDENSLAVE SIOCBONDINFOQUERY SIOCBONDRELEASE SIOCBONDSETHWADDR SIOCBONDSLAVEINFOQUERY SIOCBRADDBR SIOCBRADDIF SIOCBRDELBR SIOCBRDELIF SIOCDARP SIOCDELDLCI SIOCDELMULTI SIOCDELRT SIOCDEVPRIVATE SIOCDEVPRIVATE_1 SIOCDEVPRIVATE_2 SIOCDEVPRIVATE_3 SIOCDEVPRIVATE_4 SIOCDEVPRIVATE_5 SIOCDEVPRIVATE_6 SIOCDEVPRIVATE_7 SIOCDEVPRIVATE_8 SIOCDEVPRIVATE_9 SIOCDEVPRIVATE_A SIOCDEVPRIVATE_B SIOCDEVPRIVATE_C SIOCDEVPRIVATE_D SIOCDEVPRIVATE_E SIOCDEVPRIVLAST SIOCDIFADDR SIOCDRARP SIOCETHTOOL SIOCGARP SIOCGIFADDR SIOCGIFBR SIOCGIFBRDADDR SIOCGIFCONF SIOCGIFCOUNT SIOCGIFDSTADDR SIOCGIFENCAP SIOCGIFFLAGS SIOCGIFHWADDR SIOCGIFINDEX SIOCGIFMAP SIOCGIFMEM SIOCGIFMETRIC SIOCGIFMTU SIOCGIFNAME SIOCGIFNETMASK SIOCGIFPFLAGS SIOCGIFSLAVE SIOCGIFTXQLEN SIOCGIFVLAN SIOCGIWAP SIOCGIWAPLIST SIOCGIWAUTH SIOCGIWENCODE SIOCGIWENCODEEXT SIOCGIWESSID SIOCGIWFRAG SIOCGIWFREQ SIOCGIWGENIE SIOCGIWMODE SIOCGIWNAME SIOCGIWNICKN SIOCGIWPOWER SIOCGIWPRIV SIOCGIWRANGE SIOCGIWRATE SIOCGIWRETRY SIOCGIWRTS SIOCGIWSCAN SIOCGIWSENS SIOCGIWSPY SIOCGIWSTATS SIOCGIWTHRSPY SIOCGIWTXPOW SIOCGMIIPHY SIOCGMIIREG SIOCGRARP SIOCGSTAMP SIOCGSTAMPNS SIOCIWFIRST SIOCIWFIRSTPRIV SIOCIWFIRSTPRIV_01 SIOCIWFIRSTPRIV_02 SIOCIWFIRSTPRIV_03 SIOCIWFIRSTPRIV_04 SIOCIWFIRSTPRIV_05 SIOCIWFIRSTPRIV_06 SIOCIWFIRSTPRIV_07 SIOCIWFIRSTPRIV_08 SIOCIWFIRSTPRIV_09 SIOCIWFIRSTPRIV_0A SIOCIWFIRSTPRIV_0B SIOCIWFIRSTPRIV_0C SIOCIWFIRSTPRIV_0D SIOCIWFIRSTPRIV_0E SIOCIWFIRSTPRIV_0F SIOCIWFIRSTPRIV_10 SIOCIWFIRSTPRIV_11 SIOCIWFIRSTPRIV_12 SIOCIWFIRSTPRIV_13 SIOCIWFIRSTPRIV_14 SIOCIWFIRSTPRIV_15 SIOCIWFIRSTPRIV_16 SIOCIWFIRSTPRIV_17 SIOCIWFIRSTPRIV_18 SIOCIWFIRSTPRIV_19 SIOCIWFIRSTPRIV_1A SIOCIWFIRSTPRIV_1B SIOCIWFIRSTPRIV_1C SIOCIWFIRSTPRIV_1D SIOCIWFIRSTPRIV_1E SIOCIWLASTPRIV SIOCKILLADDR SIOCOUTQNSD SIOCPROTOPRIVATE_2 SIOCPROTOPRIVATE_3 SIOCPROTOPRIVATE_4 SIOCPROTOPRIVATE_5 SIOCPROTOPRIVATE_6 SIOCPROTOPRIVATE_7 SIOCPROTOPRIVATE_8 SIOCPROTOPRIVATE_9 SIOCPROTOPRIVATE_A SIOCPROTOPRIVATE_B SIOCPROTOPRIVATE_C SIOCPROTOPRIVATE_D SIOCPROTOPRIVATE_E SIOCPROTOPRIVLAST SIOCRTMSG SIOCSARP SIOCSHWTSTAMP SIOCSIFADDR SIOCSIFBR SIOCSIFBRDADDR SIOCSIFDSTADDR SIOCSIFENCAP SIOCSIFFLAGS SIOCSIFHWADDR SIOCSIFHWBROADCAST SIOCSIFLINK SIOCSIFMAP SIOCSIFMEM SIOCSIFMETRIC SIOCSIFMTU SIOCSIFNAME SIOCSIFNETMASK SIOCSIFPFLAGS SIOCSIFSLAVE SIOCSIFTXQLEN SIOCSIFVLAN SIOCSIWAP SIOCSIWAUTH SIOCSIWENCODE SIOCSIWENCODEEXT SIOCSIWESSID SIOCSIWFRAG SIOCSIWFREQ SIOCSIWGENIE SIOCSIWMLME SIOCSIWMODE SIOCSIWNICKN SIOCSIWNWID SIOCSIWPMKSA SIOCSIWPOWER SIOCSIWPRIV SIOCSIWRANGE SIOCSIWRATE SIOCSIWRETRY SIOCSIWRTS SIOCSIWSCAN SIOCSIWSENS SIOCSIWSPY SIOCSIWSTATS SIOCSIWTHRSPY SIOCSIWTXPOW SIOCSMIIREG SIOCSRARP SIOCWANDEV };

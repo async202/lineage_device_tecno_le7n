@@ -1,0 +1,6 @@
+type mtk_hal_md_dbfilter_hwservice, hwservice_manager_type;
+
+binder_call(mtk_hal_md_dbfilter_client, mtk_hal_md_dbfilter_server)
+binder_call(mtk_hal_md_dbfilter_server, mtk_hal_md_dbfilter_client)
+
+hal_attribute_hwservice(mtk_hal_md_dbfilter, mtk_hal_md_dbfilter_hwservice)

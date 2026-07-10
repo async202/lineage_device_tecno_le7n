@@ -1,0 +1,8 @@
+type mtk_hal_fm_hwservice, hwservice_manager_type;
+
+binder_call(mtk_hal_fm_client, mtk_hal_fm_server)
+binder_call(mtk_hal_fm_server, mtk_hal_fm_client)
+
+hal_attribute_hwservice(mtk_hal_fm, mtk_hal_fm_hwservice)
+
+vndbinder_use(mtk_hal_fm)

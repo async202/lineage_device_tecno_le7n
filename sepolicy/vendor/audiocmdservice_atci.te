@@ -1,0 +1,25 @@
+type audiocmdservice_atci, domain;
+type audiocmdservice_atci_exec, exec_type, file_type, vendor_file_type;
+
+binder_call(audiocmdservice_atci, mtk_hal_audio)
+
+get_prop(audiocmdservice_atci, hwservicemanager_prop)
+
+hal_client_domain(audiocmdservice_atci, hal_audio)
+
+hwbinder_use(audiocmdservice_atci)
+
+init_daemon_domain(audiocmdservice_atci)
+
+vndbinder_use(audiocmdservice_atci)
+
+allow audiocmdservice_atci block_device:dir { search write };
+allow audiocmdservice_atci bootdevice_block_device:blk_file { read write };
+allow audiocmdservice_atci kmsg_device:chr_file w_file_perms;
+allow audiocmdservice_atci mnt_user_file:dir rw_dir_perms;
+allow audiocmdservice_atci mnt_user_file:lnk_file rw_file_perms;
+allow audiocmdservice_atci self:unix_stream_socket create_socket_perms;
+allow audiocmdservice_atci storage_file:lnk_file rw_file_perms;
+
+neverallow audiocmdservice_atci proc:file { audit_access entrypoint execmod execute execute_no_trans mounton no_w_file_perms quotaon relabelto watch_mount watch_sb watch_with_perm };
+neverallow audiocmdservice_atci proc:lnk_file { audit_access execmod execute mounton no_w_file_perms quotaon relabelto watch_mount watch_sb watch_with_perm };

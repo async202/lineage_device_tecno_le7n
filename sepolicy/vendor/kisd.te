@@ -1,0 +1,17 @@
+type kisd, domain, mlstrustedsubject;
+type kisd_exec, exec_type, file_type, vendor_file_type;
+
+init_daemon_domain(kisd)
+
+allow kisd block_device:dir { ioctl open read search write };
+allow kisd dkb_block_device:devfile_class_set { getattr ioctl open read write };
+allow kisd kb_block_device:devfile_class_set { getattr ioctl open read write };
+allow kisd key_install_data_file:dir { add_name remove_name write };
+allow kisd key_install_data_file:dir search;
+allow kisd key_install_data_file:file { create getattr open read unlink write };
+allow kisd mtd_device:blk_file { getattr ioctl open read write };
+allow kisd mtd_device:chr_file { open read write };
+allow kisd mtd_device:dir search;
+allow kisd provision_file:dir { add_name ioctl open read remove_name search write };
+allow kisd provision_file:file { create getattr open read unlink write };
+allow kisd tee_device:chr_file { ioctl open read write };

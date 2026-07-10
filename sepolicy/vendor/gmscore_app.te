@@ -1,0 +1,1 @@
+allow gmscore_app freezed_device:chr_file { getattr ioctl open read write };

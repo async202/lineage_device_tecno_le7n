@@ -1,0 +1,6 @@
+type hal_power_stats_default, domain;
+type hal_power_stats_default_exec, exec_type, file_type, vendor_file_type;
+
+hal_server_domain(hal_power_stats_default, hal_power_stats)
+
+init_daemon_domain(hal_power_stats_default)

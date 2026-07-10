@@ -1,0 +1,12 @@
+type mtk_hal_keymanage, domain;
+type mtk_hal_keymanage_exec, exec_type, file_type, vendor_file_type;
+type mtk_hal_keymanage_hwservice, hwservice_manager_type;
+
+hal_server_domain(mtk_hal_keymanage, hal_keymaster)
+
+init_daemon_domain(mtk_hal_keymanage)
+
+allow mtk_hal_keymanage debugfs_tracing:file write;
+allow mtk_hal_keymanage key_install_data_file:dir { add_name remove_name search write };
+allow mtk_hal_keymanage key_install_data_file:file { append create getattr open read setattr unlink write };
+allow mtk_hal_keymanage kisd:unix_stream_socket connectto;

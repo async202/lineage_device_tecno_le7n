@@ -1,0 +1,16 @@
+allow netutils_wrapper devpts:chr_file { getattr ioctl read write };
+allow netutils_wrapper epdg_wod:fd use;
+allow netutils_wrapper epdg_wod:unix_stream_socket { read write };
+allow netutils_wrapper ipsec_mon:fd use;
+allow netutils_wrapper ipsec_mon:{ netlink_route_socket netlink_xfrm_socket } { read write };
+allow netutils_wrapper netdagent:fd use;
+allow netutils_wrapper netdagent:unix_stream_socket { read write };
+allow netutils_wrapper osi:fd use;
+allow netutils_wrapper osi:fifo_file write;
+allow netutils_wrapper osi:{ netlink_route_socket packet_socket tcp_socket unix_stream_socket } { read write };
+allow netutils_wrapper osi_data_file:file { read write };
+allow netutils_wrapper rild:fd use;
+allow netutils_wrapper rild:fifo_file rw_file_perms;
+allow netutils_wrapper rild:unix_stream_socket { read write };
+allow netutils_wrapper wo_epdg_client:fd use;
+allow netutils_wrapper wo_epdg_client:unix_stream_socket { read write };

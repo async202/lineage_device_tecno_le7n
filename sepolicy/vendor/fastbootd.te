@@ -1,0 +1,5 @@
+allow fastbootd bootdevice_block_device:blk_file rw_file_perms;
+allow fastbootd para_block_device:blk_file rw_file_perms;
+allow fastbootd sysfs_boot_type:file rw_file_perms;
+
+allowxperm fastbootd bootdevice_block_device:blk_file ioctl { BLKDISCARD BLKSECDISCARD MMC_IOC_CMD };

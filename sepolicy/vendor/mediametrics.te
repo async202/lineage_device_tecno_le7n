@@ -1,0 +1,1 @@
+allow mediametrics tranlog_device:chr_file { open read write };

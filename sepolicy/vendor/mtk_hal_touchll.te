@@ -1,0 +1,7 @@
+type mtk_hal_touchll, domain;
+type mtk_hal_touchll_exec, exec_type, file_type, vendor_file_type;
+type mtk_hal_touchll_hwservice, hwservice_manager_type;
+
+hal_server_domain(mtk_hal_touchll, hal_touchll)
+
+init_daemon_domain(mtk_hal_touchll)

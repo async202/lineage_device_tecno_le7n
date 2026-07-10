@@ -1,0 +1,48 @@
+type crash_dump, mlstrustedsubject;
+
+get_prop(crash_dump, vendor_default_prop)
+
+hal_client_domain(crash_dump, mtk_hal_aee)
+
+allow crash_dump RT_Monitor_device:chr_file r_file_perms;
+allow crash_dump aed_device:chr_file rw_file_perms;
+allow crash_dump aee_core_data_file:dir create_dir_perms;
+allow crash_dump aee_core_data_file:file create_file_perms;
+allow crash_dump aee_dumpsys_data_file:dir create_dir_perms;
+allow crash_dump aee_dumpsys_data_file:file create_file_perms;
+allow crash_dump aee_exp_data_file:dir create_dir_perms;
+allow crash_dump aee_exp_data_file:dir r_dir_perms;
+allow crash_dump aee_exp_data_file:dir relabelto;
+allow crash_dump aee_exp_data_file:file create_file_perms;
+allow crash_dump aee_exp_data_file:file rw_file_perms;
+allow crash_dump data_tmpfs_log_file:dir create_dir_perms;
+allow crash_dump data_tmpfs_log_file:file create_file_perms;
+allow crash_dump debugfs_blockio:file r_file_perms;
+allow crash_dump debugfs_dmlog_debug:file r_file_perms;
+allow crash_dump debugfs_ion_mm_heap:dir search;
+allow crash_dump debugfs_ion_mm_heap:file r_file_perms;
+allow crash_dump debugfs_ion_mm_heap:lnk_file read;
+allow crash_dump etb_device:chr_file rw_file_perms;
+allow crash_dump expdb_block_device:blk_file rw_file_perms;
+allow crash_dump expdb_device:chr_file rw_file_perms;
+allow crash_dump file_contexts_file:file r_file_perms;
+allow crash_dump mtd_device:chr_file rw_file_perms;
+allow crash_dump mtd_device:dir create_dir_perms;
+allow crash_dump proc_cpu_alignment:file { open write };
+allow crash_dump proc_kpageflags:file r_file_perms;
+allow crash_dump proc_lk_env:file rw_file_perms;
+allow crash_dump proc_meminfo:file r_file_perms;
+allow crash_dump proc_ppm:dir r_dir_perms;
+allow crash_dump proc_ppm:file rw_file_perms;
+allow crash_dump procfs_blockio:file r_file_perms;
+allow crash_dump selinuxfs:file r_file_perms;
+allow crash_dump sysfs_leds:dir search;
+allow crash_dump sysfs_mm:dir r_dir_perms;
+allow crash_dump sysfs_mm:file r_file_perms;
+allow crash_dump sysfs_vibrator:dir search;
+allow crash_dump sysfs_vibrator_setting:dir search;
+allow crash_dump sysfs_vibrator_setting:file w_file_perms;
+allow crash_dump system_prop:property_service set;
+allow crash_dump tranfs_file:dir { add_name create open read remove_name rmdir search setattr write };
+allow crash_dump tranfs_file:file { append create getattr open read setattr write };
+allow crash_dump tranlog_device:chr_file { ioctl open read write };

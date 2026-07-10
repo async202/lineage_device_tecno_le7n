@@ -1,0 +1,16 @@
+type mtk_hal_secure_element, domain;
+type mtk_hal_secure_element_exec, exec_type, file_type, vendor_file_type;
+
+binder_call(mtk_hal_secure_element, rild)
+
+get_prop(mtk_hal_secure_element, exported3_radio_prop)
+
+hal_client_domain(mtk_hal_secure_element, hal_telephony)
+
+hal_server_domain(mtk_hal_secure_element, hal_secure_element)
+
+init_daemon_domain(mtk_hal_secure_element)
+
+allow mtk_hal_secure_element hal_telephony_hwservice:hwservice_manager find;
+allow mtk_hal_secure_element mtk_hal_rild_hwservice:hwservice_manager find;
+allow mtk_hal_secure_element secure_element_device:chr_file rw_file_perms;

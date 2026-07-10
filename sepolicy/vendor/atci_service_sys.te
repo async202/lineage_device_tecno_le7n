@@ -1,0 +1,11 @@
+get_prop(atci_service_sys, vendor_default_prop)
+
+hal_client_domain(atci_service_sys, hal_atci)
+
+hwbinder_use(atci_service_sys)
+
+allow atci_service_sys factory_data_file:sock_file write;
+allow atci_service_sys nfc_socket:dir { add_name remove_name search write };
+allow atci_service_sys nfc_socket:sock_file { create setattr unlink write };
+allow atci_service_sys proc_ged:file rw_file_perms;
+allow atci_service_sys system_file:file execute_no_trans;

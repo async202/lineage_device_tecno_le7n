@@ -1,0 +1,13 @@
+type getgameserver, domain;
+type getgameserver_exec, exec_type, file_type, vendor_file_type;
+
+init_daemon_domain(getgameserver)
+
+net_domain(getgameserver)
+
+set_prop(getgameserver, vendor_mtk_netdagent_gameserver_prop)
+
+allow getgameserver self:capability net_raw;
+allow getgameserver self:{ packet_socket udp_socket } create_socket_perms;
+
+allowxperm getgameserver self:{ packet_socket udp_socket } ioctl { SIOCGIFINDEX SIOCGSTAMP };

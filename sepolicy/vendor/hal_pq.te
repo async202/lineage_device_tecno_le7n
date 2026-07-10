@@ -1,0 +1,4 @@
+binder_call(hal_pq_client, hal_pq_server)
+binder_call(hal_pq_server, hal_pq_client)
+
+hal_attribute_hwservice(hal_pq, mtk_hal_pq_hwservice)

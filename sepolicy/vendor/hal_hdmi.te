@@ -1,0 +1,4 @@
+binder_call(hal_hdmi_client, hal_hdmi_server)
+binder_call(hal_hdmi_server, hal_hdmi_client)
+
+hal_attribute_hwservice(hal_hdmi, mtk_hal_hdmi_hwservice)

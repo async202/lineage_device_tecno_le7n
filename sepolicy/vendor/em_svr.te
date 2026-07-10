@@ -1,0 +1,4 @@
+allow em_svr md_block_device:blk_file { open read };
+allow em_svr para_block_device:blk_file { open read write };
+allow em_svr para_block_device:blk_file write;
+allow em_svr proc_lk_env:file { ioctl open read write };

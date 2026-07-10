@@ -1,0 +1,8 @@
+type conninfra_loader, domain;
+type conninfra_loader_exec, exec_type, file_type, vendor_file_type;
+
+init_daemon_domain(conninfra_loader)
+
+set_prop(conninfra_loader, vendor_mtk_wmt_prop)
+
+allow conninfra_loader conninfra_device:chr_file rw_file_perms;

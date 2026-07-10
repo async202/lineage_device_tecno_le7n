@@ -1,0 +1,2 @@
+binder_call(mtk_safe_halserverdomain_type, { appdomain -isolated_app })
+binder_call({ appdomain -isolated_app }, mtk_safe_halserverdomain_type)

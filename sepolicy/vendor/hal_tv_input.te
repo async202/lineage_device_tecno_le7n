@@ -1,0 +1,6 @@
+type hal_tv_input_default, domain;
+type hal_tv_input_default_exec, exec_type, file_type, vendor_file_type;
+
+hal_server_domain(hal_tv_input_default, hal_tv_input)
+
+init_daemon_domain(hal_tv_input_default)

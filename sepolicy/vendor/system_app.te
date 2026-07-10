@@ -1,1 +1,185 @@
-allow system_app proc_ged:file rw_file_perms;
+type system_app, mlstrustedsubject;
+
+binder_call(system_app, hal_fingerprint_default)
+binder_call(system_app, loghidlvendorservice)
+
+get_prop(system_app, vendor_default_prop)
+get_prop(system_app, vendor_mtk_atm_ipaddr_prop)
+get_prop(system_app, vendor_mtk_atm_mdmode_prop)
+get_prop(system_app, vendor_mtk_cta_support_prop)
+get_prop(system_app, vendor_mtk_cxp_vendor_prop)
+get_prop(system_app, vendor_mtk_dmc_prop)
+get_prop(system_app, vendor_mtk_meta_connecttype_prop)
+get_prop(system_app, vendor_mtk_ss_vendor_prop)
+get_prop(system_app, vendor_mtk_telephony_sensitive_prop)
+get_prop(system_app, vendor_mtk_thermal_config_prop)
+get_prop(system_app, vendor_mtk_vinr_prop)
+get_prop(system_app, vendor_mtk_volte_prop)
+get_prop(system_app, vendor_mtk_vonr_prop)
+get_prop(system_app, vendor_mtk_vt_prop)
+get_prop(system_app, vendor_mtk_wfc_prop)
+
+hal_client_domain(system_app, hal_atci)
+hal_client_domain(system_app, hal_clientapi)
+hal_client_domain(system_app, hal_nvramagent)
+hal_client_domain(system_app, hal_pq)
+hal_client_domain(system_app, hal_presence)
+hal_client_domain(system_app, hal_rcs)
+hal_client_domain(system_app, hal_telephony)
+hal_client_domain(system_app, mtk_hal_apm)
+hal_client_domain(system_app, mtk_hal_lbs)
+hal_client_domain(system_app, mtk_hal_netdagent)
+
+hwbinder_use(system_app)
+
+r_dir_file(system_app, sysfs_switch)
+
+set_prop(system_app, ctl_start_prop)
+set_prop(system_app, ctl_stop_prop)
+
+allow system_app MT_pmic_adc_cali_device:chr_file { ioctl open read };
+allow system_app aee_exp_data_file:dir r_dir_perms;
+allow system_app aee_exp_data_file:file r_file_perms;
+allow system_app aee_exp_vendor_file:dir { append getattr open read search };
+allow system_app aee_exp_vendor_file:dir { getattr open read search };
+allow system_app aee_exp_vendor_file:file { getattr open read };
+allow system_app als_ps_device:chr_file { ioctl open read write };
+allow system_app apk_data_file:dir { open read remove_name search write };
+allow system_app apk_private_data_file:dir getattr;
+allow system_app asec_image_file:dir getattr;
+allow system_app audioserver_data_file:dir { open read remove_name search write };
+allow system_app audioserver_data_file:file { getattr open read unlink };
+allow system_app block_device:dir search;
+allow system_app cache_file:dir { add_name create remove_name search write };
+allow system_app cache_file:file { create getattr open read unlink write };
+allow system_app cache_recovery_file:dir { add_name remove_name search write };
+allow system_app cache_recovery_file:file { create getattr open read unlink write };
+allow system_app cache_recovery_file:file setattr;
+allow system_app debugfs_ion:dir search;
+allow system_app debugfs_wakeup_sources:file { getattr open read };
+allow system_app debussy_misc_device:chr_file { getattr open read write };
+allow system_app dontpanic_data_file:dir getattr;
+allow system_app drm_data_file:dir getattr;
+allow system_app fm_device:chr_file { ioctl open read write };
+allow system_app freezed_device:chr_file { getattr ioctl open read write };
+allow system_app gift_data_file:dir { getattr open read search write };
+allow system_app gift_data_file:file { getattr open read write };
+allow system_app gsensor_device:chr_file { ioctl open read write };
+allow system_app gyroscope_device:chr_file { ioctl open read write };
+allow system_app hal_tranlogconfig_hwservice:hwservice_manager find;
+allow system_app install_data_file:file getattr;
+allow system_app kernel_lc_sysfs_mtk_tpd_file:dir { getattr open read search };
+allow system_app kernel_lc_sysfs_mtk_tpd_file:file r_file_perms;
+allow system_app lost_found_data_file:dir getattr;
+allow system_app media_data_file:dir getattr;
+allow system_app misc_lucid_file:dir rw_dir_perms;
+allow system_app misc_lucid_file:file create_file_perms;
+allow system_app mtk_audiohal_data_file:dir create_dir_perms;
+allow system_app mtk_audiohal_data_file:file create_file_perms;
+allow system_app mtk_carrierexpress_service:service_manager add;
+allow system_app mtk_hal_hdmi:binder call;
+allow system_app mtk_hal_hdmi_hwservice:hwservice_manager find;
+allow system_app mtk_hal_log_hwservice:hwservice_manager find;
+allow system_app mtk_hal_neuralnetworks:binder { call transfer };
+allow system_app mtk_hal_pplagent_hwservice:hwservice_manager find;
+allow system_app mtk_hal_rild_hwservice:hwservice_manager find;
+allow system_app os_appfly_file:dir rw_dir_perms;
+allow system_app os_appfly_file:file rw_file_perms;
+allow system_app os_track_file:dir create_dir_perms;
+allow system_app os_track_file:file create_file_perms;
+allow system_app osi:sctp_socket { accept association create_socket_perms_no_ioctl listen name_bind name_connect node_bind recvfrom relabelfrom relabelto sendto };
+allow system_app osi:tcp_socket { accept bind connect create getattr getopt listen read setattr setopt write };
+allow system_app osi:tcp_socket { accept create_socket_perms_no_ioctl listen name_bind name_connect node_bind recvfrom relabelfrom relabelto sendto };
+allow system_app osi:udp_socket { accept create_socket_perms_no_ioctl listen name_bind node_bind recvfrom relabelfrom relabelto sendto };
+allow system_app osi:unix_dgram_socket { accept create_socket_perms_no_ioctl listen name_bind recvfrom relabelfrom relabelto sendto };
+allow system_app osi:unix_stream_socket { accept connectto create_socket_perms_no_ioctl listen name_bind recvfrom relabelfrom relabelto sendto };
+allow system_app ota_package_file:dir create_dir_perms;
+allow system_app ota_package_file:file create_file_perms;
+allow system_app ppl_agent:binder call;
+allow system_app pq_data_file:{ dir file } { create open read write };
+allow system_app proc_border_suppression:file { getattr open read write };
+allow system_app proc_gesture_function:file { getattr open read write };
+allow system_app proc_gesture_state:file { getattr open read write };
+allow system_app proc_gtp_leather_mode:file { getattr open read write };
+allow system_app proc_mtk_jpeg:file rw_file_perms;
+allow system_app proc_mtkcooler:dir search;
+allow system_app proc_mtkcooler:file { getattr open read write };
+allow system_app proc_mtktz:dir search;
+allow system_app proc_mtktz:file { getattr open read write };
+allow system_app proc_nvt_selftest:file { getattr open read write };
+allow system_app proc_pen_switch_state:file rw_file_perms;
+allow system_app proc_resmonitor:file { getattr open read };
+allow system_app proc_rid:file r_file_perms;
+allow system_app proc_rlkdevinfo:file { getattr open read };
+allow system_app proc_secmem:file rw_file_perms;
+allow system_app proc_slogger:file { getattr open read write };
+allow system_app proc_stat:file { getattr open read };
+allow system_app proc_thermal:dir search;
+allow system_app proc_thermal:file { getattr open read write };
+allow system_app proc_uid_cputime_showstat:file r_file_perms;
+allow system_app property_data_file:dir getattr;
+allow system_app rild:binder { call transfer };
+allow system_app self:netlink_kobject_uevent_socket { bind create read setopt };
+allow system_app sysfs_OTG_CTL_file:file rw_file_perms;
+allow system_app sysfs_aging_calculate_file:file { getattr open read write };
+allow system_app sysfs_aging_estimate_file:file { getattr open read };
+allow system_app sysfs_aging_fg_file:file { getattr open read };
+allow system_app sysfs_aging_reset:file { getattr open read write };
+allow system_app sysfs_backlight_file:file rw_file_perms;
+allow system_app sysfs_breath_blue_pmic_file:file rw_file_perms;
+allow system_app sysfs_changing_control_file:file { append getattr open read write };
+allow system_app sysfs_fg_coulomb_file:dir { getattr open read search };
+allow system_app sysfs_fg_coulomb_file:file { getattr open read write };
+allow system_app sysfs_fg_qmx_file:dir { getattr open read search };
+allow system_app sysfs_fg_qmx_file:file { getattr open read };
+allow system_app sysfs_fpsgo:dir search;
+allow system_app sysfs_fpsgo:file r_file_perms;
+allow system_app sysfs_laser_calib_file:file { create open read setattr write };
+allow system_app sysfs_laser_calib_file:file rw_file_perms;
+allow system_app sysfs_laser_enable_file:file { create open read setattr write };
+allow system_app sysfs_laser_enable_file:file rw_file_perms;
+allow system_app sysfs_laser_get_calib_file:file { create open read setattr write };
+allow system_app sysfs_laser_get_calib_file:file rw_file_perms;
+allow system_app sysfs_lcm_aod_file:file { getattr open read write };
+allow system_app sysfs_lcm_hbm_file:file rw_file_perms;
+allow system_app sysfs_leds:dir search;
+allow system_app sysfs_main2_light_file:file rw_file_perms;
+allow system_app sysfs_mtk_tpd_file:dir { getattr open read search };
+allow system_app sysfs_mtk_tpd_file:file r_file_perms;
+allow system_app sysfs_plug_times:file { getattr open read };
+allow system_app sysfs_pump_express:file { getattr open read };
+allow system_app sysfs_real_lcdbrightness_file:file r_file_perms;
+allow system_app sysfs_sub_torch_file:file rw_file_perms;
+allow system_app sysfs_thermal_trigger_file:file { getattr open read };
+allow system_app sysfs_torch_file:file rw_file_perms;
+allow system_app sysfs_tran_bat_temp_file:file { getattr open read write };
+allow system_app sysfs_wide_torch_file:file rw_file_perms;
+allow system_app tfa98xx_calibrate_device:chr_file { open read write };
+allow system_app tkcore_admin_device:chr_file rw_file_perms;
+allow system_app tneengine_data_file:dir { add_name create getattr open read remove_name rmdir search setattr write };
+allow system_app tneengine_data_file:file { append create getattr lock open read rename setattr unlink write };
+allow system_app touch_device:chr_file { ioctl open read };
+allow system_app tran_hwinfo_binder:binder call;
+allow system_app tran_hwinfo_binder_hwservice:hwservice_manager find;
+allow system_app tranfs_file:dir { add_name create getattr open read remove_name rmdir search write };
+allow system_app tranfs_file:file { append create getattr map open read rename setattr unlink write };
+allow system_app tranlog_device:chr_file { ioctl open read write };
+allow system_app tranlogconfig:binder { call transfer };
+allow system_app tranlogconfig:binder transfer;
+allow system_app tranlogconfig:fd use;
+allow system_app transsion_camera_data_file:dir { add_name search write };
+allow system_app transsion_camera_data_file:file { create open read setattr write };
+allow system_app transsion_camera_data_file:file rw_file_perms;
+allow system_app transsion_camera_meghdr_file:dir { add_name search write };
+allow system_app transsion_camera_meghdr_file:file { create open read setattr write };
+allow system_app transsion_camera_meghdr_file:file rw_file_perms;
+allow system_app transsion_uxdetector_service:service_manager { add find };
+allow system_app transsion_uxdetectorrest_service:service_manager { add find };
+allow system_app update_engine:binder { call transfer };
+allow system_app vendor_arcsoft_data_file:dir { add_name search write };
+allow system_app vendor_arcsoft_data_file:file { create open read setattr write };
+allow system_app vendor_arcsoft_data_file:file rw_file_perms;
+allow system_app xos_secure_data_file:dir { add_name create getattr read remove_name search setattr write };
+allow system_app xos_secure_data_file:file { create getattr open read rename setattr unlink write };
+
+allowxperm system_app proc_mtk_jpeg:file ioctl { 0x7812 0x7813 0x7814 };

@@ -1,0 +1,29 @@
+type bip, domain, mtkimsmddomain;
+type bip_exec, exec_type, file_type, vendor_file_type;
+
+init_daemon_domain(bip)
+
+net_domain(bip)
+
+set_prop(bip, vendor_mtk_ctl_muxreport-daemon_prop)
+set_prop(bip, vendor_mtk_ril_mux_report_case_prop)
+
+unix_socket_connect(bip, bip, init)
+unix_socket_connect(bip, bip, netd)
+unix_socket_connect(bip, fwmarkd, init)
+unix_socket_connect(bip, fwmarkd, netd)
+unix_socket_connect(bip, netd, init)
+unix_socket_connect(bip, netd, netd)
+unix_socket_connect(bip, property, netd)
+unix_socket_connect(bip, vendor_bip, init)
+unix_socket_connect(bip, vendor_bip, netd)
+
+allow bip ccci_device:chr_file { ioctl open read write };
+allow bip node:{ rawip_socket udp_socket } node_bind;
+allow bip port:tcp_socket name_connect;
+allow bip port:udp_socket name_bind;
+allow bip self:capability { net_admin net_raw setgid setuid };
+allow bip self:netlink_route_socket read;
+allow bip self:rawip_socket { bind create getattr read setopt write };
+allow bip self:tcp_socket { accept bind connect create ioctl listen read setopt write };
+allow bip self:udp_socket { bind connect create getattr ioctl read setopt shutdown write };

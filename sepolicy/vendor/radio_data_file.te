@@ -1,0 +1,1 @@
+allow { appdomain -isolated_app } radio_data_file:file rw_file_perms;

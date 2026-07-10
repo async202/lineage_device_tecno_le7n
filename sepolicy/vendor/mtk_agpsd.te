@@ -1,0 +1,41 @@
+type mtk_agpsd, domain;
+type mtk_agpsd_exec, exec_type, file_type, vendor_file_type;
+
+get_prop(mtk_agpsd, vendor_mtk_dmc_prop)
+get_prop(mtk_agpsd, vendor_mtk_gps_support_prop)
+get_prop(mtk_agpsd, vendor_mtk_mnld_prop)
+
+hal_client_domain(mtk_agpsd, mtk_hal_apm)
+
+init_daemon_domain(mtk_agpsd)
+
+net_domain(mtk_agpsd)
+
+wakelock_use(mtk_agpsd)
+
+allow mtk_agpsd agps_device:chr_file rw_file_perms;
+allow mtk_agpsd agpsd_data_file:dir create_dir_perms;
+allow mtk_agpsd agpsd_data_file:{ file sock_file } create_file_perms;
+allow mtk_agpsd ccci_device:chr_file { create rw_file_perms setattr unlink };
+allow mtk_agpsd eemcs_device:chr_file rw_file_perms;
+allow mtk_agpsd gps_data_file:dir create_dir_perms;
+allow mtk_agpsd gps_data_file:file create_file_perms;
+allow mtk_agpsd lbs_hidl_service:unix_dgram_socket sendto;
+allow mtk_agpsd merged_hal_service:unix_dgram_socket sendto;
+allow mtk_agpsd mnld:unix_dgram_socket sendto;
+allow mtk_agpsd mnt_user_file:dir create_dir_perms;
+allow mtk_agpsd mnt_user_file:lnk_file create_file_perms;
+allow mtk_agpsd mnt_vendor_file:dir create_dir_perms;
+allow mtk_agpsd mnt_vendor_file:file create_file_perms;
+allow mtk_agpsd nvcfg_file:dir create_dir_perms;
+allow mtk_agpsd nvcfg_file:file create_file_perms;
+allow mtk_agpsd rild:unix_dgram_socket sendto;
+allow mtk_agpsd sdcard_type:dir create_dir_perms;
+allow mtk_agpsd sdcard_type:file create_file_perms;
+allow mtk_agpsd slpd:unix_dgram_socket sendto;
+allow mtk_agpsd storage_file:dir create_dir_perms;
+allow mtk_agpsd storage_file:file create_file_perms;
+allow mtk_agpsd sysfs_ccci:dir search;
+allow mtk_agpsd sysfs_ccci:file { open read };
+allow mtk_agpsd tmpfs:lnk_file create_file_perms;
+allow mtk_agpsd ttySDIO_device:chr_file { create rw_file_perms setattr unlink };

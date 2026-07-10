@@ -1,0 +1,4 @@
+binder_call(hal_hdcp_client, hal_hdcp_server)
+binder_call(hal_hdcp_server, hal_hdcp_client)
+
+hal_attribute_hwservice(hal_hdcp, mtk_hal_hdcp_hwservice)

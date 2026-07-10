@@ -1,0 +1,18 @@
+type hal_memtrack_default, domain;
+type hal_memtrack_default_exec, exec_type, file_type, vendor_file_type;
+
+hal_server_domain(hal_memtrack_default, hal_memtrack)
+
+init_daemon_domain(hal_memtrack_default)
+
+allow hal_memtrack debugfs_gpu_img:dir search;
+allow hal_memtrack debugfs_gpu_img:file { getattr open read };
+allow hal_memtrack debugfs_gpu_mali_midgard:file { getattr open read };
+allow hal_memtrack debugfs_gpu_mali_utgard:file { getattr open read };
+allow hal_memtrack debugfs_ion:dir rw_dir_perms;
+allow hal_memtrack debugfs_ion:file { getattr open read };
+allow hal_memtrack proc_ion:dir r_dir_perms;
+allow hal_memtrack proc_ion:file r_file_perms;
+allow hal_memtrack procfs_gpu_img:dir search;
+allow hal_memtrack procfs_gpu_img:file r_file_perms;
+allow hal_memtrack_default proc_memory_usage:file r_file_perms;

@@ -1,0 +1,24 @@
+type hal_keymaster_attestation, domain;
+type hal_keymaster_attestation_exec, exec_type, file_type, vendor_file_type;
+
+hal_client_domain(hal_keymaster_attestation, hal_allocator)
+hal_client_domain(hal_keymaster_attestation, hal_capi)
+
+hal_server_domain(hal_keymaster_attestation, mtk_hal_keyattestation)
+
+hwbinder_use(hal_keymaster_attestation)
+
+init_daemon_domain(hal_keymaster_attestation)
+
+set_prop(hal_keymaster_attestation, vendor_mtk_soter_teei_prop)
+
+unix_socket_connect(hal_keymaster_attestation, property, mobicore)
+
+allow hal_keymaster_attestation mnt_vendor_file:dir search;
+allow hal_keymaster_attestation mobicore_user_device:chr_file { ioctl open read write };
+allow hal_keymaster_attestation persist_data_file:dir { add_name search write };
+allow hal_keymaster_attestation persist_data_file:file { create getattr open write };
+allow hal_keymaster_attestation tee_device:chr_file { ioctl open read write };
+allow hal_keymaster_attestation teei_client_device:chr_file { ioctl open read write };
+allow hal_keymaster_attestation tkcore_admin_device:chr_file rw_file_perms;
+allow hal_keymaster_attestation ut_keymaster_device:chr_file { ioctl open read write };

@@ -1,0 +1,7 @@
+type hal_tranlog_hwservice, hwservice_manager_type;
+
+add_hwservice(hal_tranlog_server, hal_tranlog_hwservice)
+
+attribute hal_tranlog;
+attribute hal_tranlog_client;
+attribute hal_tranlog_server;

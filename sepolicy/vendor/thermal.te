@@ -1,0 +1,45 @@
+type thermal, domain;
+type thermal_exec, exec_type, file_type, vendor_file_type;
+
+init_daemon_domain(thermal)
+
+net_domain(thermal)
+
+set_prop(thermal, vendor_mtk_thermal_config_prop)
+
+unix_socket_connect(thermal, netd, init)
+unix_socket_connect(thermal, netd, mtkrild)
+unix_socket_connect(thermal, netd, netd)
+unix_socket_connect(thermal, netd, rild)
+unix_socket_connect(thermal, netd, statusd)
+unix_socket_connect(thermal, netd, thermalloadalgod)
+unix_socket_connect(thermal, netd, viarild)
+unix_socket_connect(thermal, property, mtkrild)
+unix_socket_connect(thermal, property, netd)
+unix_socket_connect(thermal, property, rild)
+unix_socket_connect(thermal, property, statusd)
+unix_socket_connect(thermal, property, thermalloadalgod)
+unix_socket_connect(thermal, property, viarild)
+unix_socket_connect(thermal, rild_oem, init)
+unix_socket_connect(thermal, rild_oem, mtkrild)
+unix_socket_connect(thermal, rild_oem, netd)
+unix_socket_connect(thermal, rild_oem, rild)
+unix_socket_connect(thermal, rild_oem, statusd)
+unix_socket_connect(thermal, rild_oem, thermalloadalgod)
+unix_socket_connect(thermal, rild_oem, viarild)
+unix_socket_connect(thermal, rpc, init)
+unix_socket_connect(thermal, rpc, mtkrild)
+unix_socket_connect(thermal, rpc, netd)
+unix_socket_connect(thermal, rpc, rild)
+unix_socket_connect(thermal, rpc, statusd)
+unix_socket_connect(thermal, rpc, thermalloadalgod)
+unix_socket_connect(thermal, rpc, viarild)
+
+vndbinder_use(thermal)
+
+allow thermal proc_mtkcooler:dir search;
+allow thermal proc_thermal:dir search;
+allow thermal proc_thermal:file { open read write };
+allow thermal self:udp_socket create;
+allow thermal self:udp_socket ioctl;
+allow thermal thermal_manager_data_file:file rw_file_perms;

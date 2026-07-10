@@ -1,0 +1,21 @@
+type hal_teeregistry_default, domain;
+type hal_teeregistry_default_exec, exec_type, file_type, vendor_file_type;
+type hal_teeregistry_hwservice, hwservice_manager_type;
+
+binder_call(hal_teeregistry_client, hal_teeregistry_server)
+binder_call(hal_teeregistry_server, hal_teeregistry_client)
+
+hal_attribute_hwservice(hal_teeregistry, hal_teeregistry_hwservice)
+
+hal_client_domain(hal_teeregistry_default, hal_allocator)
+
+hal_server_domain(hal_teeregistry_default, hal_teeregistry)
+
+init_daemon_domain(hal_teeregistry_default)
+
+allow hal_teeregistry_default hidl_memory_hwservice:hwservice_manager find;
+allow hal_teeregistry_default mobicore_admin_device:chr_file rw_file_perms;
+allow hal_teeregistry_default mobicore_data_file:dir { create rename rmdir rw_dir_perms };
+allow hal_teeregistry_default mobicore_data_file:file { create rename rw_file_perms };
+allow hal_teeregistry_default mobicore_user_device:chr_file rw_file_perms;
+allow hal_teeregistry_default mobicore_vendor_file:file r_file_perms;

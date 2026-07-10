@@ -1,0 +1,58 @@
+type pnpmgr, domain;
+type pnpmgr_exec, exec_type, file_type, vendor_file_type;
+type pnpmgr_service, vndservice_manager_type;
+
+add_service(pnpmgr, pnpmgr_service)
+
+binder_call(pnpmgr, merged_hal_service)
+
+get_prop(pnpmgr, hwservicemanager_prop)
+
+hal_client_domain(pnpmgr, hal_power)
+
+hwbinder_use(pnpmgr)
+
+init_daemon_domain(pnpmgr)
+
+set_prop(pnpmgr, vendor_pnpmgr_state_prop)
+
+vndbinder_use(pnpmgr)
+
+allow pnpmgr block_device:dir search;
+allow pnpmgr cgroup:dir { add_name create open read };
+allow pnpmgr cgroup:file { getattr read write };
+allow pnpmgr cgroup_bpf:dir create_dir_perms;
+allow pnpmgr cgroup_bpf:file create_file_perms;
+allow pnpmgr dm_device:blk_file getattr;
+allow pnpmgr input_device:chr_file { ioctl open read write };
+allow pnpmgr input_device:dir { open read search write };
+allow pnpmgr loop_device:blk_file getattr;
+allow pnpmgr pnpmgr_device:chr_file { ioctl open read write };
+allow pnpmgr proc_border_suppression:dir search;
+allow pnpmgr proc_border_suppression:file { getattr open read write };
+allow pnpmgr proc_cgroup:dir r_dir_perms;
+allow pnpmgr proc_cgroup:file rw_file_perms;
+allow pnpmgr proc_dirty:file { open read write };
+allow pnpmgr proc_perfmgr:dir { open read search };
+allow pnpmgr proc_perfmgr:dir { read search };
+allow pnpmgr proc_perfmgr:file { open read write };
+allow pnpmgr proc_ppm:dir r_dir_perms;
+allow pnpmgr proc_ppm:dir search;
+allow pnpmgr proc_ppm:file { open read write };
+allow pnpmgr proc_ppm:file rw_file_perms;
+allow pnpmgr property_socket:sock_file { read write };
+allow pnpmgr sys_pnpmgr_file:dir search;
+allow pnpmgr sys_pnpmgr_file:file { open read write };
+allow pnpmgr sysfs_devices_block:dir r_dir_perms;
+allow pnpmgr sysfs_devices_block:file rw_file_perms;
+allow pnpmgr sysfs_devices_system_cpu:{ dir file } { open read };
+allow pnpmgr sysfs_dm:dir r_dir_perms;
+allow pnpmgr sysfs_dm:file { getattr open read write };
+allow pnpmgr sysfs_loop:dir { read search };
+allow pnpmgr sysfs_loop:file { open read write };
+allow pnpmgr sysfs_lowmemorykiller:file { open read write };
+allow pnpmgr sysfs_mmcblk:file { open read write };
+allow pnpmgr sysfs_zram:dir { read search };
+allow pnpmgr sysfs_zram:file { open read write };
+allow pnpmgr tmpfs:dir search;
+allow pnpmgr userdata_block_device:blk_file rw_file_perms;

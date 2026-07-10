@@ -1,0 +1,20 @@
+type mtk_pkm_service, domain;
+type mtk_pkm_service_exec, exec_type, file_type, vendor_file_type;
+
+get_prop(mtk_pkm_service, system_mtk_init_svc_md_monitor_prop)
+get_prop(mtk_pkm_service, vendor_mtk_dmc_prop)
+get_prop(mtk_pkm_service, vendor_mtk_ims_eims_pdn_prop)
+get_prop(mtk_pkm_service, vendor_mtk_ims_prop)
+get_prop(mtk_pkm_service, vendor_mtk_radio_prop)
+
+hal_client_domain(mtk_pkm_service, md_monitor_hal)
+hal_client_domain(mtk_pkm_service, mtk_hal_apm)
+
+init_daemon_domain(mtk_pkm_service)
+
+allow mtk_pkm_service md_monitor_vendor_file:dir r_dir_perms;
+allow mtk_pkm_service md_monitor_vendor_file:file r_file_perms;
+allow mtk_pkm_service self:capability net_raw;
+allow mtk_pkm_service self:{ packet_socket udp_socket } create_socket_perms;
+
+allowxperm mtk_pkm_service self:{ packet_socket udp_socket } ioctl { SIOCGIFINDEX SIOCGSTAMP };

@@ -1,0 +1,19 @@
+type fuelgauged, domain;
+type fuelgauged_exec, exec_type, file_type, vendor_file_type;
+
+init_daemon_domain(fuelgauged)
+
+r_dir_file(fuelgauged, sysfs_batteryinfo)
+
+allow fuelgauged input_device:dir rw_dir_perms;
+allow fuelgauged input_device:file r_file_perms;
+allow fuelgauged kernel:system module_request;
+allow fuelgauged kmsg_device:chr_file w_file_perms;
+allow fuelgauged mnt_vendor_file:dir search;
+allow fuelgauged mtk-adc-cali_device:chr_file rw_file_perms;
+allow fuelgauged nvcfg_file:dir create_dir_perms;
+allow fuelgauged nvcfg_file:file create_file_perms;
+allow fuelgauged self:capability { chown fsetid };
+allow fuelgauged self:netlink_route_socket { bind create getattr nlmsg_read nlmsg_write read write };
+allow fuelgauged self:netlink_socket create;
+allow fuelgauged self:netlink_socket create_socket_perms_no_ioctl;

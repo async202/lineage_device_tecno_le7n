@@ -1,0 +1,48 @@
+type stucklogo, coredomain, domain;
+type stucklogo_exec, exec_type, file_type, system_file_type;
+
+binder_call(stucklogo, tnev)
+
+get_prop(stucklogo, hwservicemanager_prop)
+get_prop(stucklogo, system_boot_reason_prop)
+
+hwbinder_use(stucklogo)
+
+init_daemon_domain(stucklogo)
+
+allow stucklogo aee_aed:file { getattr open read };
+allow stucklogo aee_aedv:dir { getattr open read search };
+allow stucklogo aee_aedv:file { getattr open read };
+allow stucklogo apexd_prop:file open;
+allow stucklogo crash_dump:file { getattr open read };
+allow stucklogo init:dir { getattr open read search };
+allow stucklogo init:file { getattr open read };
+allow stucklogo installd:file { getattr open read };
+allow stucklogo kernel:dir { getattr open read search };
+allow stucklogo kernel:file { getattr open read };
+allow stucklogo kernel:system syslog_mod;
+allow stucklogo logcat_exec:file { open read x_file_perms };
+allow stucklogo logd:unix_stream_socket connectto;
+allow stucklogo logdr_socket:sock_file { getattr open read write };
+allow stucklogo metadata_file:dir getattr;
+allow stucklogo netd:dir { getattr read search };
+allow stucklogo netd:file read;
+allow stucklogo proc_bootprof:file { getattr open read };
+allow stucklogo proc_kmsg:file { getattr open read };
+allow stucklogo proc_last_kmsg:file { getattr open read };
+allow stucklogo shell_exec:file { open read x_file_perms };
+allow stucklogo stucklogo:capability sys_admin;
+allow stucklogo stucklogo:capability2 syslog;
+allow stucklogo system_file:file execute_no_trans;
+allow stucklogo toolbox_exec:file { open read x_file_perms };
+allow stucklogo tranfs_file:dir { add_name create getattr open read remove_name rmdir search setattr write };
+allow stucklogo tranfs_file:file { append create getattr lock open read setattr unlink write };
+allow stucklogo ueventd:file { getattr read };
+allow stucklogo vdc:dir { getattr open read search };
+allow stucklogo vdc:file { getattr open read };
+allow stucklogo vendor_init:dir { getattr open read search };
+allow stucklogo vendor_init:file { getattr open read };
+allow stucklogo vold:dir { getattr open read search };
+allow stucklogo vold:file { getattr open read };
+allow stucklogo zygote:dir { getattr read };
+allow stucklogo zygote:file read;

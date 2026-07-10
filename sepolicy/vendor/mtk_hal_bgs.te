@@ -1,0 +1,7 @@
+type mtk_hal_bgs_hwservice, hwservice_manager_type;
+
+binder_call(mtk_hal_bgs, platform_app)
+binder_call(mtk_hal_bgs_client, mtk_hal_bgs_server)
+binder_call(mtk_hal_bgs_server, mtk_hal_bgs_client)
+
+hal_attribute_hwservice(mtk_hal_bgs, mtk_hal_bgs_hwservice)

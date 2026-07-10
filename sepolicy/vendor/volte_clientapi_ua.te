@@ -1,0 +1,16 @@
+type volte_clientapi_ua, domain, mtkimsapdomain;
+type volte_clientapi_ua_exec, exec_type, file_type, vendor_file_type;
+type volte_clientapi_ua_hwservice, hwservice_manager_type;
+
+binder_call(volte_clientapi_ua, platform_app)
+binder_call(volte_clientapi_ua, system_app)
+
+get_prop(volte_clientapi_ua, hwservicemanager_prop)
+
+hal_server_domain(volte_clientapi_ua, hal_clientapi)
+
+hwbinder_use(volte_clientapi_ua)
+
+init_daemon_domain(volte_clientapi_ua)
+
+allow volte_clientapi_ua debugfs_tracing:file w_file_perms;

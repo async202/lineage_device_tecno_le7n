@@ -1,0 +1,76 @@
+set_prop(mtkimsmddomain, vendor_mtk_md_version_prop)
+set_prop(mtkimsmddomain, vendor_mtk_network_prop)
+set_prop(mtkimsmddomain, vendor_mtk_operator_id_prop)
+set_prop(mtkimsmddomain, vendor_mtk_radio_prop)
+set_prop(mtkimsmddomain, vendor_mtk_ril_mux_report_case_prop)
+
+unix_socket_connect(mtkimsmddomain, dnsproxyd, init)
+unix_socket_connect(mtkimsmddomain, dnsproxyd, mtkrild)
+unix_socket_connect(mtkimsmddomain, dnsproxyd, rild)
+unix_socket_connect(mtkimsmddomain, dnsproxyd, vtservice_hidl)
+unix_socket_connect(mtkimsmddomain, fwmarkd, init)
+unix_socket_connect(mtkimsmddomain, fwmarkd, mtkrild)
+unix_socket_connect(mtkimsmddomain, fwmarkd, rild)
+unix_socket_connect(mtkimsmddomain, fwmarkd, vtservice_hidl)
+unix_socket_connect(mtkimsmddomain, property, mtkrild)
+unix_socket_connect(mtkimsmddomain, property, rild)
+unix_socket_connect(mtkimsmddomain, property, vtservice_hidl)
+unix_socket_connect(mtkimsmddomain, rild_imsm, init)
+unix_socket_connect(mtkimsmddomain, rild_imsm, mtkrild)
+unix_socket_connect(mtkimsmddomain, rild_imsm, rild)
+unix_socket_connect(mtkimsmddomain, rild_imsm, vtservice_hidl)
+unix_socket_connect(mtkimsmddomain, rild_mal, init)
+unix_socket_connect(mtkimsmddomain, rild_mal, mtkrild)
+unix_socket_connect(mtkimsmddomain, rild_mal, rild)
+unix_socket_connect(mtkimsmddomain, rild_mal, vtservice_hidl)
+unix_socket_connect(mtkimsmddomain, rild_mal_at, init)
+unix_socket_connect(mtkimsmddomain, rild_mal_at, mtkrild)
+unix_socket_connect(mtkimsmddomain, rild_mal_at, rild)
+unix_socket_connect(mtkimsmddomain, rild_mal_at, vtservice_hidl)
+unix_socket_connect(mtkimsmddomain, rild_mal_at_md2, init)
+unix_socket_connect(mtkimsmddomain, rild_mal_at_md2, mtkrild)
+unix_socket_connect(mtkimsmddomain, rild_mal_at_md2, rild)
+unix_socket_connect(mtkimsmddomain, rild_mal_at_md2, vtservice_hidl)
+unix_socket_connect(mtkimsmddomain, rild_mal_md2, init)
+unix_socket_connect(mtkimsmddomain, rild_mal_md2, mtkrild)
+unix_socket_connect(mtkimsmddomain, rild_mal_md2, rild)
+unix_socket_connect(mtkimsmddomain, rild_mal_md2, vtservice_hidl)
+unix_socket_connect(mtkimsmddomain, volte_vt, init)
+unix_socket_connect(mtkimsmddomain, volte_vt, mtkrild)
+unix_socket_connect(mtkimsmddomain, volte_vt, rild)
+unix_socket_connect(mtkimsmddomain, volte_vt, vtservice_hidl)
+unix_socket_connect(mtkimsmddomain, wpa, init)
+unix_socket_connect(mtkimsmddomain, wpa, mtkrild)
+unix_socket_connect(mtkimsmddomain, wpa, rild)
+unix_socket_connect(mtkimsmddomain, wpa, vtservice_hidl)
+
+unix_socket_send(mtkimsmddomain, dnsproxyd, hal_wifi_supplicant_default)
+unix_socket_send(mtkimsmddomain, fwmarkd, hal_wifi_supplicant_default)
+unix_socket_send(mtkimsmddomain, property, hal_wifi_supplicant_default)
+unix_socket_send(mtkimsmddomain, rild_imsm, hal_wifi_supplicant_default)
+unix_socket_send(mtkimsmddomain, rild_mal, hal_wifi_supplicant_default)
+unix_socket_send(mtkimsmddomain, rild_mal_at, hal_wifi_supplicant_default)
+unix_socket_send(mtkimsmddomain, rild_mal_at_md2, hal_wifi_supplicant_default)
+unix_socket_send(mtkimsmddomain, rild_mal_md2, hal_wifi_supplicant_default)
+unix_socket_send(mtkimsmddomain, volte_vt, hal_wifi_supplicant_default)
+unix_socket_send(mtkimsmddomain, wpa, hal_wifi_supplicant_default)
+
+vndbinder_use(mtkimsmddomain)
+
+allow mtkimsmddomain ccci_device:chr_file { ioctl open read write };
+allow mtkimsmddomain ccci_device:chr_file { open read write };
+allow mtkimsmddomain devpts:chr_file { getattr setattr };
+allow mtkimsmddomain devpts:chr_file { ioctl open read write };
+allow mtkimsmddomain devpts:chr_file { open read write };
+allow mtkimsmddomain devpts:chr_file { rw_file_perms setattr };
+allow mtkimsmddomain mal_data_file:dir create_dir_perms;
+allow mtkimsmddomain mal_data_file:file create_file_perms;
+allow mtkimsmddomain self:capability { chown setgid setuid };
+allow mtkimsmddomain self:capability net_raw;
+allow mtkimsmddomain self:capability2 wake_alarm;
+allow mtkimsmddomain self:netlink_route_socket { bind create nlmsg_read write };
+allow mtkimsmddomain sysfs_ccci:dir search;
+allow mtkimsmddomain sysfs_ccci:file r_file_perms;
+allow mtkimsmddomain tmpfs:lnk_file read;
+
+attribute mtkimsmddomain;

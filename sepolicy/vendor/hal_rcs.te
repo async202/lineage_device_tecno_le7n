@@ -1,0 +1,4 @@
+binder_call(hal_rcs_client, hal_rcs_server)
+binder_call(hal_rcs_server, hal_rcs_client)
+
+hal_attribute_hwservice(hal_rcs, volte_rcs_ua_hwservice)

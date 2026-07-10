@@ -1,0 +1,24 @@
+type hal_bootctl_default, domain;
+type hal_bootctl_default_exec, exec_type, file_type, vendor_file_type;
+
+hal_server_domain(hal_bootctl_default, hal_bootctl)
+
+init_daemon_domain(hal_bootctl_default)
+
+allow hal_bootctl_default block_device:dir search;
+allow hal_bootctl_default bootdevice_block_device:blk_file rw_file_perms;
+allow hal_bootctl_default misc_block_device:blk_file rw_file_perms;
+allow hal_bootctl_default misc_sd_device:chr_file rw_file_perms;
+allow hal_bootctl_default para_block_device:blk_file rw_file_perms;
+allow hal_bootctl_default proc_cmdline:file r_file_perms;
+allow hal_bootctl_default rootfs:file { getattr open read };
+allow hal_bootctl_default self:capability sys_rawio;
+allow hal_bootctl_default sysfs:dir { open read };
+allow hal_bootctl_default sysfs_boot_type:file { open read };
+allow hal_bootctl_default sysfs_boot_type:file r_file_perms;
+allow hal_bootctl_default sysfs_dt_firmware_android:dir search;
+allow hal_bootctl_default sysfs_dt_firmware_android:file r_file_perms;
+
+allowxperm hal_bootctl_default bootdevice_block_device:blk_file ioctl { 0x5388 MMC_IOC_CMD };
+
+dontaudit hal_bootctl_default metadata_file:dir search;

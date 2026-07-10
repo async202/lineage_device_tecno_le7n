@@ -1,0 +1,29 @@
+type md_monitor, domain, mlstrustedsubject;
+type md_monitor_exec, exec_type, file_type, vendor_file_type;
+
+add_hwservice(md_monitor, mtk_mdm_hidl_server)
+
+get_prop(md_monitor, hwservicemanager_prop)
+
+hal_server_domain(md_monitor, md_monitor_hal)
+
+hwbinder_use(md_monitor)
+
+init_daemon_domain(md_monitor)
+
+allow md_monitor block_device:dir search;
+allow md_monitor ccci_device:chr_file rw_file_perms;
+allow md_monitor file_contexts_file:file r_file_perms;
+allow md_monitor md_block_device:blk_file r_file_perms;
+allow md_monitor md_monitor_vendor_file:dir { create_dir_perms relabelfrom relabelto };
+allow md_monitor md_monitor_vendor_file:file create_file_perms;
+allow md_monitor mnt_user_file:dir search;
+allow md_monitor mnt_user_file:lnk_file read;
+allow md_monitor sdcardfs:dir create_dir_perms;
+allow md_monitor sdcardfs:file create_file_perms;
+allow md_monitor self:capability chown;
+allow md_monitor storage_file:dir search;
+allow md_monitor storage_file:lnk_file read;
+allow md_monitor sysfs_ccci:dir search;
+allow md_monitor sysfs_ccci:file r_file_perms;
+allow md_monitor tmpfs:lnk_file read;

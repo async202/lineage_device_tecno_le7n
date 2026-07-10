@@ -1,0 +1,10 @@
+type hal_ir_default, domain;
+type hal_ir_default_exec, exec_type, file_type, vendor_file_type;
+
+hal_server_domain(hal_ir_default, hal_ir)
+
+init_daemon_domain(hal_ir_default)
+
+allow hal_ir_default irtx_device:chr_file { ioctl open };
+allow hal_ir_default irtx_device:chr_file { read write };
+allow hal_ir_default irtx_device:chr_file rw_file_perms;

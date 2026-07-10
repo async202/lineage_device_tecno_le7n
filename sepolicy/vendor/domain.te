@@ -1,0 +1,5 @@
+get_prop(domain, mtk_core_property_type)
+get_prop(domain, vendor_security_patch_level_prop)
+
+allow domain debugfs_binder:dir search;
+allow domain exm0_device:chr_file rw_file_perms;

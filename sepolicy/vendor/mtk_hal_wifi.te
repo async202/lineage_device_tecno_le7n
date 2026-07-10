@@ -1,0 +1,8 @@
+type mtk_hal_wifi, domain;
+type mtk_hal_wifi_exec, exec_type, file_type, vendor_file_type;
+
+hal_server_domain(mtk_hal_wifi, hal_wifi)
+
+init_daemon_domain(mtk_hal_wifi)
+
+neverallow mtk_hal_wifi sysfs:file { audit_access entrypoint execmod execute execute_no_trans mounton no_w_file_perms quotaon relabelto watch_mount watch_sb watch_with_perm };

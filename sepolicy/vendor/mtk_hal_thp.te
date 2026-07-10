@@ -1,0 +1,13 @@
+type mtk_hal_thp, domain;
+type mtk_hal_thp_exec, exec_type, file_type, vendor_file_type;
+type mtk_hal_thp_hwservice, hwservice_manager_type;
+
+hal_server_domain(mtk_hal_thp, hal_thp)
+
+init_daemon_domain(mtk_hal_thp)
+
+allow mtk_hal_thp gdix_mt_wrapper_device:chr_file rw_file_perms;
+allow mtk_hal_thp gdix_thp_device:chr_file rw_file_perms;
+allow mtk_hal_thp mtk_thp_data_file:dir create_dir_perms;
+allow mtk_hal_thp mtk_thp_data_file:{ fifo_file file sock_file } create_file_perms;
+allow mtk_hal_thp self:capability sys_nice;

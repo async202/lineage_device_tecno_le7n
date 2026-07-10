@@ -1,0 +1,22 @@
+type netdagent, domain;
+type netdagent_exec, exec_type, file_type, vendor_file_type;
+
+domain_auto_trans(netdagent, netutils_wrapper_exec, netutils_wrapper)
+
+get_prop(netdagent, hwservicemanager_prop)
+
+hal_server_domain(netdagent, mtk_hal_netdagent)
+
+hwbinder_use(netdagent)
+
+init_daemon_domain(netdagent)
+
+set_prop(netdagent, vendor_mtk_netdagent_prop)
+
+allow netdagent devpts:chr_file { open read write };
+allow netdagent hidl_base_hwservice:hwservice_manager add;
+allow netdagent kernel:system module_request;
+allow netdagent mtk_hal_netdagent_hwservice:hwservice_manager { add find };
+allow netdagent proc_net:file { getattr open read write };
+allow netdagent self:netlink_route_socket { bind connect create getattr nlmsg_read nlmsg_write read setopt write };
+allow netdagent usermodehelper:file read;

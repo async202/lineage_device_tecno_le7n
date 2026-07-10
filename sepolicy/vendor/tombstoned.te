@@ -1,0 +1,2 @@
+allow tombstoned crashsplit:unix_stream_socket connectto;
+allow tombstoned tneengine_tnek_file:chr_file w_file_perms;

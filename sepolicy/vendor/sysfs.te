@@ -1,0 +1,1 @@
+neverallow ~{ init tee ueventd vendor_init vold hal_bluetooth_btlinux hal_bluetooth_default hal_drm_default hal_fingerprint_default hal_radio_config_default hal_radio_default hal_usb_default hal_wifi_default hal_wifi_supplicant_default rild hal_drm_clearkey hal_drm_widevine merged_hal_service mtk_hal_bluetooth mtk_hal_power mtk_hal_usb mtk_hal_wifi } sysfs:file *;

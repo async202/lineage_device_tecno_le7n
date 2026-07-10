@@ -1,0 +1,15 @@
+type mtk_hal_usb, domain;
+type mtk_hal_usb_exec, exec_type, file_type, vendor_file_type;
+
+hal_server_domain(mtk_hal_usb, hal_usb)
+hal_server_domain(mtk_hal_usb, hal_usb_gadget)
+
+init_daemon_domain(mtk_hal_usb)
+
+r_dir_file(mtk_hal_usb, sysfs_usb_nonplat)
+
+set_prop(mtk_hal_usb, vendor_mtk_usb_prop)
+
+allow mtk_hal_usb sysfs_usb_nonplat:file w_file_perms;
+
+neverallow mtk_hal_usb sysfs:file { audit_access create entrypoint execmod link mounton no_x_file_perms quotaon rename unlink watch_mount watch_sb watch_with_perm };

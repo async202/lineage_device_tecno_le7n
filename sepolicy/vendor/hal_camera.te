@@ -1,0 +1,12 @@
+type hal_camera_default, domain;
+type hal_camera_default_exec, exec_type, file_type, vendor_file_type;
+
+hal_server_domain(hal_camera_default, hal_camera)
+
+init_daemon_domain(hal_camera_default)
+
+allow hal_camera_default dumpstate:fd use;
+allow hal_camera_default dumpstate:fifo_file write;
+allow hal_camera_default fwk_sensor_hwservice:hwservice_manager find;
+
+neverallow hal_camera_default device:dir { append audit_access execmod execute map mounton no_w_dir_perms quotaon relabelto unlink watch_mount watch_sb watch_with_perm };

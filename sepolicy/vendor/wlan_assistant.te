@@ -1,0 +1,17 @@
+type wlan_assistant, domain;
+type wlan_assistant_exec, exec_type, file_type, vendor_file_type;
+
+init_daemon_domain(wlan_assistant)
+
+set_prop(wlan_assistant, vendor_mtk_nvram_ready_prop)
+
+unix_socket_send(wlan_assistant, property, mtk_agpsd)
+
+allow wlan_assistant agpsd_data_file:dir search;
+allow wlan_assistant agpsd_data_file:sock_file write;
+allow wlan_assistant mnt_vendor_file:dir search;
+allow wlan_assistant nvdata_file:dir { getattr open read search };
+allow wlan_assistant nvdata_file:file { getattr open read };
+allow wlan_assistant self:netlink_generic_socket create_socket_perms_no_ioctl;
+allow wlan_assistant self:udp_socket { create ioctl };
+allow wlan_assistant wmtWifi_device:chr_file { getattr open read write };

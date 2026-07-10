@@ -1,0 +1,13 @@
+type transtorage, domain;
+type transtorage_exec, exec_type, file_type, vendor_file_type;
+
+hal_server_domain(transtorage, hal_transtorage)
+
+hwbinder_use(transtorage)
+
+init_daemon_domain(transtorage)
+
+allow transtorage mnt_vendor_file:dir { add_name create open read search write };
+allow transtorage mnt_vendor_file:file { create getattr open read write };
+allow transtorage persist_data_file:dir { add_name create open read search write };
+allow transtorage persist_data_file:file { append create getattr open read write };

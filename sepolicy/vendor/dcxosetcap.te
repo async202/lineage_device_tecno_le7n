@@ -1,0 +1,9 @@
+type dcxosetcap, domain;
+type dcxosetcap_exec, exec_type, file_type, vendor_file_type;
+
+init_daemon_domain(dcxosetcap)
+
+allow dcxosetcap mnt_vendor_file:dir search;
+allow dcxosetcap nvdata_file:dir { add_name search write };
+allow dcxosetcap nvdata_file:file { getattr open read write };
+allow dcxosetcap sysfs_dcxo:file { open read write };

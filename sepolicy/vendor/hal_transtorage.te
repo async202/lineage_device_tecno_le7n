@@ -1,0 +1,6 @@
+type hal_transtorage_hwservice, hwservice_manager_type;
+
+add_hwservice(hal_transtorage_server, hal_transtorage_hwservice)
+
+attribute hal_transtorage;
+attribute hal_transtorage_server;

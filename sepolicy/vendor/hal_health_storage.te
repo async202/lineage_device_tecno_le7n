@@ -1,0 +1,6 @@
+type hal_health_storage_default, domain;
+type hal_health_storage_default_exec, exec_type, file_type, vendor_file_type;
+
+hal_server_domain(hal_health_storage_default, hal_health_storage)
+
+init_daemon_domain(hal_health_storage_default)

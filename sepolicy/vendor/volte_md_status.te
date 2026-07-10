@@ -1,0 +1,8 @@
+type volte_md_status, domain, mtkimsmddomain;
+type volte_md_status_exec, exec_type, file_type, vendor_file_type;
+
+init_daemon_domain(volte_md_status)
+
+set_prop(volte_md_status, vendor_mtk_md_status_prop)
+
+allow volte_md_status ccci_device:chr_file rw_file_perms;

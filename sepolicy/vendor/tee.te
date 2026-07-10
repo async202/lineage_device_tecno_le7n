@@ -1,0 +1,66 @@
+type tee_exec, exec_type, file_type, vendor_file_type;
+
+init_daemon_domain(tee)
+
+r_dir_file(tee, sysfs_type)
+
+set_prop(tee, vendor_mtk_soter_teei_prop)
+set_prop(tee, vendor_mtk_trustkernel_tee_prop)
+
+allow tee block_device:dir search;
+allow tee bootdevice_block_device:blk_file rw_file_perms;
+allow tee ion_device:chr_file r_file_perms;
+allow tee kmsg_device:chr_file { open write };
+allow tee mnt_vendor_file:dir { add_name create open read search write };
+allow tee mnt_vendor_file:dir search;
+allow tee mnt_vendor_file:file { create getattr open read write };
+allow tee nvram_device:blk_file { getattr open read write };
+allow tee nvram_device:blk_file rw_file_perms;
+allow tee persist_data_file:dir { add_name create open read search write };
+allow tee persist_data_file:dir search;
+allow tee persist_data_file:file { create getattr open read write };
+allow tee proc_tkcore:dir search;
+allow tee proc_tkcore:file rw_file_perms;
+allow tee protect_f_data_file:dir search;
+allow tee rpmb_block_device:blk_file rw_file_perms;
+allow tee rpmb_device:chr_file rw_file_perms;
+allow tee self:capability { setgid setuid sys_rawio };
+allow tee self:capability setuid;
+allow tee self:capability sys_module;
+allow tee self:capability sys_rawio;
+allow tee self:global_capability_class_set dac_override;
+allow tee self:{ netlink_generic_socket netlink_socket } create_socket_perms_no_ioctl;
+allow tee system_data_file:{ file lnk_file } { getattr read };
+allow tee tee:capability sys_rawio;
+allow tee tee_data_file:dir create_dir_perms;
+allow tee tee_data_file:dir rw_dir_perms;
+allow tee tee_data_file:file create_file_perms;
+allow tee tee_device:chr_file rw_file_perms;
+allow tee teei_client_device:chr_file { create rw_file_perms setattr unlink };
+allow tee teei_config_device:chr_file rw_file_perms;
+allow tee teei_control_file:dir { open read search };
+allow tee teei_control_file:{ file lnk_file } { open read write };
+allow tee teei_data_file:dir create_dir_perms;
+allow tee teei_data_file:file create_file_perms;
+allow tee teei_data_file:file rw_file_perms;
+allow tee teei_rpmb_device:blk_file { ioctl open read write };
+allow tee teei_rpmb_device:chr_file rw_file_perms;
+allow tee teei_vfs_device:chr_file rw_file_perms;
+allow tee tkcore_admin_device:chr_file rw_file_perms;
+allow tee tkcore_data_file:dir create_dir_perms;
+allow tee tkcore_data_file:file { create_file_perms link };
+allow tee tkcore_log_file:file create_file_perms;
+allow tee tkcore_protect_data_file:dir create_dir_perms;
+allow tee tkcore_protect_data_file:file { create_file_perms link };
+allow tee tkcore_spta_file:dir create_dir_perms;
+allow tee tkcore_spta_file:file create_file_perms;
+allow tee tkcore_systa_file:dir r_dir_perms;
+allow tee tkcore_systa_file:file r_file_perms;
+allow tee ut_keymaster_device:chr_file rw_file_perms;
+
+allowxperm tee bootdevice_block_device:blk_file ioctl { 0xb301 DVD_WRITE_STRUCT };
+allowxperm tee rpmb_block_device:blk_file ioctl { 0x5388 0xb301 DVD_WRITE_STRUCT MMC_IOC_CMD };
+allowxperm tee rpmb_device:chr_file ioctl { 0x5388 0xb301 DVD_WRITE_STRUCT MMC_IOC_CMD };
+
+neverallow tee sysfs:file { audit_access entrypoint execmod execute execute_no_trans mounton no_w_file_perms quotaon relabelto watch_mount watch_sb watch_with_perm };
+neverallow tee system_data_file:file { audit_access entrypoint execmod execute execute_no_trans ioctl lock map mounton no_w_file_perms open quotaon relabelto watch watch_mount watch_reads watch_sb watch_with_perm };

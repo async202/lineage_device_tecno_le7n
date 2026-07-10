@@ -1,0 +1,10 @@
+type hal_bluetooth_btlinux, domain;
+type hal_bluetooth_btlinux_exec, exec_type, file_type, vendor_file_type;
+
+hal_server_domain(hal_bluetooth_btlinux, hal_bluetooth)
+
+init_daemon_domain(hal_bluetooth_btlinux)
+
+allow hal_bluetooth_btlinux self:{ bluetooth_socket socket } { bind create read write };
+
+neverallow hal_bluetooth_btlinux sysfs:file { audit_access entrypoint execmod execute execute_no_trans mounton no_w_file_perms quotaon relabelto watch_mount watch_sb watch_with_perm };

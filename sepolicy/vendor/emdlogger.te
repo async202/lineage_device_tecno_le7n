@@ -1,0 +1,49 @@
+get_prop(emdlogger, vendor_mtk_meta_connecttype_prop)
+get_prop(emdlogger, vendor_mtk_usb_prop)
+
+unix_socket_connect(emdlogger, logdr, crash_dump)
+
+allow emdlogger block_device:dir search;
+allow emdlogger ccci_device:chr_file rw_file_perms;
+allow emdlogger eemcs_device:chr_file rw_file_perms;
+allow emdlogger emdlogger:tcp_socket { accept bind listen read setopt write };
+allow emdlogger emdlogger:tcp_socket { bind connect create setopt };
+allow emdlogger file_contexts_file:file { getattr open read };
+allow emdlogger kernel:system syslog_read;
+allow emdlogger logcat_exec:file rx_file_perms;
+allow emdlogger md_block_device:blk_file { open read };
+allow emdlogger mdlog_data_file:dir { create_dir_perms relabelto };
+allow emdlogger mdlog_data_file:{ fifo_file file } create_file_perms;
+allow emdlogger mdlog_device:chr_file rw_file_perms;
+allow emdlogger media_rw_data_file:dir create_dir_perms;
+allow emdlogger media_rw_data_file:file create_file_perms;
+allow emdlogger mnt_media_rw_file:dir search;
+allow emdlogger mnt_user_file:dir search;
+allow emdlogger mnt_user_file:lnk_file read;
+allow emdlogger node:tcp_socket node_bind;
+allow emdlogger para_block_device:blk_file { open read write };
+allow emdlogger port:tcp_socket { name_bind name_connect };
+allow emdlogger proc_lk_env:file { ioctl open read write };
+allow emdlogger rootfs:file r_file_perms;
+allow emdlogger sdcard_type:dir create_dir_perms;
+allow emdlogger sdcard_type:file create_file_perms;
+allow emdlogger self:capability chown;
+allow emdlogger storage_file:dir create_dir_perms;
+allow emdlogger storage_file:file create_file_perms;
+allow emdlogger storage_file:lnk_file read;
+allow emdlogger sysfs_boot_info:file r_file_perms;
+allow emdlogger sysfs_boot_mode:file { open read };
+allow emdlogger sysfs_ccci:dir search;
+allow emdlogger sysfs_ccci:file r_file_perms;
+allow emdlogger sysfs_mdinfo:dir search;
+allow emdlogger sysfs_mdinfo:file r_file_perms;
+allow emdlogger system_file:dir read;
+allow emdlogger tmpfs:lnk_file read;
+allow emdlogger tneengine_data_file:dir create_dir_perms;
+allow emdlogger tneengine_data_file:file create_file_perms;
+allow emdlogger ttyGS_device:chr_file rw_file_perms;
+allow emdlogger ttySDIO_device:chr_file rw_file_perms;
+allow emdlogger vendor_configs_file:file map;
+allow emdlogger vfat:dir create_dir_perms;
+allow emdlogger vfat:file create_file_perms;
+allow emdlogger vmodem_device:chr_file rw_file_perms;

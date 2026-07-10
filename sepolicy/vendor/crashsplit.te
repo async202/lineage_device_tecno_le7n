@@ -1,0 +1,13 @@
+type crashsplit, coredomain, domain;
+type crashsplit_exec, exec_type, file_type, system_file_type;
+
+init_daemon_domain(crashsplit)
+
+unix_socket_connect(crashsplit, property, init)
+
+allow crashsplit system_prop:property_service set;
+allow crashsplit tombstone_data_file:dir { add_name create getattr open read remove_name rmdir search setattr write };
+allow crashsplit tombstone_data_file:file { append create getattr lock open read rename setattr unlink write };
+allow crashsplit tranfs_file:dir { add_name create getattr open read remove_name rmdir search setattr write };
+allow crashsplit tranfs_file:file { append create getattr lock open read rename setattr unlink write };
+allow crashsplit tranlog_device:chr_file { ioctl open read write };

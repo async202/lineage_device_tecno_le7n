@@ -1,0 +1,14 @@
+type mobicore, domain;
+type mobicore_exec, exec_type, file_type, vendor_file_type;
+
+init_daemon_domain(mobicore)
+
+allow mobicore mnt_vendor_file:dir search;
+allow mobicore mobicore_admin_device:chr_file rw_file_perms;
+allow mobicore mobicore_data_file:dir { create rename reparent rw_dir_perms };
+allow mobicore mobicore_data_file:file create_file_perms;
+allow mobicore mobicore_tui_device:chr_file { ioctl open read };
+allow mobicore mobicore_user_device:chr_file rw_file_perms;
+allow mobicore persist_data_file:dir ra_dir_perms;
+allow mobicore persist_data_file:file { create getattr open read write };
+allow mobicore unlabeled:dir search;

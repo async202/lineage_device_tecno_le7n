@@ -1,0 +1,31 @@
+allow vold cache_block_device:blk_file getattr;
+allow vold dumpstate:fd use;
+allow vold iso9660:filesystem unmount;
+allow vold mdlog_data_file:dir create_dir_perms;
+allow vold mtd_device:blk_file rw_file_perms;
+allow vold nvcfg_block_device:blk_file getattr;
+allow vold nvdata_device:blk_file getattr;
+allow vold proc_bootprof:file { open write };
+allow vold proc_swaps:file getattr;
+allow vold proc_swaps:file r_file_perms;
+allow vold protect1_block_device:blk_file getattr;
+allow vold protect2_block_device:blk_file getattr;
+allow vold swap_block_device:blk_file getattr;
+allow vold sysfs_usb_nonplat:file w_file_perms;
+allow vold teei_client_device:chr_file { ioctl open read write };
+allow vold tneengine_tnek_file:chr_file w_file_perms;
+allow vold tran_backup_key_file:dir create_dir_perms;
+allow vold tran_backup_key_file:file create_file_perms;
+allow vold tranfs_block_device:blk_file rw_file_perms;
+allow vold tranfs_block_device:dir rw_dir_perms;
+allow vold ut_keymaster_device:chr_file { ioctl open read write };
+
+allowxperm vold dm_device:blk_file ioctl { BLKDISCARD BLKDISCARDZEROES BLKPBSZGET BLKROGET BLKSECDISCARD };
+
+dontaudit vold nvcfg_file:dir r_dir_perms;
+dontaudit vold nvdata_file:dir r_dir_perms;
+dontaudit vold proc_mtkcooler:dir { open read };
+dontaudit vold proc_mtktz:dir { open read };
+dontaudit vold proc_thermal:dir { open read };
+dontaudit vold protect_f_data_file:dir r_dir_perms;
+dontaudit vold protect_s_data_file:dir r_dir_perms;

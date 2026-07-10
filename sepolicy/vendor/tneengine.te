@@ -1,0 +1,30 @@
+type tneengine, coredomain;
+type tneengine_exec, exec_type, file_type, system_file_type;
+
+binder_call(tneengine, tnev)
+
+domain_auto_trans(tneengine, dumpstate_exec, dumpstate)
+
+get_prop(tneengine, hwservicemanager_prop)
+
+hwbinder_use(tneengine)
+
+init_daemon_domain(tneengine)
+
+unix_socket_connect(tneengine, property, init)
+
+allow tneengine activity_service:service_manager find;
+allow tneengine debug_prop:property_service set;
+allow tneengine debugfs_tracing_instances:dir search;
+allow tneengine debugfs_tracing_instances:file { getattr open write };
+allow tneengine hal_tnev_hwservice:hwservice_manager find;
+allow tneengine kmsg_device:chr_file { getattr open relabelto write };
+allow tneengine servicemanager:binder call;
+allow tneengine shell_exec:file { open read x_file_perms };
+allow tneengine system_server:binder call;
+allow tneengine tneengine_data_file:dir { add_name create getattr open read remove_name rmdir search setattr write };
+allow tneengine tneengine_data_file:file { append create getattr lock open read rename setattr unlink write };
+allow tneengine tneengine_tnek_file:chr_file { open read };
+allow tneengine toolbox_exec:file { open read x_file_perms };
+allow tneengine tranfs_file:dir { add_name create getattr open read remove_name rmdir search setattr write };
+allow tneengine tranfs_file:file { append create getattr lock open read rename setattr unlink write };

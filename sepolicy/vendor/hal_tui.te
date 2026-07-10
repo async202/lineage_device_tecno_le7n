@@ -1,0 +1,17 @@
+type hal_tui_default, domain;
+type hal_tui_default_exec, exec_type, file_type, vendor_file_type;
+type hal_tui_hwservice, hwservice_manager_type;
+
+binder_call(hal_tui_client, hal_tui_server)
+
+hal_attribute_hwservice(hal_tui, hal_tui_hwservice)
+
+hal_client_domain(hal_tui_default, hal_allocator)
+
+hal_server_domain(hal_tui_default, hal_tui)
+
+hwbinder_use(hal_tui_default)
+
+init_daemon_domain(hal_tui_default)
+
+allow hal_tui_default utr_tui_device:chr_file { ioctl open read write };

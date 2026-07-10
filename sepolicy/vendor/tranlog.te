@@ -1,0 +1,18 @@
+type tranlog, domain;
+type tranlog_exec, exec_type, file_type, vendor_file_type;
+
+hal_server_domain(tranlog, hal_tranlog)
+
+hwbinder_use(tranlog)
+
+init_daemon_domain(tranlog)
+
+allow tranlog mnt_vendor_file:dir search;
+allow tranlog platform_app:binder call;
+allow tranlog system_server:binder call;
+allow tranlog tranfs_file:dir { add_name create getattr open read remove_name search setattr write };
+allow tranlog tranfs_file:file { append create getattr open read rename setattr unlink write };
+allow tranlog tranlog_data_file:dir { add_name create getattr open read remove_name search setattr write };
+allow tranlog tranlog_data_file:file { append create getattr open read rename setattr unlink write };
+allow tranlog tranlog_device:chr_file { open read write };
+allow tranlog tranlog_sys_file:file { open read write };

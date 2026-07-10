@@ -1,0 +1,8 @@
+type hal_tv_tuner_default, domain;
+type hal_tv_tuner_default_exec, exec_type, file_type, vendor_file_type;
+
+hal_server_domain(hal_tv_tuner_default, hal_tv_tuner)
+
+init_daemon_domain(hal_tv_tuner_default)
+
+allow hal_tv_tuner_default ion_device:chr_file r_file_perms;

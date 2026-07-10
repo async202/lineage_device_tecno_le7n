@@ -1,0 +1,8 @@
+type hal_tnev_hwservice, hwservice_manager_type;
+
+add_hwservice(hal_tnev_server, hal_tnev_hwservice)
+
+allow { domain -ephemeral_app -init -installd -iorapd -isolated_app -mediaprovider -runas_app -servicemanager -simpleperf -untrusted_app -untrusted_app_29 -untrusted_app_27 -untrusted_app_25 -vendor_init -vold } hal_tnev_hwservice:hwservice_manager find;
+
+attribute hal_tnev;
+attribute hal_tnev_server;

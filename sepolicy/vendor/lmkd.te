@@ -1,0 +1,6 @@
+get_prop(lmkd, vendor_default_prop)
+
+allow lmkd system_server:unix_stream_socket connectto;
+
+dontaudit lmkd platform_app:fd use;
+dontaudit lmkd zygote:dir rw_dir_perms;

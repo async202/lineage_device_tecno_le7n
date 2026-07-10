@@ -1,0 +1,284 @@
+type factory, domain;
+type factory_exec, exec_type, file_type, vendor_file_type;
+
+binder_call(factory, mtk_hal_audio)
+
+get_prop(factory, exported3_radio_prop)
+get_prop(factory, vendor_mtk_mediatek_prop)
+
+hal_client_domain(factory, hal_health)
+hal_client_domain(factory, hal_light)
+hal_client_domain(factory, hal_nfc)
+hal_client_domain(factory, hal_power)
+
+init_daemon_domain(factory)
+
+r_dir_file(factory, sysfs_batteryinfo)
+r_dir_file(factory, sysfs_switch)
+
+set_prop(factory, ctl_default_prop)
+set_prop(factory, hwservicemanager_prop)
+set_prop(factory, powerctl_prop)
+set_prop(factory, system_mtk_ctl_emdlogger1_prop)
+set_prop(factory, system_mtk_ctl_mdlogger_prop)
+set_prop(factory, vendor_mtk_audiohal_prop)
+set_prop(factory, vendor_mtk_ctl_ccci_fsd_prop)
+set_prop(factory, vendor_mtk_factory_idle_state_prop)
+set_prop(factory, vendor_mtk_mnld_prop)
+set_prop(factory, vendor_mtk_nfc_nfcstackp_enable_prop)
+
+unix_socket_connect(factory, property, nfcstackp_vendor)
+
+wakelock_use(factory)
+
+allow factory AD5820AF_device:chr_file rw_file_perms;
+allow factory BU6429AF_device:chr_file rw_file_perms;
+allow factory BU64745GWZAF_device:chr_file rw_file_perms;
+allow factory CAM_CAL_DRV_device:chr_file rw_file_perms;
+allow factory DW9714AF_device:chr_file rw_file_perms;
+allow factory DW9714A_device:chr_file rw_file_perms;
+allow factory DW9718AF_device:chr_file rw_file_perms;
+allow factory FM50AF_device:chr_file rw_file_perms;
+allow factory LC898122AF_device:chr_file rw_file_perms;
+allow factory LC898212AF_device:chr_file rw_file_perms;
+allow factory MAIN2AF_device:chr_file rw_file_perms;
+allow factory MAIN3AF_device:chr_file rw_file_perms;
+allow factory MAIN4AF_device:chr_file rw_file_perms;
+allow factory MAINAF_device:chr_file rw_file_perms;
+allow factory MTK_SMI_device:chr_file r_file_perms;
+allow factory MT_pmic_adc_cali_device:chr_file rw_file_perms;
+allow factory MT_pmic_cali_device:chr_file r_file_perms;
+allow factory SUB2AF_device:chr_file rw_file_perms;
+allow factory SUBAF_device:chr_file rw_file_perms;
+allow factory accdet_device:chr_file r_file_perms;
+allow factory adsp_device:chr_file rw_file_perms;
+allow factory agpsd_data_file:dir search;
+allow factory als_ps_device:chr_file r_file_perms;
+allow factory apusys_device:chr_file rw_file_perms;
+allow factory ashmem_device:chr_file execute;
+allow factory ashmem_libcutils_device:chr_file execute;
+allow factory audio_device:chr_file rw_file_perms;
+allow factory audio_device:dir w_dir_perms;
+allow factory audio_ipi_device:chr_file { ioctl open read write };
+allow factory audio_scp_device:chr_file r_file_perms;
+allow factory barometer_device:chr_file r_file_perms;
+allow factory biometric_device:chr_file r_file_perms;
+allow factory block_device:dir w_dir_perms;
+allow factory bootdevice_block_device:blk_file rw_file_perms;
+allow factory cache_block_device:blk_file getattr;
+allow factory camera_dip_device:chr_file rw_file_perms;
+allow factory camera_eeprom_device:chr_file rw_file_perms;
+allow factory camera_fdvt_device:chr_file rw_file_perms;
+allow factory camera_gepf_device:chr_file rw_file_perms;
+allow factory camera_isp_device:chr_file rw_file_perms;
+allow factory camera_mfb_device:chr_file rw_file_perms;
+allow factory camera_owe_device:chr_file rw_file_perms;
+allow factory camera_pipemgr_device:chr_file r_file_perms;
+allow factory camera_rsc_device:chr_file rw_file_perms;
+allow factory camera_sysram_device:chr_file r_file_perms;
+allow factory camera_tsf_device:chr_file rw_file_perms;
+allow factory camera_wpe_device:chr_file rw_file_perms;
+allow factory ccci_device:chr_file rw_file_perms;
+allow factory cct_data_file:dir create_dir_perms;
+allow factory cct_data_file:file create_file_perms;
+allow factory ccu_device:chr_file rw_file_perms;
+allow factory charger_ftm_device:chr_file r_file_perms;
+allow factory debugfs_apusys_midware_queue_mdla:file r_file_perms;
+allow factory debugfs_apusys_midware_queue_vpu:file r_file_perms;
+allow factory debugfs_ion:dir search;
+allow factory debugfs_usb_nonplat:dir search;
+allow factory debugfs_usb_nonplat:file rw_file_perms;
+allow factory devmap_device:chr_file r_file_perms;
+allow factory devpts:chr_file rw_file_perms;
+allow factory dm_device:blk_file { getattr ioctl open read write };
+allow factory ebc_device:chr_file rw_file_perms;
+allow factory eemcs_device:chr_file rw_file_perms;
+allow factory factory:capability chown;
+allow factory factory:capability { net_admin net_raw sys_module };
+allow factory factory:capability { sys_admin sys_boot };
+allow factory factory_vendor_file:dir w_dir_perms;
+allow factory factory_vendor_file:file create_file_perms;
+allow factory fingerprint_device:chr_file rw_file_perms;
+allow factory flashlight_device:chr_file rw_file_perms;
+allow factory fm_device:chr_file rw_file_perms;
+allow factory fpsensor_fp_device:chr_file { ioctl open read write };
+allow factory gps_data_file:dir { add_name remove_name search unlink write };
+allow factory gps_data_file:file { append create getattr lock open read setattr unlink write };
+allow factory gps_data_file:lnk_file read;
+allow factory graphics_device:chr_file rw_file_perms;
+allow factory graphics_device:dir w_dir_perms;
+allow factory gsensor_device:chr_file r_file_perms;
+allow factory gsm0710muxd_device:chr_file rw_file_perms;
+allow factory gyroscope_device:chr_file r_file_perms;
+allow factory hal_light_hwservice:hwservice_manager find;
+allow factory hf_manager_device:chr_file rw_file_perms;
+allow factory hrm_device:chr_file r_file_perms;
+allow factory humidity_device:chr_file r_file_perms;
+allow factory input_device:chr_file r_file_perms;
+allow factory input_device:dir rw_dir_perms;
+allow factory ion_device:chr_file { ioctl open read };
+allow factory ion_device:chr_file rw_file_perms;
+allow factory irtx_device:chr_file rw_file_perms;
+allow factory kd_camera_flashlight_device:chr_file rw_file_perms;
+allow factory kd_camera_hw_device:chr_file rw_file_perms;
+allow factory kernel:system module_request;
+allow factory kmsg_device:chr_file { open write };
+allow factory labeledfs:filesystem unmount;
+allow factory mdla_device:chr_file rw_file_perms;
+allow factory merged_hal_service:binder call;
+allow factory misc_sd_device:chr_file r_file_perms;
+allow factory mmcblk1_block_device:blk_file rw_file_perms;
+allow factory mmcblk1p1_block_device:blk_file rw_file_perms;
+allow factory mnld_device:chr_file rw_file_perms;
+allow factory mnld_exec:file rx_file_perms;
+allow factory mnt_user_file:dir search;
+allow factory mnt_user_file:lnk_file read;
+allow factory msensor_device:chr_file r_file_perms;
+allow factory mtd_device:chr_file rw_file_perms;
+allow factory mtd_device:dir search;
+allow factory mtk_audiohal_data_file:dir create_dir_perms;
+allow factory mtk_audiohal_data_file:dir { open read search };
+allow factory mtk_audiohal_data_file:file { create r_file_perms unlink write };
+allow factory mtk_cmdq_device:chr_file r_file_perms;
+allow factory mtk_hal_audio:binder call;
+allow factory mtk_hal_light:binder call;
+allow factory mtk_kpd_device:chr_file r_file_perms;
+allow factory mtk_mdp_device:chr_file r_file_perms;
+allow factory mtk_mdp_sync:chr_file r_file_perms;
+allow factory node:tcp_socket node_bind;
+allow factory nvdata_device:blk_file rw_file_perms;
+allow factory nvdata_file:dir create_dir_perms;
+allow factory nvdata_file:file create_file_perms;
+allow factory nvdata_file:lnk_file r_file_perms;
+allow factory nvram_data_file:dir create_dir_perms;
+allow factory nvram_data_file:file create_file_perms;
+allow factory nvram_data_file:lnk_file r_file_perms;
+allow factory nvram_device:devfile_class_set rw_file_perms;
+allow factory otg_ftm_device:chr_file rw_file_perms;
+allow factory pmic_ftm_device:chr_file rw_file_perms;
+allow factory port:tcp_socket { name_bind name_connect };
+allow factory pro_info_device:chr_file rw_file_perms;
+allow factory proc_asound:dir { open read search };
+allow factory proc_asound:file { getattr open read write };
+allow factory proc_bootprof:file getattr;
+allow factory proc_bus_input:file r_file_perms;
+allow factory proc_cmdline:file { getattr open read };
+allow factory proc_m4u:file r_file_perms;
+allow factory proc_mrdump_rst:file w_file_perms;
+allow factory proc_net:file { getattr open read };
+allow factory proc_sd_tray:file { open read };
+allow factory proc_version:file { getattr open read };
+allow factory protect1_block_device:blk_file getattr;
+allow factory protect2_block_device:blk_file getattr;
+allow factory rootfs:dir mounton;
+allow factory rtc_device:chr_file rw_file_perms;
+allow factory sdcard_type:dir create_dir_perms;
+allow factory sdcard_type:dir mounton;
+allow factory sdcard_type:dir r_dir_perms;
+allow factory sdcard_type:file create_file_perms;
+allow factory sdcard_type:filesystem unmount;
+allow factory self:capability { fsetid ipc_lock net_admin net_raw sys_admin sys_boot sys_module sys_nice sys_time };
+allow factory self:capability sys_resource;
+allow factory self:netlink_route_socket { bind create getattr nlmsg_read nlmsg_write read write };
+allow factory self:netlink_socket create_socket_perms_no_ioctl;
+allow factory self:process execmem;
+allow factory self:tcp_socket create_stream_socket_perms;
+allow factory self:udp_socket create_socket_perms;
+allow factory selinuxfs:file { read write };
+allow factory seninf_device:chr_file rw_file_perms;
+allow factory silead_fpd_device:chr_file { ioctl open read write };
+allow factory st21nfc_device:chr_file { getattr ioctl open read write };
+allow factory storage_file:dir { add_name create mounton search write };
+allow factory storage_file:lnk_file r_file_perms;
+allow factory storage_file:lnk_file read;
+allow factory stpbt_device:chr_file rw_file_perms;
+allow factory stpgps_device:chr_file rw_file_perms;
+allow factory sw_sync_device:chr_file r_file_perms;
+allow factory sys_mt6577_auxadc:dir r_dir_perms;
+allow factory sys_mt6577_auxadc:file r_file_perms;
+allow factory sysfs:dir { open read };
+allow factory sysfs_android_usb:dir search;
+allow factory sysfs_android_usb:file r_file_perms;
+allow factory sysfs_apusys_midware_queue_mdla:file r_file_perms;
+allow factory sysfs_apusys_midware_queue_vpu:file r_file_perms;
+allow factory sysfs_backlight_file:file { ioctl open read write };
+allow factory sysfs_boot_info:file r_file_perms;
+allow factory sysfs_boot_mode:file { open read };
+allow factory sysfs_boot_type:file { open read };
+allow factory sysfs_breath_blue_pmic_file:file rw_file_perms;
+allow factory sysfs_cc_status:file rw_file_perms;
+allow factory sysfs_ccci:dir search;
+allow factory sysfs_ccci:file r_file_perms;
+allow factory sysfs_chg2_present:file r_file_perms;
+allow factory sysfs_comport_type:file rw_file_perms;
+allow factory sysfs_devices_block:dir search;
+allow factory sysfs_devices_block:file { getattr open read };
+allow factory sysfs_devices_system_cpu:file { read write };
+allow factory sysfs_dt_firmware_android:dir { open read search };
+allow factory sysfs_dt_firmware_android:file { getattr open read };
+allow factory sysfs_fp_name_path:dir { open read search };
+allow factory sysfs_fp_name_path:file { open read write };
+allow factory sysfs_fs_ext4_features:dir search;
+allow factory sysfs_fs_ext4_features:file read;
+allow factory sysfs_gf_spi_tee:dir search;
+allow factory sysfs_gf_spi_tee:file r_file_perms;
+allow factory sysfs_headset:file { open read };
+allow factory sysfs_laser_enable_file:file rw_file_perms;
+allow factory sysfs_laser_info_file:file rw_file_perms;
+allow factory sysfs_leds:dir r_dir_perms;
+allow factory sysfs_leds:dir search;
+allow factory sysfs_leds:file rw_file_perms;
+allow factory sysfs_leds:lnk_file read;
+allow factory sysfs_main2_light_file:file rw_file_perms;
+allow factory sysfs_meta_info:file r_file_perms;
+allow factory sysfs_power:dir r_dir_perms;
+allow factory sysfs_power:file rw_file_perms;
+allow factory sysfs_rt_calib:dir r_dir_perms;
+allow factory sysfs_rt_calib:file rw_file_perms;
+allow factory sysfs_rt_param:dir r_dir_perms;
+allow factory sysfs_rt_param:file rw_file_perms;
+allow factory sysfs_sub_torch_file:file rw_file_perms;
+allow factory sysfs_therm:dir search;
+allow factory sysfs_therm:file { open read write };
+allow factory sysfs_torch_file:file rw_file_perms;
+allow factory sysfs_tpd_setting:dir search;
+allow factory sysfs_tpd_setting:file { getattr open read };
+allow factory sysfs_uart_info:file rw_file_perms;
+allow factory sysfs_usb_nonplat:dir r_dir_perms;
+allow factory sysfs_usb_nonplat:file r_file_perms;
+allow factory sysfs_vbus:file r_file_perms;
+allow factory sysfs_vibrator:dir search;
+allow factory sysfs_vibrator:file { open read write };
+allow factory sysfs_vibrator:file rw_file_perms;
+allow factory sysfs_wide_torch_file:file rw_file_perms;
+allow factory system_block_device:blk_file getattr;
+allow factory teei_client_device:chr_file { ioctl open read write };
+allow factory teei_fp_device:chr_file { ioctl open read write };
+allow factory tmpfs:chr_file rw_file_perms;
+allow factory tmpfs:filesystem unmount;
+allow factory ttyGS_device:chr_file rw_file_perms;
+allow factory ttyMT_device:chr_file rw_file_perms;
+allow factory ttySDIO_device:chr_file rw_file_perms;
+allow factory ttyS_device:chr_file rw_file_perms;
+allow factory usb_device:chr_file rw_file_perms;
+allow factory usb_device:dir r_dir_perms;
+allow factory userdata_block_device:blk_file rw_file_perms;
+allow factory vendor_block_device:blk_file getattr;
+allow factory vendor_file:file execute_no_trans;
+allow factory vendor_nfc_socket:dir { add_name remove_name search write };
+allow factory vendor_nfc_socket:dir w_dir_perms;
+allow factory vendor_nfc_socket:sock_file { create setattr unlink write };
+allow factory vendor_nfc_socket:sock_file create_file_perms;
+allow factory vendor_shell_exec:file { no_x_file_perms open read };
+allow factory vendor_toolbox_exec:file execute_no_trans;
+allow factory vfat:dir { mounton open read search };
+allow factory vfat:dir w_dir_perms;
+allow factory vfat:filesystem { mount unmount };
+allow factory vmodem_device:chr_file rw_file_perms;
+allow factory vpu_device:chr_file rw_file_perms;
+allow factory wmtWifi_device:chr_file rw_file_perms;
+
+allowxperm factory bootdevice_block_device:blk_file ioctl BLKGETSIZE;
+allowxperm factory mmcblk1_block_device:blk_file ioctl BLKGETSIZE;
+allowxperm factory proc_m4u:file ioctl { 0x670b 0x6732 };
+allowxperm factory self:udp_socket ioctl { I2OGETIOPS I2OLCTGET OSIOCGNETADDR OSIOCSNETADDR SIOCADDDLCI SIOCADDMULTI SIOCADDRT SIOCBONDCHANGEACTIVE SIOCBONDENSLAVE SIOCBONDINFOQUERY SIOCBONDRELEASE SIOCBONDSETHWADDR SIOCBONDSLAVEINFOQUERY SIOCBRADDBR SIOCBRADDIF SIOCBRDELBR SIOCBRDELIF SIOCDARP SIOCDELDLCI SIOCDELMULTI SIOCDELRT SIOCDEVPRIVATE SIOCDEVPRIVATE_1 SIOCDEVPRIVATE_2 SIOCDEVPRIVATE_3 SIOCDEVPRIVATE_4 SIOCDEVPRIVATE_5 SIOCDEVPRIVATE_6 SIOCDEVPRIVATE_7 SIOCDEVPRIVATE_8 SIOCDEVPRIVATE_9 SIOCDEVPRIVATE_A SIOCDEVPRIVATE_B SIOCDEVPRIVATE_C SIOCDEVPRIVATE_D SIOCDEVPRIVATE_E SIOCDEVPRIVLAST SIOCDIFADDR SIOCDRARP SIOCETHTOOL SIOCGARP SIOCGIFBR SIOCGIFENCAP SIOCGIFFLAGS SIOCGIFHWADDR SIOCGIFMAP SIOCGIFMEM SIOCGIFMETRIC SIOCGIFPFLAGS SIOCGIFSLAVE SIOCGIFVLAN SIOCGIWAP SIOCGIWAPLIST SIOCGIWAUTH SIOCGIWENCODE SIOCGIWENCODEEXT SIOCGIWESSID SIOCGIWGENIE SIOCGIWNICKN SIOCGIWNWID SIOCGIWSCAN SIOCGMIIPHY SIOCGMIIREG SIOCGRARP SIOCIWFIRST SIOCIWFIRSTPRIV SIOCIWFIRSTPRIV_01 SIOCIWFIRSTPRIV_02 SIOCIWFIRSTPRIV_03 SIOCIWFIRSTPRIV_04 SIOCIWFIRSTPRIV_05 SIOCIWFIRSTPRIV_06 SIOCIWFIRSTPRIV_07 SIOCIWFIRSTPRIV_08 SIOCIWFIRSTPRIV_09 SIOCIWFIRSTPRIV_0A SIOCIWFIRSTPRIV_0B SIOCIWFIRSTPRIV_0C SIOCIWFIRSTPRIV_0D SIOCIWFIRSTPRIV_0E SIOCIWFIRSTPRIV_0F SIOCIWFIRSTPRIV_10 SIOCIWFIRSTPRIV_11 SIOCIWFIRSTPRIV_12 SIOCIWFIRSTPRIV_13 SIOCIWFIRSTPRIV_14 SIOCIWFIRSTPRIV_15 SIOCIWFIRSTPRIV_16 SIOCIWFIRSTPRIV_17 SIOCIWFIRSTPRIV_18 SIOCIWFIRSTPRIV_19 SIOCIWFIRSTPRIV_1A SIOCIWFIRSTPRIV_1B SIOCIWFIRSTPRIV_1C SIOCIWFIRSTPRIV_1D SIOCIWFIRSTPRIV_1E SIOCIWLASTPRIV SIOCKILLADDR SIOCOUTQNSD SIOCPROTOPRIVATE_2 SIOCPROTOPRIVATE_3 SIOCPROTOPRIVATE_4 SIOCPROTOPRIVATE_5 SIOCPROTOPRIVATE_6 SIOCPROTOPRIVATE_7 SIOCPROTOPRIVATE_8 SIOCPROTOPRIVATE_9 SIOCPROTOPRIVATE_A SIOCPROTOPRIVATE_B SIOCPROTOPRIVATE_C SIOCPROTOPRIVATE_D SIOCPROTOPRIVATE_E SIOCPROTOPRIVLAST SIOCRTMSG SIOCSARP SIOCSHWTSTAMP SIOCSIFADDR SIOCSIFBR SIOCSIFBRDADDR SIOCSIFDSTADDR SIOCSIFENCAP SIOCSIFFLAGS SIOCSIFHWADDR SIOCSIFHWBROADCAST SIOCSIFLINK SIOCSIFMAP SIOCSIFMEM SIOCSIFMETRIC SIOCSIFMTU SIOCSIFNAME SIOCSIFNETMASK SIOCSIFPFLAGS SIOCSIFSLAVE SIOCSIFTXQLEN SIOCSIFVLAN SIOCSIWAP SIOCSIWAUTH SIOCSIWENCODE SIOCSIWENCODEEXT SIOCSIWESSID SIOCSIWFRAG SIOCSIWFREQ SIOCSIWGENIE SIOCSIWMLME SIOCSIWMODE SIOCSIWNICKN SIOCSIWNWID SIOCSIWPMKSA SIOCSIWPOWER SIOCSIWPRIV SIOCSIWRANGE SIOCSIWRATE SIOCSIWRETRY SIOCSIWRTS SIOCSIWSCAN SIOCSIWSENS SIOCSIWSPY SIOCSIWSTATS SIOCSIWTXPOW SIOCSMIIREG SIOCSRARP SIOCWANDEV };

@@ -1,0 +1,13 @@
+type hal_paytrigger, domain;
+type hal_paytrigger_exec, exec_type, file_type, vendor_file_type;
+type hal_paytrigger_hwservice, hwservice_manager_type;
+
+get_prop(hal_paytrigger, hwservicemanager_prop)
+
+init_daemon_domain(hal_paytrigger)
+
+allow hal_paytrigger hal_paytrigger_hwservice:binder call;
+allow hal_paytrigger hal_paytrigger_hwservice:hwservice_manager { add find };
+allow hal_paytrigger hidl_base_hwservice:hwservice_manager add;
+allow hal_paytrigger hwservicemanager:binder { call transfer };
+allow hal_paytrigger teei_client_device:chr_file { ioctl open read write };

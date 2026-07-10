@@ -1,0 +1,140 @@
+type rild, domain, mtkimsapdomain;
+type rild_exec, exec_type, file_type, vendor_file_type;
+
+binder_call(rild, mtk_hal_audio)
+
+get_prop(rild, system_boot_reason_prop)
+get_prop(rild, vendor_mtk_cta_support_prop)
+get_prop(rild, vendor_mtk_tel_switch_prop)
+get_prop(rild, vendor_mtk_wfc_serv_prop)
+
+hal_client_domain(rild, hal_audio)
+
+hal_server_domain(rild, hal_telephony)
+
+init_daemon_domain(rild)
+
+net_domain(rild)
+
+set_prop(rild, powerctl_prop)
+set_prop(rild, radio_prop)
+set_prop(rild, vendor_mtk_cdma_prop)
+set_prop(rild, vendor_mtk_ctl_muxreport-daemon_prop)
+set_prop(rild, vendor_mtk_cxp_vendor_prop)
+set_prop(rild, vendor_mtk_gsm0710muxd_prop)
+set_prop(rild, vendor_mtk_hvolte_indicator)
+set_prop(rild, vendor_mtk_ims_eims_pdn_prop)
+set_prop(rild, vendor_mtk_ims_prop)
+set_prop(rild, vendor_mtk_imstestmode_prop)
+set_prop(rild, vendor_mtk_provision_prop)
+set_prop(rild, vendor_mtk_radio_prop)
+set_prop(rild, vendor_mtk_rcs_ua_support_prop)
+set_prop(rild, vendor_mtk_ril_active_md_prop)
+set_prop(rild, vendor_mtk_ril_cdma_report_prop)
+set_prop(rild, vendor_mtk_ril_ipo_prop)
+set_prop(rild, vendor_mtk_ril_mux_report_case_prop)
+set_prop(rild, vendor_mtk_ss_vendor_prop)
+set_prop(rild, vendor_mtk_telephony_sensitive_prop)
+set_prop(rild, vendor_mtk_vilte_prop)
+set_prop(rild, vendor_mtk_vilte_support_prop)
+set_prop(rild, vendor_mtk_vinr_prop)
+set_prop(rild, vendor_mtk_viwifi_prop)
+set_prop(rild, vendor_mtk_viwifi_support_prop)
+set_prop(rild, vendor_mtk_volte_prop)
+set_prop(rild, vendor_mtk_volte_support_prop)
+set_prop(rild, vendor_mtk_vonr_force_prop)
+set_prop(rild, vendor_mtk_vonr_prop)
+set_prop(rild, vendor_mtk_vsim_prop)
+set_prop(rild, vendor_mtk_vt_prop)
+set_prop(rild, vendor_mtk_wfc_prop)
+set_prop(rild, vendor_mtk_wfc_support_prop)
+
+unix_socket_connect(rild, gsmrild, init)
+unix_socket_connect(rild, gsmrild, mtk_agpsd)
+unix_socket_connect(rild, gsmrild, mtkrild)
+unix_socket_connect(rild, gsmrild, statusd)
+unix_socket_connect(rild, gsmrild, viarild)
+unix_socket_connect(rild, netd, init)
+unix_socket_connect(rild, netd, mtk_agpsd)
+unix_socket_connect(rild, netd, mtkrild)
+unix_socket_connect(rild, netd, statusd)
+unix_socket_connect(rild, netd, viarild)
+unix_socket_connect(rild, property, mtk_agpsd)
+unix_socket_connect(rild, property, mtkrild)
+unix_socket_connect(rild, property, statusd)
+unix_socket_connect(rild, property, viarild)
+unix_socket_connect(rild, rild_via, init)
+unix_socket_connect(rild, rild_via, mtk_agpsd)
+unix_socket_connect(rild, rild_via, mtkrild)
+unix_socket_connect(rild, rild_via, statusd)
+unix_socket_connect(rild, rild_via, viarild)
+unix_socket_connect(rild, rild_vsim, init)
+unix_socket_connect(rild, rild_vsim, mtk_agpsd)
+unix_socket_connect(rild, rild_vsim, mtkrild)
+unix_socket_connect(rild, rild_vsim, statusd)
+unix_socket_connect(rild, rild_vsim, viarild)
+
+unix_socket_send(rild, gsmrild, mnld)
+unix_socket_send(rild, netd, mnld)
+unix_socket_send(rild, property, mnld)
+unix_socket_send(rild, rild_via, mnld)
+unix_socket_send(rild, rild_vsim, mnld)
+
+vndbinder_use(rild)
+
+wakelock_use(rild)
+
+allow rild block_device:dir search;
+allow rild bluetooth_efs_file:dir r_dir_perms;
+allow rild bluetooth_efs_file:file r_file_perms;
+allow rild ccci_device:chr_file rw_file_perms;
+allow rild cgroup:dir create_dir_perms;
+allow rild devmap_device:chr_file r_file_perms;
+allow rild devpts:chr_file rw_file_perms;
+allow rild eemcs_device:chr_file rw_file_perms;
+allow rild efs_file:dir create_dir_perms;
+allow rild efs_file:file create_file_perms;
+allow rild em_app:binder call;
+allow rild kernel:system module_request;
+allow rild mal_mfi_socket:sock_file w_file_perms;
+allow rild misc_device:chr_file rw_file_perms;
+allow rild mnt_vendor_file:dir search;
+allow rild mnt_vendor_file:file create_file_perms;
+allow rild mtd_device:dir search;
+allow rild mtk_hal_netdagent_hwservice:hwservice_manager find;
+allow rild mtk_hal_secure_element:binder call;
+allow rild mtk_radio_data_file:dir { add_name open read remove_name search write };
+allow rild mtk_radio_data_file:file { create getattr lock open read unlink write };
+allow rild mtk_radio_device:dir search;
+allow rild netd_socket:sock_file read;
+allow rild netdagent:binder call;
+allow rild nlop_device:chr_file rw_file_perms;
+allow rild nvdata_file:dir create_dir_perms;
+allow rild nvdata_file:file create_file_perms;
+allow rild para_block_device:blk_file rw_file_perms;
+allow rild platform_app:fd use;
+allow rild proc_aed_reboot_reason:file rw_file_perms;
+allow rild proc_cmdline:file r_file_perms;
+allow rild proc_lk_env:file rw_file_perms;
+allow rild proc_net:file w_file_perms;
+allow rild radio:fd use;
+allow rild radio_device:blk_file r_file_perms;
+allow rild radio_device:chr_file rw_file_perms;
+allow rild sdcardfs:dir r_dir_perms;
+allow rild self:capability { net_admin net_raw setuid };
+allow rild self:capability setuid;
+allow rild self:capability2 wake_alarm;
+allow rild self:netlink_netfilter_socket create_socket_perms_no_ioctl;
+allow rild self:netlink_route_socket nlmsg_write;
+allow rild self:netlink_xfrm_socket { bind create getattr nlmsg_read nlmsg_write read setopt write };
+allow rild sysfs_ccci:dir search;
+allow rild sysfs_ccci:file r_file_perms;
+allow rild sysfs_vcorefs_pwrctrl:file w_file_perms;
+allow rild system_app:binder call;
+allow rild tty_device:chr_file rw_file_perms;
+allow rild vendor_shell_exec:file execute_no_trans;
+allow rild vendor_toolbox_exec:file execute_no_trans;
+
+neverallow rild proc:file { audit_access entrypoint execmod execute execute_no_trans mounton no_w_file_perms quotaon relabelto watch_mount watch_sb watch_with_perm };
+neverallow rild proc:lnk_file { audit_access execmod execute mounton no_w_file_perms quotaon relabelto watch_mount watch_sb watch_with_perm };
+neverallow rild sysfs:file { audit_access entrypoint execmod execute execute_no_trans mounton no_w_file_perms quotaon relabelto watch_mount watch_sb watch_with_perm };

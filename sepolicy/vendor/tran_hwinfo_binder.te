@@ -1,0 +1,27 @@
+type tran_hwinfo_binder, domain;
+type tran_hwinfo_binder_exec, exec_type, file_type, vendor_file_type;
+type tran_hwinfo_binder_hwservice, hwservice_manager_type;
+
+hal_client_domain(tran_hwinfo_binder, hal_sensors)
+
+hal_server_domain(tran_hwinfo_binder, hal_tranhwinfo)
+
+hwbinder_use(tran_hwinfo_binder)
+
+init_daemon_domain(tran_hwinfo_binder)
+
+allow tran_hwinfo_binder proc_cmdline:file r_file_perms;
+allow tran_hwinfo_binder sysfs_batteryinfo:dir r_dir_perms;
+allow tran_hwinfo_binder sysfs_batteryinfo:file r_file_perms;
+allow tran_hwinfo_binder sysfs_boot_info:file r_file_perms;
+allow tran_hwinfo_binder sysfs_devices_block:dir r_dir_perms;
+allow tran_hwinfo_binder sysfs_emmc_cid_file:file r_file_perms;
+allow tran_hwinfo_binder sysfs_emmc_frmver_file:file r_file_perms;
+allow tran_hwinfo_binder sysfs_emmc_health_file:file r_file_perms;
+allow tran_hwinfo_binder sysfs_fp_name_path:dir search;
+allow tran_hwinfo_binder sysfs_fp_name_path:file r_file_perms;
+allow tran_hwinfo_binder sysfs_lcm_name_file:file r_file_perms;
+allow tran_hwinfo_binder sysfs_mtk_tpd_file:dir r_dir_perms;
+allow tran_hwinfo_binder sysfs_mtk_tpd_file:file r_file_perms;
+allow tran_hwinfo_binder sysfs_sensor:dir r_dir_perms;
+allow tran_hwinfo_binder sysfs_sensor:file r_file_perms;

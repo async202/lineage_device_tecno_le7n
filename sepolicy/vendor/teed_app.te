@@ -1,0 +1,21 @@
+type teed_app, coredomain, domain;
+
+add_service(teed_app, tee_service)
+
+app_domain(teed_app)
+
+binder_service(teed_app)
+
+binder_use(teed_app)
+
+hal_client_domain(teed_app, hal_allocator)
+hal_client_domain(teed_app, hal_tee)
+
+allow teed_app activity_service:service_manager find;
+allow teed_app connectivity_service:service_manager find;
+allow teed_app display_service:service_manager find;
+allow teed_app network_management_service:service_manager find;
+allow teed_app notification_service:service_manager find;
+allow teed_app surfaceflinger_service:service_manager find;
+allow teed_app system_app_data_file:dir { getattr search };
+allow teed_app thermal_service:service_manager find;

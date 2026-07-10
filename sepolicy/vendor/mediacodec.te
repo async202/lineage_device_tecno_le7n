@@ -1,0 +1,109 @@
+type mediacodec, domain, mlstrustedsubject;
+type mediacodec_exec, exec_type, file_type, vendor_file_type;
+
+crash_dump_fallback(mediacodec)
+
+hal_client_domain(mediacodec, hal_allocator)
+hal_client_domain(mediacodec, hal_capi)
+hal_client_domain(mediacodec, hal_codec2)
+hal_client_domain(mediacodec, hal_graphics_allocator)
+hal_client_domain(mediacodec, hal_mtkcodecservice)
+hal_client_domain(mediacodec, hal_omx)
+hal_client_domain(mediacodec, hal_power)
+hal_client_domain(mediacodec, hal_pq)
+
+hal_server_domain(mediacodec, hal_codec2)
+hal_server_domain(mediacodec, hal_omx)
+
+init_daemon_domain(mediacodec)
+
+set_prop(mediacodec, vendor_mtk_secure_venc_prop)
+set_prop(mediacodec, vendor_mtk_thermal_config_prop)
+set_prop(mediacodec, vendor_mtk_video_prop)
+set_prop(mediacodec, vendor_mtk_wfd_enable_prop)
+
+unix_socket_connect(mediacodec, property, mobicore)
+unix_socket_connect(mediacodec, property, tombstoned)
+unix_socket_connect(mediacodec, tombstoned_crash, init)
+unix_socket_connect(mediacodec, tombstoned_crash, mobicore)
+
+vndbinder_use(mediacodec)
+
+allow mediacodec M4U_device_device:chr_file rw_file_perms;
+allow mediacodec MJC_device:chr_file { ioctl open read write };
+allow mediacodec MTK_SMI_device:chr_file { ioctl open read };
+allow mediacodec MtkCodecService:binder call;
+allow mediacodec MtkCodecService:binder transfer;
+allow mediacodec Vcodec_device:chr_file rw_file_perms;
+allow mediacodec debugfs_binder:dir search;
+allow mediacodec debugfs_fb:dir search;
+allow mediacodec debugfs_ion:dir search;
+allow mediacodec devmap_device:chr_file ioctl;
+allow mediacodec devmap_device:chr_file r_file_perms;
+allow mediacodec dri_device:chr_file { ioctl open read write };
+allow mediacodec gpu_device:chr_file rw_file_perms;
+allow mediacodec gpu_device:dir search;
+allow mediacodec graphics_device:chr_file { ioctl open read };
+allow mediacodec graphics_device:dir search;
+allow mediacodec ion_device:chr_file rw_file_perms;
+allow mediacodec mediacodec_data_file:dir create_dir_perms;
+allow mediacodec mediacodec_data_file:file create_file_perms;
+allow mediacodec mnt_user_file:dir { read search write };
+allow mediacodec mnt_user_file:lnk_file { read write };
+allow mediacodec mobicore_data_file:dir search;
+allow mediacodec mobicore_data_file:file { getattr open read };
+allow mediacodec mobicore_user_device:chr_file { ioctl open read write };
+allow mediacodec mtk_cmdq_device:chr_file r_file_perms;
+allow mediacodec mtk_mdp_device:chr_file r_file_perms;
+allow mediacodec mtk_mdp_sync:chr_file r_file_perms;
+allow mediacodec mtk_sched_device:chr_file { ioctl open read write };
+allow mediacodec nvdata_file:dir w_dir_perms;
+allow mediacodec nvdata_file:file create_file_perms;
+allow mediacodec nvdata_file:lnk_file read;
+allow mediacodec nvram_data_file:dir w_dir_perms;
+allow mediacodec nvram_data_file:file create_file_perms;
+allow mediacodec nvram_data_file:lnk_file read;
+allow mediacodec persist_data_file:dir search;
+allow mediacodec persist_data_file:file { getattr open read };
+allow mediacodec proc_chip:dir r_dir_perms;
+allow mediacodec proc_chip:file r_file_perms;
+allow mediacodec proc_ged:file rw_file_perms;
+allow mediacodec proc_m4u:file r_file_perms;
+allow mediacodec proc_meminfo:file { getattr open read };
+allow mediacodec proc_mtkcooler:dir search;
+allow mediacodec proc_mtkcooler:file { open read write };
+allow mediacodec proc_mtktz:dir search;
+allow mediacodec proc_mtktz:file { getattr open read write };
+allow mediacodec proc_mtktz:file { open read };
+allow mediacodec proc_secmem:file { ioctl open read write };
+allow mediacodec proc_secmem:file { open read write };
+allow mediacodec proc_thermal:dir search;
+allow mediacodec proc_thermal:file { getattr open read write };
+allow mediacodec sdcard_type:dir { add_name read remove_name search write };
+allow mediacodec sdcard_type:file { append create getattr open read unlink write };
+allow mediacodec sec_device:chr_file r_file_perms;
+allow mediacodec storage_file:lnk_file { open read write };
+allow mediacodec surfaceflinger:fifo_file rw_file_perms;
+allow mediacodec surfaceflinger:file getattr;
+allow mediacodec sw_sync_device:chr_file r_file_perms;
+allow mediacodec sysfs_concurrency_scenario:dir search;
+allow mediacodec sysfs_concurrency_scenario:file rw_file_perms;
+allow mediacodec sysfs_lowmemorykiller:file { open read };
+allow mediacodec system_file:dir r_dir_perms;
+allow mediacodec teei_client_device:chr_file rw_file_perms;
+allow mediacodec thermal_manager_data_file:dir { rw_dir_perms setattr };
+allow mediacodec thermal_manager_data_file:dir search;
+allow mediacodec thermal_manager_data_file:file create_file_perms;
+allow mediacodec tmpfs:dir search;
+allow mediacodec untrusted_app:dir search;
+allow mediacodec vcodec_file:dir create_dir_perms;
+allow mediacodec vcodec_file:file create_file_perms;
+allow mediacodec video_device:chr_file rw_file_perms;
+allow mediacodec video_device:dir search;
+
+allowxperm mediacodec proc_ged:file ioctl { 0x6700 0x6704 0x6705 0x6706 0x6707 0x6708 0x6709 0x670a 0x670b 0x670c 0x670d 0x670e 0x670f 0x6764 0x6765 0x6766 0x6767 0x6768 0x6769 0x676a FUNCTIONFS_CLEAR_HALT FUNCTIONFS_FIFO_FLUSH FUNCTIONFS_FIFO_STATUS };
+allowxperm mediacodec proc_m4u:file ioctl { 0x670a 0x670b 0x671a 0x6732 };
+
+neverallow mediacodec domain:{ rawip_socket tcp_socket udp_socket } *;
+neverallow mediacodec file_type:file execute_no_trans;
+neverallow mediacodec fs_type:file execute_no_trans;
