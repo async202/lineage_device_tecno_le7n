@@ -1,11 +1,11 @@
-type hal_drm_default, domain;
-type hal_drm_default_exec, exec_type, file_type, vendor_file_type;
+# type hal_drm_default, domain;
+# type hal_drm_default_exec, exec_type, file_type, vendor_file_type;
 
-hal_server_domain(hal_drm_default, hal_drm)
+# hal_server_domain(hal_drm_default, hal_drm)
 
-init_daemon_domain(hal_drm_default)
+# init_daemon_domain(hal_drm_default)
 
-vndbinder_use(hal_drm_default)
+# vndbinder_use(hal_drm_default)
 
 allow hal_drm_default debugfs_ion:dir search;
 allow hal_drm_default debugfs_tracing:file write;
