@@ -1,4 +1,3 @@
-typeattribute daemon_prop property_type, vendor_property_type, vendor_internal_property_type;
 typeattribute mtk_default_prop property_type, vendor_property_type, vendor_internal_property_type;
 typeattribute mtk_prop property_type, vendor_property_type, vendor_internal_property_type;
 typeattribute proxy_prop property_type, vendor_property_type, vendor_internal_property_type;
