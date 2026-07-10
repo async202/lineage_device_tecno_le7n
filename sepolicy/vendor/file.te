@@ -445,7 +445,7 @@ type wod_dns_socket, file_type;
 type wod_ipsec_conf_file, data_file_type, file_type;
 type wod_ipsec_socket, file_type;
 type wod_sim_socket, file_type;
-type wpa_data_file, data_file_type, file_type;
+# type wpa_data_file, data_file_type, file_type;
 type wpa_supplicant_data_file, data_file_type, file_type;
 type wpa_wlan0_socket, file_type;
 type xos_secure_data_file, core_data_file_type, data_file_type, file_type;
