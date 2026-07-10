@@ -6,3 +6,4 @@ attribute hal_pq_client;
 attribute hal_pq_server;
 attribute hal_atci_server;
 attribute hal_atci;
+attribute mtkimsmddomain;
