@@ -4,4 +4,3 @@ attribute mtk_hal_aee;
 attribute hal_atci_client;
 attribute hal_pq_client;
 attribute hal_pq_server;
-attribute atci_service_sys;
