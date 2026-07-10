@@ -1,2 +1,3 @@
 attribute mtk_core_property_type;
 attribute mtk_hal_aee_server;
+attribute mtk_hal_aee;
