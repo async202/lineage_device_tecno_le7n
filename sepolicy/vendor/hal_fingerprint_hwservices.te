@@ -1,5 +1,0 @@
-type fp_ext_svc2_service, hwservice_manager_type;
-type silead_fingerprint_hwservice, hwservice_manager_type;
-
-allow hal_fingerprint_default fp_ext_svc2_service:hwservice_manager { add find };
-allow hal_fingerprint_default silead_fingerprint_hwservice:hwservice_manager { add find };
