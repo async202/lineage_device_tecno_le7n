@@ -20,3 +20,4 @@ attribute mtk_hal_em_server;
 attribute mtk_hal_em;
 attribute mtk_hal_fm_server;
 attribute mtk_hal_fm;
+attribute hal_capi_server;
