@@ -1,4 +1,4 @@
-type crash_dump, mlstrustedsubject;
+typeattribute crash_dump mlstrustedsubject;
 
 get_prop(crash_dump, vendor_default_prop)
 
