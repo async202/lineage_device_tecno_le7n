@@ -1,2 +1,0 @@
-allow vendor_init proc:file w_file_perms;
-allow vendor_init fpsensor_data_file:dir { create_dir_perms setattr };
