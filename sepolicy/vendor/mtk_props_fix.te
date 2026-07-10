@@ -1,4 +1,3 @@
-typeattribute vendor_mtk_ct_ir_engmode_prop property_type, vendor_property_type, vendor_internal_property_type;
 typeattribute vendor_mtk_ct_volte_prop property_type, vendor_property_type, vendor_internal_property_type;
 typeattribute vendor_mtk_cta_log_prop property_type, vendor_property_type, vendor_internal_property_type;
 typeattribute vendor_mtk_cta_support_prop property_type, vendor_property_type, vendor_internal_property_type;
