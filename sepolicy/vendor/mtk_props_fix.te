@@ -1,4 +1,3 @@
-typeattribute vendor_mtk_anr_support_prop property_type, vendor_property_type, vendor_internal_property_type;
 typeattribute vendor_mtk_aod_support_prop property_type, vendor_property_type, vendor_internal_property_type;
 typeattribute vendor_mtk_app_prop property_type, vendor_property_type, vendor_internal_property_type;
 typeattribute vendor_mtk_appresolutiontuner_prop property_type, vendor_property_type, vendor_internal_property_type;
