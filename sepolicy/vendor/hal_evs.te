@@ -1,9 +1,9 @@
-type hal_evs_default, domain;
-type hal_evs_default_exec, exec_type, file_type, vendor_file_type;
+# type hal_evs_default, domain;
+# type hal_evs_default_exec, exec_type, file_type, vendor_file_type;
 
-hal_server_domain(hal_evs_default, hal_evs)
+# hal_server_domain(hal_evs_default, hal_evs)
 
-init_daemon_domain(hal_evs_default)
+# init_daemon_domain(hal_evs_default)
 
 allow hal_evs_default automotive_display_service_server:fd use;
 allow hal_evs_default fwk_automotive_display_hwservice:hwservice_manager find;
