@@ -1,5 +1,6 @@
 get_prop(atci_service_sys, vendor_default_prop)
 
+type atci_service_sys, domain;
 hal_client_domain(atci_service_sys, hal_atci)
 
 hwbinder_use(atci_service_sys)
