@@ -131,7 +131,7 @@
 /(system\/vendor|vendor)/bin/wo_ipsec u:object_r:wo_ipsec_exec:s0
 /(system\/vendor|vendor)/bin/wo_starter u:object_r:wo_starter_exec:s0
 /(system\/vendor|vendor)/bin/wo_stroke u:object_r:wo_stroke_exec:s0
-/(vendor|sustem/vendor)/bin/hw/android\.hardware\.confirmationui@1\.0-service u:object_r:hal_confirmationui_default_exec:s0
+# /(vendor|sustem/vendor)/bin/hw/android\.hardware\.confirmationui@1\.0-service u:object_r:hal_confirmationui_default_exec:s0
 # /(vendor|system/vendor)/bin/hw/android\.hardware\.atrace@1\.0-service u:object_r:hal_atrace_default_exec:s0
 # /(vendor|system/vendor)/bin/hw/android\.hardware\.audio(@2\.0-|\.)service u:object_r:hal_audio_default_exec:s0
 # /(vendor|system/vendor)/bin/hw/android\.hardware\.automotive\.audiocontrol@1\.0-service u:object_r:hal_audiocontrol_default_exec:s0
