@@ -4,6 +4,7 @@ type dmc_core_exec, exec_type, file_type, vendor_file_type;
 get_prop(dmc_core, system_mtk_init_svc_md_monitor_prop)
 get_prop(dmc_core, system_mtk_pkm_init_prop)
 
+type md_monitor_hal_client, domain;
 hal_client_domain(dmc_core, md_monitor_hal)
 
 hal_server_domain(dmc_core, mtk_hal_apm)
