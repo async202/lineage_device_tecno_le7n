@@ -1,8 +1,0 @@
-type nfcstackp_vendor, domain;
-type nfcstackp_vendor_exec, exec_type, file_type, vendor_file_type;
-
-init_daemon_domain(nfcstackp_vendor)
-
-allow nfcstackp_vendor st21nfc_device:chr_file rw_file_perms;
-allow nfcstackp_vendor vendor_nfc_socket:dir w_dir_perms;
-allow nfcstackp_vendor vendor_nfc_socket:sock_file create_file_perms;

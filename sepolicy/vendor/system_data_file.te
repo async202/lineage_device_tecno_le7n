@@ -1,2 +1,0 @@
-neverallow { domain -appdomain -coredomain -tee -hal_cas_default -hal_drm_default -hal_drm_clearkey -hal_drm_widevine -merged_hal_service } system_data_file:file *;
-neverallow ~{ appdomain app_zygote init installd iorap_prefetcherd mediadrmserver mediaextractor mediaserver system_server tee toolbox vold vold_prepare_subdirs hal_drm_default hal_drm_clearkey hal_drm_widevine merged_hal_service } system_data_file:file { audit_access entrypoint execmod execute execute_no_trans mounton no_w_file_perms quotaon relabelto watch_mount watch_sb watch_with_perm };

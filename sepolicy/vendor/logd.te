@@ -1,3 +1,0 @@
-get_prop(logd, vendor_mtk_logmuch_prop)
-
-unix_socket_connect(logd, logd, crash_dump)

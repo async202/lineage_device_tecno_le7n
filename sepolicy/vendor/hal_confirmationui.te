@@ -1,6 +1,0 @@
-# type hal_confirmationui_default, domain;
-# type hal_confirmationui_default_exec, exec_type, file_type, vendor_file_type;
-
-# hal_server_domain(hal_confirmationui_default, hal_confirmationui)
-
-# init_daemon_domain(hal_confirmationui_default)

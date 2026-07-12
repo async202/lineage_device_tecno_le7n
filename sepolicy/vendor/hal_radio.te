@@ -1,8 +1,0 @@
-# type hal_radio_default, domain;
-# type hal_radio_default_exec, exec_type, file_type, vendor_file_type;
-
-hal_server_domain(hal_radio_default, hal_telephony)
-
-init_daemon_domain(hal_radio_default)
-
-neverallow hal_radio_default sysfs:file { audit_access entrypoint execmod execute execute_no_trans mounton no_w_file_perms quotaon relabelto watch_mount watch_sb watch_with_perm };

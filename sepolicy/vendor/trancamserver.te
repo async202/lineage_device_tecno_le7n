@@ -1,8 +1,0 @@
-type trancamserver, domain;
-type trancamserver_exec, exec_type, file_type, vendor_file_type;
-
-hal_server_domain(trancamserver, hal_trancamserver)
-
-hwbinder_use(trancamserver)
-
-init_daemon_domain(trancamserver)

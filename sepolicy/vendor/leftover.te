@@ -1,1 +1,0 @@
-hwbinder_use({ appdomain -isolated_app })

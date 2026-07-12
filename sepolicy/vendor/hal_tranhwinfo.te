@@ -1,5 +1,0 @@
-add_hwservice(hal_tranhwinfo, tran_hwinfo_binder_hwservice)
-
-# binder_call(hal_tranhwinfo_client, hal_tranhwinfo_server)
-
-allow hal_tranhwinfo_client tran_hwinfo_binder_hwservice:hwservice_manager find;

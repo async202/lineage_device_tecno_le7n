@@ -1,5 +1,0 @@
-add_hwservice(hal_res_monitor_server, hal_rm_hwservice)
-
-attribute hal_res_monitor;
-attribute hal_res_monitor_client;
-attribute hal_res_monitor_server;

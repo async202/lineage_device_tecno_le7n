@@ -1,6 +1,0 @@
-# type hal_light_default, domain;
-# type hal_light_default_exec, exec_type, file_type, vendor_file_type;
-
-hal_server_domain(hal_light_default, hal_light)
-
-init_daemon_domain(hal_light_default)

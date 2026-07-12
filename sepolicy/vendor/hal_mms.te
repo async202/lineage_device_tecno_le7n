@@ -1,4 +1,0 @@
-binder_call(hal_mms_client, hal_mms_server)
-binder_call(hal_mms_server, hal_mms_client)
-
-hal_attribute_hwservice(hal_mms, mtk_hal_mms_hwservice)

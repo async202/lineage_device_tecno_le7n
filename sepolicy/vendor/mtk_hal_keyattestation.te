@@ -1,5 +1,0 @@
-type mtk_hal_keyattestation_hwservice, hwservice_manager_type;
-
-binder_call(mtk_hal_keyattestation_client, mtk_hal_keyattestation_server)
-
-hal_attribute_hwservice(mtk_hal_keyattestation, mtk_hal_keyattestation_hwservice)

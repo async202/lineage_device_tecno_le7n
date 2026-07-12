@@ -1,4 +1,0 @@
-binder_call(hal_touchll_client, hal_touchll_server)
-binder_call(hal_touchll_server, hal_touchll_client)
-
-hal_attribute_hwservice(hal_touchll, mtk_hal_touchll_hwservice)

@@ -1,7 +1,0 @@
-type hal_tranlogconfig_hwservice, hwservice_manager_type;
-
-add_hwservice(hal_tranlogconfig, hal_tranlogconfig_hwservice)
-
-attribute hal_tranlogconfig;
-attribute hal_tranlogconfig_client;
-attribute hal_tranlogconfig_server;

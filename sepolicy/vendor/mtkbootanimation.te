@@ -1,6 +1,0 @@
-allow mtkbootanimation dri_device:chr_file { ioctl open read write };
-allow mtkbootanimation proc_ged:file rw_file_perms;
-allow mtkbootanimation proc_perfmgr:dir { read search };
-allow mtkbootanimation proc_perfmgr:file { ioctl open read };
-allow mtkbootanimation proc_secmem:file { open read };
-allow mtkbootanimation qemu_pipe_device:chr_file rw_file_perms;

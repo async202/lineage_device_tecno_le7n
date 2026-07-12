@@ -1,1 +1,0 @@
-allow { appdomain -isolated_app } mtk_safe_hwservice_manager_type:hwservice_manager find;

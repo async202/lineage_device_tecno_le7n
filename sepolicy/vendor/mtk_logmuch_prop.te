@@ -1,5 +1,0 @@
-type vendor_mtk_logmuch_prop, mtk_core_property_type;
-
-# vendor_restricted_prop(vendor_mtk_logmuch_prop)
-
-neverallow { domain -cameraserver -init -logd -system_server -vendor_init -em_app -mtk_hal_camera -mtkrild } vendor_mtk_logmuch_prop:property_service set;

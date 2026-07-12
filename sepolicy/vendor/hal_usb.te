@@ -1,8 +1,0 @@
-# type hal_usb_default, domain;
-# type hal_usb_default_exec, exec_type, file_type, vendor_file_type;
-
-hal_server_domain(hal_usb_default, hal_usb)
-
-init_daemon_domain(hal_usb_default)
-
-neverallow hal_usb_default sysfs:file { audit_access create entrypoint execmod link mounton no_x_file_perms quotaon rename unlink watch_mount watch_sb watch_with_perm };

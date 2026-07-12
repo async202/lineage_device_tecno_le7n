@@ -1,2 +1,0 @@
-allow mediaprovider tneengine_data_file:dir getattr;
-allow mediaprovider tneengine_data_file:file read;

@@ -1,3 +1,0 @@
-type aee_exp_vendor_file, data_file_type, file_type;
-
-allow { domain -coredomain -hal_configstore_server -vendor_init } aee_exp_vendor_file:file w_file_perms;

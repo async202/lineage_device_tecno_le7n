@@ -1,6 +1,0 @@
-# type hal_input_classifier_default, domain;
-# type hal_input_classifier_default_exec, exec_type, file_type, vendor_file_type;
-
-hal_server_domain(hal_input_classifier_default, hal_input_classifier)
-
-init_daemon_domain(hal_input_classifier_default)

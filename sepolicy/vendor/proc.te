@@ -1,2 +1,0 @@
-neverallow ~{ audioserver bluetooth init system_server hal_audio_default rild audiocmdservice_atci mtk_hal_audio } proc:lnk_file { audit_access execmod execute ioctl lock map mounton no_w_file_perms open quotaon relabelto watch watch_mount watch_reads watch_sb watch_with_perm };
-neverallow ~{ audioserver bluetooth init system_server vendor_init vold hal_audio_default hal_graphics_allocator_default rild audiocmdservice_atci merged_hal_service mtk_hal_audio } proc:file *;

@@ -1,3 +1,0 @@
-type fp_ext_svc2_service, hwservice_manager_type;
-type transsion_uxdetector_service, app_api_service, ephemeral_app_api_service, service_manager_type;
-type transsion_uxdetectorrest_service, app_api_service, ephemeral_app_api_service, service_manager_type;

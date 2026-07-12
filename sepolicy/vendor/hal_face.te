@@ -1,6 +1,0 @@
-# type hal_face_default, domain;
-# type hal_face_default_exec, exec_type, file_type, vendor_file_type;
-
-# hal_server_domain(hal_face_default, hal_face)
-
-# init_daemon_domain(hal_face_default)

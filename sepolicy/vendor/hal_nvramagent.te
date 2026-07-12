@@ -1,3 +1,0 @@
-binder_call(hal_nvramagent_client, hal_nvramagent_server)
-
-hal_attribute_hwservice(hal_nvramagent, nvram_agent_binder_hwservice)

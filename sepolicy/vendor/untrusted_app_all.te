@@ -1,8 +1,0 @@
-get_prop(untrusted_app_all, vendor_mtk_nn_option_prop)
-
-allow untrusted_app_all debugfs_ion:dir search;
-allow untrusted_app_all proc_mtk_jpeg:file rw_file_perms;
-allow untrusted_app_all sysfs_devices_block:dir search;
-allow untrusted_app_all tee_service:service_manager find;
-
-allowxperm untrusted_app_all proc_mtk_jpeg:file ioctl { 0x7812 0x7813 0x7814 };

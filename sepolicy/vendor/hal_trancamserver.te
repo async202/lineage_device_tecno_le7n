@@ -1,6 +1,0 @@
-type hal_trancamserver_hwservice, hwservice_manager_type;
-
-add_hwservice(hal_trancamserver_server, hal_trancamserver_hwservice)
-
-attribute hal_trancamserver;
-attribute hal_trancamserver_server;

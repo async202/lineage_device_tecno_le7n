@@ -1,14 +1,3 @@
-get_prop(bootanim, vendor_default_prop)
-
-allow bootanim debugfs_ion:dir search;
-allow bootanim dri_device:chr_file { ioctl open read write };
-allow bootanim gpu_device:dir search;
 allow bootanim proc_ged:file rw_file_perms;
-allow bootanim proc_perfmgr:dir r_dir_perms;
-allow bootanim proc_perfmgr:file r_file_perms;
-allow bootanim proc_secmem:file { open read };
-allow bootanim qemu_pipe_device:chr_file rw_file_perms;
-allow bootanim system_prop:property_service set;
-
-allowxperm bootanim proc_ged:file ioctl { 0x6700 0x6704 0x6705 0x6706 0x6707 0x6708 0x6709 0x670a 0x670b 0x670c 0x670d 0x670e 0x670f 0x6764 0x6765 0x6766 0x6767 0x6768 0x6769 0x676a FUNCTIONFS_CLEAR_HALT FUNCTIONFS_FIFO_FLUSH FUNCTIONFS_FIFO_STATUS };
-allowxperm bootanim proc_perfmgr:file ioctl { 0x670f 0x6710 FUNCTIONFS_CLEAR_HALT FUNCTIONFS_FIFO_STATUS };
+allow bootanim proc_ged:dir r_dir_perms;
+allowxperm bootanim proc_ged:file ioctl { 0x6700-0x67ff };
