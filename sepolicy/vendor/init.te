@@ -174,6 +174,7 @@ allow init vbmeta_block_device:lnk_file relabelto;
 allow init vendor_block_device:lnk_file relabelto;
 allow init vendor_file:system module_load;
 allow init volte_imsvt1_socket:sock_file create;
+allow init property_type:file { relabelto setattr };
 allow vendor_init cgroup_bpf:dir create_dir_perms;
 allow vendor_init cgroup_bpf:file create_file_perms;
 allow vendor_init debugfs_tracing_debug:file w_file_perms;
@@ -208,4 +209,3 @@ allowxperm vendor_init self:udp_socket ioctl SIOCSIFFLAGS;
 
 neverallow vendor_init proc:file { append audit_access create entrypoint execmod link mounton no_x_file_perms quotaon relabelfrom relabelto rename unlink watch_mount watch_sb watch_with_perm write };
 neverallow vendor_init sysfs:file { audit_access create entrypoint execmod link mounton no_x_file_perms quotaon rename unlink watch_mount watch_sb watch_with_perm };
-allow init property_type:file { relabelto setattr };
