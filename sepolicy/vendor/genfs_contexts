@@ -300,7 +300,7 @@ genfscon sysfs /bus/platform/drivers/mtk_nanohub/state u:object_r:sysfs_mtk_nano
 genfscon sysfs /devices/platform/charger/Pump_Express u:object_r:sysfs_pump_express:s0
 genfscon sysfs /devices/platform/battery/Pump_Express u:object_r:sysfs_pump_express:s0
 genfscon sysfs /devices/platform/charger/power_supply u:object_r:sysfs_batteryinfo:s0
-genfscon sysfs /devices/virtual/timed_output/vibrator u:object_r:sysfs_vibrator:s0
+# genfscon sysfs /devices/virtual/timed_output/vibrator u:object_r:sysfs_vibrator:s0
 genfscon sysfs /devices/platform/bootdevice/ufstw_lu2 u:object_r:sysfs_ufstw:s0
 genfscon sysfs /class/misc/mali0/device/power_policy u:object_r:sysfs_mali_power_policy:s0
 genfscon sysfs /firmware/devicetree/base/memory/reg u:object_r:sysfs_memory:s0
