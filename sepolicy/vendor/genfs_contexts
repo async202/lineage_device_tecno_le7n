@@ -135,7 +135,7 @@ genfscon proc /driver/thermal u:object_r:proc_thermal:s0
 genfscon proc /battery_status u:object_r:proc_thermal:s0
 genfscon proc /driver/wmt_dbg u:object_r:proc_wmtdbg:s0
 genfscon proc /driver/wmt_aee u:object_r:proc_wmt_aee:s0
-genfscon proc /cpu/alignment u:object_r:proc_cpu_alignment:s0
+# genfscon proc /cpu/alignment u:object_r:proc_cpu_alignment:s0
 genfscon proc /driver/bt_dbg u:object_r:proc_btdbg:s0
 genfscon proc /gesture_state u:object_r:proc_gesture_state:s0
 genfscon proc /driver/icusb u:object_r:proc_icusb:s0
