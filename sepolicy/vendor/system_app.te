@@ -19,6 +19,7 @@ get_prop(system_app, vendor_mtk_vonr_prop)
 get_prop(system_app, vendor_mtk_vt_prop)
 get_prop(system_app, vendor_mtk_wfc_prop)
 
+attribute hal_presence;
 hal_client_domain(system_app, hal_atci)
 hal_client_domain(system_app, hal_clientapi)
 hal_client_domain(system_app, hal_nvramagent)
