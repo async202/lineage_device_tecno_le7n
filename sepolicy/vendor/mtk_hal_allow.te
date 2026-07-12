@@ -1,0 +1,49 @@
+allow hal_audio_default audio_device:chr_file { open read write getattr };
+
+allow hal_sensors_default m_acc_misc_device:chr_file { open read write getattr };
+allow hal_sensors_default m_als_misc_device:chr_file { open read write getattr };
+allow hal_sensors_default m_fusion_misc_device:chr_file { open read write getattr };
+allow hal_sensors_default m_gyro_misc_device:chr_file { open read write getattr };
+allow hal_sensors_default m_mag_misc_device:chr_file { open read write getattr };
+allow hal_sensors_default m_ps_misc_device:chr_file { open read write getattr };
+allow hal_sensors_default m_situ_misc_device:chr_file { open read write getattr };
+allow hal_sensors_default m_step_c_misc_device:chr_file { open read write getattr };
+allow hal_sensors_default sensorlist_device:chr_file { open read write getattr };
+allow hal_sensors_default mnt_vendor_file:dir search;
+
+allow hal_sensors_default sysfs_sensor:dir { open read search getattr };
+allow hal_sensors_default sysfs_sensor:file { open read write getattr };
+
+allow hal_sensors_default sysfs:dir { open read search getattr };
+allow hal_sensors_default sysfs:file { open read write getattr };
+
+allow hal_graphics_composer_default mtk_mdp_sync:chr_file { open read getattr };
+allow hal_graphics_composer_default mtk_cmdq_device:chr_file { open read getattr };
+allow hal_graphics_composer_default vndbinder_device:chr_file { open read write getattr };
+allow hal_graphics_composer_default property_socket:sock_file write;
+allow hal_graphics_composer_default init:unix_stream_socket connectto;
+
+allow hal_memtrack_default proc:dir { open read search getattr };
+allow hal_memtrack_default proc:file { open read getattr };
+
+allow hal_usb_default configfs:dir { open read search getattr };
+allow hal_usb_default configfs:file { open read write getattr };
+
+allow hal_fingerprint_default silead_fpd_device:chr_file { open read write getattr };
+
+allow hal_health_default sysfs:dir { open read search getattr };
+allow hal_health_default sysfs:file { open read getattr };
+
+allow hal_thermal_default self:netlink_kobject_uevent_socket { bind create read setopt };
+
+allow hal_camera_default vndbinder_device:chr_file { open read write getattr };
+allow hal_camera_default default_prop:file { open read getattr };
+allow hal_camera_default mnt_user_file:dir search;
+allow hal_camera_default shell_data_file:dir search;
+
+allow vendor_init system_prop:file { open read getattr };
+allow vendor_init system_data_file:dir { create add_name search write setattr open };
+
+allow tee mnt_vendor_file:dir search;
+allow tee property_socket:sock_file write;
+allow tee init:unix_stream_socket connectto;
