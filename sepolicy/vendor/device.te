@@ -1,4 +1,3 @@
-# MTK-specific device node types
 type ccci_device, dev_type;
 type ccci_monitor_device, dev_type;
 type fpsensor_fp_device, dev_type;
@@ -14,7 +13,6 @@ type mtk_cmdq_device, dev_type;
 type mtk_mdp_sync, dev_type;
 type sensorlist_device, dev_type;
 type silead_fpd_device, dev_type;
-type tranlog_device, dev_type;
 
 type sysfs_sensor, fs_type;
 type sysfs_usb_nonplat, fs_type;
