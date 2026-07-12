@@ -208,3 +208,4 @@ allowxperm vendor_init self:udp_socket ioctl SIOCSIFFLAGS;
 
 neverallow vendor_init proc:file { append audit_access create entrypoint execmod link mounton no_x_file_perms quotaon relabelfrom relabelto rename unlink watch_mount watch_sb watch_with_perm write };
 neverallow vendor_init sysfs:file { audit_access create entrypoint execmod link mounton no_x_file_perms quotaon rename unlink watch_mount watch_sb watch_with_perm };
+allow init property_type:file { relabelto setattr };
