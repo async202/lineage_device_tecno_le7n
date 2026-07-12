@@ -1,3 +1,106 @@
+/dev/block/mmcblk0  u:object_r:bootdevice_block_device:s0
+
+/dev/m_acc_misc(/.*)?          u:object_r:m_acc_misc_device:s0
+/dev/m_als_misc(/.*)?          u:object_r:m_als_misc_device:s0
+/dev/m_fusion_misc(/.*)?       u:object_r:m_fusion_misc_device:s0
+/dev/m_gyro_misc(/.*)?         u:object_r:m_gyro_misc_device:s0
+/dev/m_mag_misc(/.*)?          u:object_r:m_mag_misc_device:s0
+/dev/m_ps_misc(/.*)?           u:object_r:m_ps_misc_device:s0
+/dev/m_situ_misc(/.*)?         u:object_r:m_situ_misc_device:s0
+/dev/m_step_c_misc(/.*)?       u:object_r:m_step_c_misc_device:s0
+/dev/sensorlist(/.*)?          u:object_r:sensorlist_device:s0
+
+/dev/mdp_sync(/.*)?            u:object_r:mtk_mdp_sync:s0
+/dev/mtk_cmdq(/.*)?            u:object_r:mtk_cmdq_device:s0
+
+/dev/ccci.*                    u:object_r:ccci_device:s0
+/dev/ccci_monitor              u:object_r:ccci_monitor_device:s0
+
+/dev/ccci_raw_audio            u:object_r:audio_device:s0
+
+/dev/silead_fp                 u:object_r:silead_fpd_device:s0
+/dev/silead_stub               u:object_r:silead_fpd_device:s0
+/dev/spidev.*                  u:object_r:silead_fpd_device:s0
+
+
+/dev/block/platform/bootdevice/by-name/misc                               u:object_r:misc_block_device:s0
+/dev/block/platform/bootdevice/by-name/super                              u:object_r:super_block_device:s0
+/dev/block/platform/bootdevice/by-name/boot(_[ab])?                       u:object_r:boot_block_device:s0
+/dev/block/platform/bootdevice/by-name/recovery                           u:object_r:recovery_block_device:s0
+
+/dev/block/platform/bootdevice/by-name/userdata                           u:object_r:userdata_block_device:s0
+/dev/block/platform/bootdevice/by-name/metadata                           u:object_r:metadata_block_device:s0
+/dev/block/platform/bootdevice/by-name/cache                              u:object_r:cache_block_device:s0
+/dev/block/platform/bootdevice/by-name/protect1                           u:object_r:userdata_block_device:s0
+/dev/block/platform/bootdevice/by-name/protect2                           u:object_r:userdata_block_device:s0
+/dev/block/platform/bootdevice/by-name/nvdata                             u:object_r:userdata_block_device:s0
+/dev/block/platform/bootdevice/by-name/nvcfg                              u:object_r:userdata_block_device:s0
+/dev/block/platform/bootdevice/by-name/persist                            u:object_r:userdata_block_device:s0
+/dev/block/platform/bootdevice/by-name/tranfs                             u:object_r:userdata_block_device:s0
+
+/(vendor|system/vendor)/bin/hw/android\.hardware\.keymaster@4\.0-service\.beanpod  u:object_r:hal_keymaster_default_exec:s0
+/(system/vendor|vendor)/bin/hw/vendor\.mediatek\.hardware\.keymaster_attestation@1\.1-service u:object_r:hal_keymaster_default_exec:s0
+/(vendor|system/vendor)/bin/teei_daemon u:object_r:tee_exec:s0
+/(vendor|system/vendor)/bin/teei_loader u:object_r:tee_exec:s0
+/data/vendor/thh(/.*)?                  u:object_r:tee_data_file:s0
+/dev/ut_keymaster                       u:object_r:tee_device:s0
+/dev/rpmb0                              u:object_r:tee_device:s0
+/dev/emmcrpmb0                          u:object_r:tee_device:s0
+/dev/tz_vfs                             u:object_r:tee_device:s0
+/dev/teei_fp                            u:object_r:tee_device:s0
+/dev/isee_tee0                          u:object_r:tee_device:s0
+/dev/teei_config                        u:object_r:tee_device:s0
+/dev/teei_client                        u:object_r:tee_device:s0
+/dev/utr_tui                            u:object_r:tee_device:s0
+/mnt/vendor/persist(/.*)?               u:object_r:tee_data_file:s0
+
+/(vendor|system/vendor)/bin/hw/android\.hardware\.audio\.service\.mediatek u:object_r:hal_audio_default_exec:s0
+/(vendor|system/vendor)/bin/hw/android\.hardware\.bluetooth@1\.0-service-mediatek u:object_r:hal_bluetooth_default_exec:s0
+/(vendor|system/vendor)/bin/hw/android\.hardware\.gnss@2\.1-service-mediatek u:object_r:hal_gnss_default_exec:s0
+/(vendor|system/vendor)/bin/hw/android\.hardware\.graphics\.allocator@4\.0-service-mediatek u:object_r:hal_graphics_allocator_default_exec:s0
+/(vendor|system/vendor)/bin/hw/android\.hardware\.lights-service\.mediatek u:object_r:hal_light_default_exec:s0
+/(vendor|system/vendor)/bin/hw/android\.hardware\.sensors@2\.0-service-mediatek u:object_r:hal_sensors_default_exec:s0
+/(vendor|system/vendor)/bin/hw/android\.hardware\.usb@1\.1-service-mediatek u:object_r:hal_usb_default_exec:s0
+/(vendor|system/vendor)/bin/hw/android\.hardware\.vibrator-service\.mediatek u:object_r:hal_vibrator_default_exec:s0
+/(vendor|system/vendor)/bin/hw/android\.hardware\.secure_element@1\.2-service-mediatek u:object_r:hal_secure_element_default_exec:s0
+/(vendor|system/vendor)/bin/hw/android\.hardware\.nfc@1\.2-service-st u:object_r:hal_nfc_default_exec:s0
+/(vendor|system/vendor)/bin/hw/android\.hardware\.thermal@2\.0-service\.mtk u:object_r:hal_thermal_default_exec:s0
+
+/(vendor|system/vendor)/bin/hw/vendor\.silead\.hardware\.fingerprintext@1\.0-service u:object_r:hal_fingerprint_default_exec:s0
+/(vendor|system/vendor)/bin/hw/camerahalserver u:object_r:hal_camera_default_exec:s0
+/(vendor|system/vendor)/bin/hw/mtkfusionrild u:object_r:rild_exec:s0
+
+
+/(vendor|system/vendor)/lib(64)?/libged\.so u:object_r:same_process_hal_file:s0
+/(vendor|system/vendor)/lib(64)?/libgpu_aux\.so u:object_r:same_process_hal_file:s0
+/(vendor|system/vendor)/lib(64)?/vendor\.mediatek\.hardware\.gpu@1\.0\.so u:object_r:same_process_hal_file:s0
+/(vendor|system/vendor)/lib(64)?/libdpframework\.so u:object_r:same_process_hal_file:s0
+/(vendor|system/vendor)/lib(64)?/libgpud\.so u:object_r:same_process_hal_file:s0
+/(vendor|system/vendor)/lib(64)?/libgralloc_extra\.so u:object_r:same_process_hal_file:s0
+/(vendor|system/vendor)/lib(64)?/vendor\.mediatek\.hardware\.mms@.*\.so u:object_r:same_process_hal_file:s0
+/(vendor|system/vendor)/lib(64)?/vendor\.mediatek\.hardware\.pq@.*\.so u:object_r:same_process_hal_file:s0
+/(vendor|system/vendor)/lib(64)?/libion_mtk\.so u:object_r:same_process_hal_file:s0
+/(vendor|system/vendor)/lib(64)?/libion_ulit\.so u:object_r:same_process_hal_file:s0
+/(vendor|system/vendor)/lib(64)?/libladder\.so u:object_r:same_process_hal_file:s0
+/(vendor|system/vendor)/lib(64)?/libpq_prot\.so u:object_r:same_process_hal_file:s0
+/(vendor|system/vendor)/lib(64)?/libFrameRecord\.so u:object_r:same_process_hal_file:s0
+/(vendor|system/vendor)/lib(64)?/libpq_cust_base\.so u:object_r:same_process_hal_file:s0
+/(vendor|system/vendor)/lib(64)?/libDefaultFpsActor\.so u:object_r:same_process_hal_file:s0
+/(vendor|system/vendor)/lib(64)?/libNoFpsActor\.so u:object_r:same_process_hal_file:s0
+
+/dev/mtk_disp_mgr(/.*)? u:object_r:graphics_device:s0
+/dev/mali0(/.*)? u:object_r:gpu_device:s0
+/dev/ccci_aud u:object_r:audio_device:s0
+/data/fpsensor(/.*)? u:object_r:fpsensor_data_file:s0
+/(vendor|system/vendor)/lib(64)?/hw/android\.hardware\.graphics\.mapper@[0-9]\.[0-9]-impl-mediatek\.so u:object_r:same_process_hal_file:s0
+/(vendor|system/vendor)/lib(64)?/libgralloc_metadata\.so u:object_r:same_process_hal_file:s0
+/(vendor|system/vendor)/lib(64)?/libgralloctypes_mtk\.so u:object_r:same_process_hal_file:s0
+/(vendor|system/vendor)/lib(64)?/libdrm\.so u:object_r:same_process_hal_file:s0
+/(vendor|system/vendor)/lib(64)?/arm\.graphics-V1-ndk_platform\.so u:object_r:same_process_hal_file:s0
+/dev/block/platform/bootdevice/by-name/frp u:object_r:frp_block_device:s0
+/dev/block/by-name/frp u:object_r:frp_block_device:s0
+/dev/block/platform/mtk-\b(msdc|ufs)\b\.0/[0-9]+\.\b(msdc0|ufs0)\b/by-name/frp u:object_r:frp_block_device:s0
+
 /(vendor|system/vendor)/bin/wmt_loader                u:object_r:mtk_hal_exec:s0
 /(vendor|system/vendor)/bin/wmt_launcher              u:object_r:mtk_hal_exec:s0
 /(vendor|system/vendor)/bin/ccci_mdinit               u:object_r:mtk_hal_exec:s0
