@@ -1,0 +1,2 @@
+allow hal_wifi_default wmtWifi_device:chr_file { open read write ioctl };
+set_prop(hal_wifi_default, vendor_default_prop)

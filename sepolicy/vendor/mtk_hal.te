@@ -7,3 +7,7 @@ permissive hal_graphics_allocator_default;
 permissive hal_wifi_supplicant_default;
 permissive hal_wifi_hostapd_default;
 permissive hal_bluetooth_default;
+
+set_prop(mtk_hal, ctl_default_prop)
+set_prop(mtk_hal, ctl_start_prop)
+set_prop(mtk_hal, vendor_default_prop)

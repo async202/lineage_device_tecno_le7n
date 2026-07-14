@@ -17,3 +17,4 @@ type tranlog_device, dev_type;
 
 type sysfs_sensor, fs_type;
 type sysfs_usb_nonplat, fs_type;
+type wmtWifi_device, dev_type;

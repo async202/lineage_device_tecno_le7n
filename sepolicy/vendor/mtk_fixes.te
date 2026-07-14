@@ -1,0 +1,31 @@
+
+# Composer & Allocator VNDBINDER IPC
+allow hal_graphics_composer_default hal_graphics_allocator_default:binder { call transfer };
+allow hal_graphics_allocator_default hal_graphics_composer_default:binder { call transfer };
+
+# Composer properties and sockets
+set_prop(hal_graphics_composer_default, vendor_default_prop)
+allow hal_graphics_composer_default self:netlink_kobject_uevent_socket create_socket_perms_no_ioctl;
+
+# Audio / Zygote / System Server
+allow audioserver vendor_default_prop:file { read open getattr map };
+allow zygote vendor_default_prop:file { read open getattr map };
+allow system_server sysfs:file { read open getattr };
+
+
+
+# Vibrator
+allow hal_vibrator_default sysfs_leds:dir search;
+
+# Bluetooth / CCCI (Permissive but let's add them to be safe)
+allow hal_bluetooth_default device:chr_file { read write open };
+allow mtk_hal ccci_device:chr_file ioctl;
+allow mtk_hal hwservicemanager:binder { call transfer };
+
+# Audio to property
+allow hal_audio_default property_socket:sock_file write;
+
+# IPSEC
+allow mtk_hal self:netlink_route_socket read;
+
+

@@ -1,0 +1,4 @@
+allow kernel vendor_file:file { read open };
+allow kernel self:capability { dac_override dac_read_search };
+allow kernel wifi_data_file:dir search;
+allow kernel mnt_user_file:dir search;

@@ -129,3 +129,9 @@
 /(vendor|system/vendor)/bin/getgameserver             u:object_r:mtk_hal_exec:s0
 /(vendor|system/vendor)/bin/wlan_assistant            u:object_r:mtk_hal_exec:s0
 /(vendor|system/vendor)/bin/bp_kmsetkey_ca            u:object_r:mtk_hal_exec:s0
+/dev/socket/rild-oem u:object_r:rild_socket:s0
+/dev/socket/rild-atci u:object_r:rild_socket:s0
+/dev/socket/sap_uim_socket1 u:object_r:rild_socket:s0
+/dev/socket/volte_imsvt1 u:object_r:rild_socket:s0
+/dev/wmtWifi           u:object_r:wmtWifi_device:s0
+/(vendor|system/vendor)/bin/hw/vendor\.mediatek\.hardware\.mtkpower@1\.0-service u:object_r:hal_power_default_exec:s0
