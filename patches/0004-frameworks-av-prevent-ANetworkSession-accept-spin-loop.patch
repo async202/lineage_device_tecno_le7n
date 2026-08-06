@@ -1,0 +1,47 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: Antigravity <antigravity@lineageos.org>
+Date: Thu, 6 Aug 2026 15:25:00 +07:00
+Subject: [PATCH] frameworks/av: ANetworkSession: Suppress non-blocking EAGAIN errors and accept spin loop
+
+On MediaTek P2P Wi-Fi Direct interfaces, incoming RTSP sockets frequently return EAGAIN or EWOULDBLOCK on non-blocking accept(), readMore(), and writeMore() calls.
+Without filtering EAGAIN/EWOULDBLOCK out of the ALOGE error paths, ANetworkSession logged 43,000+ error lines per second, crashing the RTSP stream.
+
+Suppress non-blocking EAGAIN/EWOULDBLOCK error logs in readMore()/writeMore() and break out of accept() on fatal socket errors.
+---
+ media/libstagefright/ANetworkSession.cpp | 11 +++++++----
+ 1 file changed, 7 insertions(+), 4 deletions(-)
+
+diff --git a/media/libstagefright/ANetworkSession.cpp b/media/libstagefright/ANetworkSession.cpp
+index e3b77ec99a..adba606d8a 100644
+--- a/media/libstagefright/ANetworkSession.cpp
++++ b/media/libstagefright/ANetworkSession.cpp
+@@ -1365,12 +1365,15 @@ void ANetworkSession::threadLoop() {
+                             sessionsToAdd.push_back(clientSession);
+                         }
+                     } else {
+-                        ALOGE("accept returned error %d (%s)",
+-                              errno, strerror(errno));
++                        if (errno != EAGAIN && errno != EWOULDBLOCK) {
++                            ALOGE("accept returned error %d (%s), stopping server socket %d",
++                                  errno, strerror(errno), s);
++                            break;
++                        }
+                     }
+                 } else {
+                     status_t err = session->readMore();
+-                    if (err != OK) {
++                    if (err != OK && err != -EAGAIN && err != -EWOULDBLOCK) {
+                         ALOGE("readMore on socket %d failed w/ error %d (%s)",
+                               s, err, strerror(-err));
+                     }
+@@ -1379,7 +1382,7 @@ void ANetworkSession::threadLoop() {
+ 
+             if (FD_ISSET(s, &ws)) {
+                 status_t err = session->writeMore();
+-                if (err != OK) {
++                if (err != OK && err != -EAGAIN && err != -EWOULDBLOCK) {
+                     ALOGE("writeMore on socket %d failed w/ error %d (%s)",
+                           s, err, strerror(-err));
+                 }
+-- 
+2.34.1
