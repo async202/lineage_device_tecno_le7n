@@ -12,7 +12,7 @@ allow audioserver vendor_default_prop:file { read open getattr map };
 allow zygote vendor_default_prop:file { read open getattr map };
 allow system_server sysfs:file { read open getattr };
 
-
+allow fsck_untrusted sysfs:file read;
 
 # Vibrator
 allow hal_vibrator_default sysfs_leds:dir search;
@@ -27,5 +27,80 @@ allow hal_audio_default property_socket:sock_file write;
 
 # IPSEC
 allow mtk_hal self:netlink_route_socket read;
+# RIL and GSM mux
+get_prop(gsm0710muxd, exported3_radio_prop)
+get_prop(gsm0710muxd, vendor_default_prop)
+set_prop(rild, vendor_default_prop)
+get_prop(rild, vendor_default_prop)
+
+allow gsm0710muxd property_socket:sock_file write;
+allow gsm0710muxd init:unix_stream_socket connectto;
+allow gsm0710muxd gsm0710muxd_device:chr_file { read write ioctl open getattr };
+allow gsm0710muxd sysfs:file { read open getattr };
+allow gsm0710muxd devpts:chr_file { setattr read write open getattr ioctl };
+allow gsm0710muxd radio_device:dir { search write add_name };
+allow gsm0710muxd radio_device:lnk_file { create read };
+allow gsm0710muxd radio_device:chr_file { create open read write setattr };
+allow rild vendor_toolbox_exec:file execute_no_trans;
+allow hal_secure_element_default default_android_hwservice:hwservice_manager find;
+allow hal_secure_element_default rild:binder call;
+set_prop(gsm0710muxd, vendor_default_prop)
+
+# RIL needs to add MTK Radio EX
+allow rild default_android_hwservice:hwservice_manager { add find };
+allow rild devpts:chr_file { read write open getattr ioctl };
+
+# Power HAL needs to access GPU sysfs for boosting
+allow hal_power_default sysfs_ged:dir search;
+allow hal_power_default sysfs_ged:file { read write open getattr };
+allow hal_power_default sysfs:file { read write open getattr };
+
+# Allow all domains to access GED for GPU acceleration
+allow domain proc_ged:file { read write open ioctl getattr };
+allowxperm domain proc_ged:file ioctl { 0x6700-0x67ff };
+allow domain sysfs_ged:dir search;
+allow domain sysfs_ged:file { read write open getattr };
+
+# Untrusted apps & Isolated apps (Chromium renderer sandbox)
+allow untrusted_app sysfs:file { open read getattr };
+allow untrusted_app proc_net:file { open read };
+allow untrusted_app proc_tty_drivers:file { open read };
+allow untrusted_app proc_version:file { open read };
+allow untrusted_app device_config_runtime_native_boot_prop:file { open read };
+allow untrusted_app serialno_prop:file { open read };
+allow untrusted_app block_device:dir search;
+
+# MMS Media Memory Subsystem HAL permissions for untrusted_app, isolated_app, and domain
+allow { domain untrusted_app_all isolated_app platform_app system_app } mtk_hal_mms_hwservice:hwservice_manager find;
+allow { domain untrusted_app_all isolated_app platform_app system_app } mtk_hal_mms:binder { call transfer };
+
+allow isolated_app serialno_prop:file { open read getattr };
+allow isolated_app proc_version:file { open read getattr };
+allow isolated_app cgroup:dir { read open getattr };
+allow isolated_app cgroup:file { read open getattr };
+allow isolated_app app_data_file:dir { read open getattr };
+allow isolated_app app_data_file:file { read open getattr setattr };
+
+# USB HAL
+allow hal_usb_default sysfs_dual_role_usb:lnk_file read;
+set_prop(hal_usb_default, vendor_default_prop)
+
+# MediaTek HAL & Sockets
+allow mtk_hal self:netlink_socket { read write };
+allow mtk_hal self:netlink_xfrm_socket read;
+allow mtk_hal mnt_vendor_file:dir { getattr search };
+
+# Vendor Init & Storage
+allow vendor_init block_device:blk_file open;
+
+# System Server
+allow system_server crash_dump:process getpgid;
+allow system_server app_zygote:process getpgid;
+allow system_server proc:file read;
+
+# SurfaceFlinger MDP & CMDQ hardware sync
+allow surfaceflinger mtk_mdp_sync:chr_file { read write open ioctl getattr };
+allow surfaceflinger mtk_mdp_device:chr_file { read write open ioctl getattr };
+allow surfaceflinger mtk_cmdq_device:chr_file { read write open ioctl getattr };
 
 
