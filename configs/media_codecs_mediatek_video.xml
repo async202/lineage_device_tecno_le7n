@@ -118,8 +118,7 @@ Only the three quirks included above are recognized at this point:
             <Limit name="concurrent-instances" max="16" />
             <Limit name="performance-point-1920x1088" value="30" />
         </MediaCodec>
-<!--
-        <MediaCodec name="OMX.MTK.VIDEO.DECODER.AVC.l3" type="video/avc" >
+        <MediaCodec name="OMX.MTK.VIDEO.DECODER.AVC.l3" type="video/avc" update="true">
             <Limit name="size" min="64x64" max="2560x1440" />
             <Quirk name="wants-NAL-fragments" />
             <Quirk name="requires-allocate-on-input-ports" />
