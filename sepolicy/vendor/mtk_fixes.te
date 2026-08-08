@@ -74,14 +74,8 @@ allow untrusted_app block_device:dir search;
 allow { domain untrusted_app_all isolated_app platform_app system_app } mtk_hal_mms_hwservice:hwservice_manager find;
 allow { domain untrusted_app_all isolated_app platform_app system_app } mtk_hal_mms:binder { call transfer };
 
-allow isolated_app serialno_prop:file { open read getattr };
-allow isolated_app proc_version:file { open read getattr };
-allow { appdomain priv_app untrusted_app_all isolated_app } app_data_file:dir { read open getattr search };
-allow { appdomain priv_app untrusted_app_all isolated_app } app_data_file:file { read open getattr setattr map execute };
-allow { appdomain priv_app untrusted_app_all isolated_app } apk_data_file:dir { read open getattr search };
-allow { appdomain priv_app untrusted_app_all isolated_app } apk_data_file:file { read open getattr map execute };
-allow { appdomain priv_app untrusted_app_all isolated_app } dalvikcache_data_file:dir { read open getattr search };
-allow { appdomain priv_app untrusted_app_all isolated_app } dalvikcache_data_file:file { read open getattr map execute };
+allow { domain appdomain priv_app untrusted_app_all isolated_app } { app_data_file apk_data_file dalvikcache_data_file }:dir { read open getattr search };
+allow { domain appdomain priv_app untrusted_app_all isolated_app } { app_data_file apk_data_file dalvikcache_data_file }:file { read open getattr setattr map execute execute_no_trans };
 
 # USB HAL
 allow hal_usb_default sysfs_dual_role_usb:lnk_file read;
