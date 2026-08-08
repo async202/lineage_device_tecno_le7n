@@ -76,10 +76,12 @@ allow { domain untrusted_app_all isolated_app platform_app system_app } mtk_hal_
 
 allow isolated_app serialno_prop:file { open read getattr };
 allow isolated_app proc_version:file { open read getattr };
-allow isolated_app cgroup:dir { read open getattr };
-allow isolated_app cgroup:file { read open getattr };
-allow isolated_app app_data_file:dir { read open getattr };
-allow isolated_app app_data_file:file { read open getattr setattr };
+allow isolated_app app_data_file:dir { read open getattr search };
+allow isolated_app app_data_file:file { read open getattr setattr map execute };
+allow isolated_app apk_data_file:dir { read open getattr search };
+allow isolated_app apk_data_file:file { read open getattr map execute };
+allow isolated_app dalvikcache_data_file:dir { read open getattr search };
+allow isolated_app dalvikcache_data_file:file { read open getattr map execute };
 
 # USB HAL
 allow hal_usb_default sysfs_dual_role_usb:lnk_file read;
