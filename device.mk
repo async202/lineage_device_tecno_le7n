@@ -289,6 +289,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     vendor.mtk.vdec.waitkeyframeforplay=9 \
     ro.vendor.mtk_vdec_waitkeyframeforplay=9 \
     ro.vendor.mtk.vdec.waitkeyframeforplay=9 \
+    ro.vendor.mtk_sec_video_path_support=1 \
     ro.vendor.pref_scale_enable_cfg=1 \
     media.stagefright.thumbnail.prefer_hw_codecs=true \
     vendor.camera.mdp.cz.enable=1 \
