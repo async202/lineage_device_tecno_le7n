@@ -508,3 +508,7 @@ ro.vendor.midtest.flashforward_support=1
 vendor.flash_calibration_duty=1
 vendor.flash_calibration_dutylt=1
 persist.vendor.camera.sub_torch=1
+
+# Display & Backlight instant cutoff
+ro.vendor.display.seamless_dimming=0
+persist.vendor.disp.smooth_dimming=0
