@@ -218,7 +218,8 @@ vendor/lib/libcam3_transerverengine.so
 # Clean HWComposer blobs taken from Redmi Note 9 (merlin) V12.5.4.0.RJOMIXM
 # vendor/lib/libdpframework.so
 # vendor/lib/libged.so
-# vendor/lib/libged.so:vendor/lib/egl/libged.so
+vendor/lib/libcurl.so
+vendor/lib/libgpu_aux.so:vendor/lib/egl/libged.so
 # Clean Mali graphics blobs taken from Redmi Note 9 (merlin) V12.5.4.0.RJOMIXM
 # vendor/lib/libgralloc_extra.so
 # vendor/lib/libgralloc_extra.so:vendor/lib/egl/libgralloc_extra.so
@@ -1701,6 +1702,7 @@ vendor/lib64/libfpspolicy.so
 vendor/lib64/libfsmaudio.so
 vendor/lib64/libgralloc_metadata.so
 vendor/lib64/libgralloctypes_mtk.so
+vendor/lib64/libcurl.so
 vendor/lib64/libhidltransport.so
 vendor/lib64/libgz_gp_client.so
 vendor/lib64/libhevce_sb.ca7.android.so

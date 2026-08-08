@@ -277,8 +277,9 @@ PRODUCT_COPY_FILES += \
 
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 
-# Disable AOSP rild
-PRODUCT_COPY_FILES += device/tecno/le7n/rootdir/etc/rild.rc:vendor/etc/init/rild.rc
+# VNDK & Vendor libraries for mnld GNSS
+PRODUCT_PACKAGES += \
+    libcurl
 
 PRODUCT_COPY_FILES += device/tecno/le7n/rootdir/etc/init.frontal_flash.rc:system/etc/init/init.frontal_flash.rc
 
@@ -300,7 +301,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.lmk.thrashing_limit=10 \
     ro.lmk.thrashing_limit_decay=2 \
     ro.lmk.kill_timeout_ms=100 \
-    persist.sys.mms.bg_apps_limit=60 \
+    persist.sys.mms.bg_apps_limit=64 \
     debug.sf.use_phase_offsets_as_durations=1 \
     debug.sf.late.sf.duration=30000000 \
     debug.sf.late.app.duration=24000000 \
