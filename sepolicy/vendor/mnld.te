@@ -6,16 +6,7 @@ net_domain(mnld)
 hwbinder_use(mnld)
 binder_call(mnld, system_server)
 get_prop(mnld, hwservicemanager_prop)
-
-set_prop(mnld, vendor_mtk_mnld_prop)
-set_prop(mnld, vendor_mtk_radio_prop)
-
-unix_socket_send(mnld, property, atci_service)
-unix_socket_send(mnld, property, lbs_hidl_service)
-unix_socket_send(mnld, property, merged_hal_service)
-unix_socket_send(mnld, property, mtk_agpsd)
-unix_socket_send(mnld, property, mtk_hal_gnss)
-unix_socket_send(mnld, property, hal_gnss_default)
+set_prop(mnld, vendor_default_prop)
 
 allow { mnld hal_gnss hal_gnss_default } mnld_socket:sock_file create_file_perms;
 allow { mnld hal_gnss hal_gnss_default } mnld_data_file:dir create_dir_perms;
