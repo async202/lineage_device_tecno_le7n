@@ -74,8 +74,9 @@ allow untrusted_app block_device:dir search;
 allow { domain untrusted_app_all isolated_app platform_app system_app } mtk_hal_mms_hwservice:hwservice_manager find;
 allow { domain untrusted_app_all isolated_app platform_app system_app } mtk_hal_mms:binder { call transfer };
 
-allow { domain appdomain priv_app untrusted_app_all isolated_app } { app_data_file apk_data_file dalvikcache_data_file }:dir { read open getattr search };
-allow { domain appdomain priv_app untrusted_app_all isolated_app } { app_data_file apk_data_file dalvikcache_data_file }:file { read open getattr setattr map execute execute_no_trans };
+allow { domain zygote app_zygote webview_zygote appdomain priv_app untrusted_app_all isolated_app } { app_data_file apk_data_file dalvikcache_data_file system_data_file }:dir { read open getattr search };
+allow { domain zygote app_zygote webview_zygote appdomain priv_app untrusted_app_all isolated_app } { app_data_file apk_data_file dalvikcache_data_file system_data_file }:file { read open getattr setattr map execute execute_no_trans };
+allow { domain zygote app_zygote webview_zygote appdomain priv_app untrusted_app_all isolated_app } { app_data_file apk_data_file }:lnk_file { read getattr open };
 
 # USB HAL
 allow hal_usb_default sysfs_dual_role_usb:lnk_file read;
