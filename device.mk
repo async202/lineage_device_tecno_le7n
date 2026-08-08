@@ -277,6 +277,9 @@ PRODUCT_COPY_FILES += \
 
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 
+# Disable AOSP rild
+PRODUCT_COPY_FILES += device/tecno/le7n/rootdir/etc/rild.rc:vendor/etc/init/rild.rc
+
 # VNDK & Vendor libraries for mnld GNSS
 PRODUCT_PACKAGES += \
     libcurl
