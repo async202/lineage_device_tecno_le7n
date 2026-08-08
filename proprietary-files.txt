@@ -561,6 +561,7 @@ vendor/lib/libaalservice.so
 # Clean Mali graphics blobs taken from Redmi Note 9 (merlin) V12.5.4.0.RJOMIXM
 # vendor/lib/libgpu_aux.so
 # vendor/lib/libgpu_aux.so:vendor/lib/egl/libgpu_aux.so
+vendor/lib/libhidltransport.so
 vendor/lib/libgpud.so
 # vendor/lib/libgpud.so:vendor/lib/egl/libgpud.so
 vendor/lib/libhwc2onfbadapter.so
@@ -1700,6 +1701,7 @@ vendor/lib64/libfpspolicy.so
 vendor/lib64/libfsmaudio.so
 vendor/lib64/libgralloc_metadata.so
 vendor/lib64/libgralloctypes_mtk.so
+vendor/lib64/libhidltransport.so
 vendor/lib64/libgz_gp_client.so
 vendor/lib64/libhevce_sb.ca7.android.so
 vendor/lib64/libimgsensorca.so

@@ -2,4 +2,23 @@
 <resources>
     <!-- Whether device has physical keys -->
     <bool name="config_showNavigationBar">true</bool>
+
+    <!-- If this is true, the screen will come on when you unplug usb/power/whatever. -->
+    <bool name="config_unplugTurnsOnScreen">true</bool>
+
+    <!-- USB Configuration -->
+    <bool name="config_hasUsbPort">false</bool>
+
+    <!-- IMS & VoLTE Configuration -->
+    <bool name="config_device_volte_available">true</bool>
+    <bool name="config_device_vt_available">true</bool>
+    <bool name="config_device_wfc_available">true</bool>
+    <bool name="config_carrier_volte_available">true</bool>
+    <bool name="config_carrier_volte_tty_supported">true</bool>
+    <bool name="config_dynamic_bind_ims">true</bool>
+    <string name="config_ims_package_override">com.mediatek.ims</string>
+
+    <!-- Instant screen off backlight synchronization -->
+    <bool name="config_animateScreenLights">false</bool>
+    <bool name="config_dozeAfterScreenOff">true</bool>
 </resources>
