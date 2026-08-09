@@ -5,6 +5,7 @@ init_daemon_domain(mtk_agpsd)
 net_domain(mtk_agpsd)
 wakelock_use(mtk_agpsd)
 
+allow mtk_agpsd self:capability { fsetid net_admin net_raw setuid setgid };
 allow mtk_agpsd agps_device:chr_file rw_file_perms;
 allow mtk_agpsd agpsd_data_file:dir create_dir_perms;
 allow mtk_agpsd agpsd_data_file:{ file sock_file } create_file_perms;

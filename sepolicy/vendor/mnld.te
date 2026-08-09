@@ -45,4 +45,6 @@ allow mnld proc_cmdline:file r_file_perms;
 allow mnld sysfs_dt_firmware_android:dir search;
 allow mnld sysfs_dt_firmware_android:file r_file_perms;
 allow mnld default_prop:file r_file_perms;
+allow mnld { protect_f_data_file protect_s_data_file }:dir create_dir_perms;
+allow mnld { protect_f_data_file protect_s_data_file }:file create_file_perms;
 allow mnld mtk_agpsd:unix_dgram_socket sendto;
