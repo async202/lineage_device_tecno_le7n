@@ -17,11 +17,4 @@
     <bool name="config_carrier_volte_tty_supported">true</bool>
     <bool name="config_dynamic_bind_ims">true</bool>
     <string name="config_ims_package_override">com.mediatek.ims</string>
-
-    <!-- Instant screen off backlight synchronization (0ms delay) -->
-    <integer name="config_screenOffAnimationStyle">0</integer>
-    <bool name="config_screenOffAnimation">false</bool>
-    <bool name="config_colorFadeEnabled">false</bool>
-    <bool name="config_animateScreenLights">false</bool>
-    <bool name="config_dozeAfterScreenOff">true</bool>
 </resources>
