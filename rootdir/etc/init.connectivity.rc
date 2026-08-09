@@ -62,7 +62,6 @@ on property:vendor.connsys.driver.ready=yes
     insmod /vendor/lib/modules/gps_drv.ko
 
 on boot
-    start mnld
 
 #
 # Connectivity related services (Begin)
