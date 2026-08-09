@@ -68,7 +68,7 @@ on boot
 #
 # GPS
 service mnld /vendor/bin/mnld
-    class main
+    class main hal
     user gps
     capabilities WAKE_ALARM
     group gps inet misc sdcard_rw sdcard_r media_rw system radio wakelock
