@@ -96,6 +96,7 @@
 /(vendor|system/vendor)/bin/gsm0710muxd  u:object_r:gsm0710muxd_exec:s0
 /(vendor|system/vendor)/bin/emdlogger1?  u:object_r:emdlogger_exec:s0
 /(vendor|system/vendor)/bin/mnld         u:object_r:mnld_exec:s0
+/(vendor|system/vendor)/bin/mtk_agpsd    u:object_r:mtk_agpsd_exec:s0
 
 
 /(vendor|system/vendor)/lib(64)?/libged\.so u:object_r:same_process_hal_file:s0
@@ -245,6 +246,7 @@
 /dev/stpgps2(/.*)? u:object_r:stpgps_device:s0
 /data/vendor/gps(/.*)? u:object_r:gps_data_file:s0
 /data/vendor/log/gps(/.*)? u:object_r:gps_data_file:s0
+/data/vendor/agps_supl(/.*)? u:object_r:agpsd_data_file:s0
 /dev/socket/mrild(/.*)? u:object_r:gsmrild_socket:s0
 /dev/socket/mrild2(/.*)? u:object_r:gsmrild_socket:s0
 /dev/socket/mrild3(/.*)? u:object_r:gsmrild_socket:s0

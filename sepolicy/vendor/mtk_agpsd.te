@@ -1,0 +1,21 @@
+type mtk_agpsd, domain;
+type mtk_agpsd_exec, exec_type, file_type, vendor_file_type;
+
+init_daemon_domain(mtk_agpsd)
+net_domain(mtk_agpsd)
+wakelock_use(mtk_agpsd)
+
+allow mtk_agpsd agps_device:chr_file rw_file_perms;
+allow mtk_agpsd agpsd_data_file:dir create_dir_perms;
+allow mtk_agpsd agpsd_data_file:{ file sock_file } create_file_perms;
+allow mtk_agpsd ccci_device:chr_file { create rw_file_perms setattr unlink };
+allow mtk_agpsd gps_data_file:dir create_dir_perms;
+allow mtk_agpsd gps_data_file:file create_file_perms;
+allow mtk_agpsd mnld:unix_dgram_socket sendto;
+allow mtk_agpsd mnt_user_file:dir create_dir_perms;
+allow mtk_agpsd mnt_user_file:lnk_file create_file_perms;
+allow mtk_agpsd mnt_vendor_file:dir create_dir_perms;
+allow mtk_agpsd mnt_vendor_file:file create_file_perms;
+allow mtk_agpsd nvcfg_file:dir create_dir_perms;
+allow mtk_agpsd nvcfg_file:file create_file_perms;
+allow mtk_agpsd rild:unix_dgram_socket sendto;
