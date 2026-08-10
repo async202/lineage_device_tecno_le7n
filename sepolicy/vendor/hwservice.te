@@ -1,1 +1,10 @@
 type hal_mtkpower_hwservice, hwservice_manager_type;
+type hal_camera_isphal_hwservice, hwservice_manager_type;
+type hal_camera_postproc_hwservice, hwservice_manager_type;
+type hal_camera_bgservice_hwservice, hwservice_manager_type;
+type hal_camera_atms_hwservice, hwservice_manager_type;
+type hal_camera_trancam_hwservice, hwservice_manager_type;
+type mtk_hal_pq_hwservice, hwservice_manager_type;
+type hal_mtkradioex_hwservice, hwservice_manager_type;
+
+

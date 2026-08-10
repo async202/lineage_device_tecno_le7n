@@ -1,2 +1,88 @@
-hal_client_domain(hal_camera_default, hal_graphics_allocator)
+allow hal_camera_default hal_camera_isphal_hwservice:hwservice_manager { add find };
+allow hal_camera_default hal_camera_postproc_hwservice:hwservice_manager { add find };
+allow hal_camera_default hal_camera_bgservice_hwservice:hwservice_manager { add find };
+allow hal_camera_default hal_camera_atms_hwservice:hwservice_manager { add find };
+allow hal_camera_default hal_camera_trancam_hwservice:hwservice_manager { add find };
+
+allow hal_camera_default default_prop:file { map };
+allow hal_camera_default camera_isp_device:chr_file { read write ioctl map open };
 vndbinder_use(hal_camera_default)
+allow hal_camera_default hal_graphics_mapper_hwservice:hwservice_manager find;
+allow hal_camera_default hal_graphics_allocator_hwservice:hwservice_manager find;
+allow hal_camera_default camera_device:chr_file { read write open ioctl getattr map };
+allow hal_camera_default mtk_cmdq_device:chr_file { read ioctl open map };
+allow hal_camera_default MTK_SMI_device:chr_file { read ioctl open map getattr };
+allow hal_camera_default ccu_device:chr_file { read write ioctl open map getattr append };
+allow hal_camera_default vpu_device:chr_file { read write ioctl open map getattr append };
+allow hal_camera_default mdla_device:chr_file { read write ioctl open map getattr append };
+allow hal_camera_default apusys_device:chr_file { read write ioctl open map getattr append };
+allow hal_camera_default camera_dip_device:chr_file { read write ioctl open map getattr append };
+allow hal_camera_default camera_fdvt_device:chr_file { read write ioctl open map getattr append };
+allow hal_camera_default kd_camera_hw_device:chr_file { read write ioctl open map getattr append };
+allow hal_camera_default camera_tsf_device:chr_file { read write ioctl open map getattr append };
+allow hal_camera_default camera_sysram_device:chr_file { read ioctl open map getattr };
+allow hal_camera_default camera_pipemgr_device:chr_file { read ioctl open map getattr };
+allow hal_camera_default camera_mem_device:chr_file { read write ioctl open map getattr append };
+allow hal_camera_default default_android_hwservice:hwservice_manager find;
+
+allow hal_camera_default hal_camera_default:binder { call transfer };
+allow hal_camera_default hal_graphics_allocator_default:binder call;
+allow hal_camera_default mnt_vendor_file:dir search;
+allow hal_camera_default sysfs:file { read write open getattr };
+allow hal_camera_default vendor_data_file:dir { search write add_name read };
+allow hal_camera_default vendor_data_file:file { create read write open getattr };
+
+get_prop(hal_camera_default, vendor_transsion_camera_watermark_support_prop)
+set_prop(hal_camera_default, vendor_mtk_camera_prop)
+set_prop(hal_camera_default, vendor_mtk_logmuch_prop)
+set_prop(hal_camera_default, vendor_mtk_mediatek_prop)
+set_prop(hal_camera_default, vendor_mtk_thermal_config_prop)
+set_prop(hal_camera_default, vendor_mtk_emcamera_prop)
+
+allow hal_camera_default property_socket:sock_file write;
+allow hal_camera_default self:process execmem;
+
+# Data
+allow hal_camera_default transsion_camera_data_file:dir { create rw_dir_perms };
+allow hal_camera_default transsion_camera_data_file:file { create rw_file_perms };
+allow hal_camera_default vendor_arcsoft_data_file:dir { create rw_dir_perms };
+allow hal_camera_default vendor_arcsoft_data_file:file { create rw_file_perms };
+allow hal_camera_default vendor_megvii_data_file:dir { create rw_dir_perms };
+allow hal_camera_default vendor_megvii_data_file:file { create rw_file_perms };
+allow hal_camera_default vendor_camera_dump_file:dir { create rw_dir_perms };
+allow hal_camera_default vendor_camera_dump_file:file { create rw_file_perms };
+
+allow hal_camera_default self:capability sys_nice;
+binder_call(hal_camera_default, system_server)
+binder_call(system_server, hal_camera_default)
+
+allow hal_camera_default hal_mtkpower_hwservice:hwservice_manager find;
+binder_call(hal_camera_default, hal_power_default)
+allow hal_camera_default proc_meminfo:file r_file_perms;
+allow hal_camera_default proc:file r_file_perms;
+allow hal_camera_default hal_graphics_composer_default:fd use;
+allow hal_camera_default MAINAF_device:chr_file rw_file_perms;
+allow hal_camera_default kd_camera_flashlight_device:chr_file { read write ioctl open map getattr append };
+allow hal_camera_default sysfs_sub_torch_file:dir r_dir_perms;
+allow hal_camera_default sysfs_sub_torch_file:file rw_file_perms;
+allow hal_camera_default sysfs_torch_file:dir r_dir_perms;
+allow hal_camera_default sysfs_torch_file:file rw_file_perms;
+allow hal_camera_default sysfs_wide_torch_file:dir r_dir_perms;
+allow hal_camera_default sysfs_wide_torch_file:file rw_file_perms;
+allow hal_camera_default sysfs_leds:dir r_dir_perms;
+allow hal_camera_default sysfs_leds:file rw_file_perms;
+allow hal_camera_default sysfs_leds:lnk_file read;
+
+# NVRAM / Flash Calibration
+allow hal_camera_default nvcfg_file:dir create_dir_perms;
+allow hal_camera_default nvcfg_file:file create_file_perms;
+allow hal_camera_default nvcfg_file:lnk_file read;
+allow hal_camera_default nvdata_file:dir create_dir_perms;
+allow hal_camera_default nvdata_file:lnk_file read;
+allow hal_camera_default nvdata_file:file create_file_perms;
+allow hal_camera_default nvram_data_file:dir create_dir_perms;
+allow hal_camera_default nvram_data_file:file rw_file_perms;
+allow hal_camera_default nvram_data_file:file create_file_perms;
+allow hal_camera_default nvram_device:chr_file rw_file_perms;
+
+

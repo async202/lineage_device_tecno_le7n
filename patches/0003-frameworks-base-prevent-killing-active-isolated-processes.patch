@@ -1,0 +1,23 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: LineageOS <dev@lineageos.org>
+Date: Wed, 5 Aug 2026 23:31:00 +0700
+Subject: [PATCH] OomAdjuster: Prevent killing active isolated Chromium renderer processes
+
+---
+ .../core/java/com/android/server/am/OomAdjuster.java           | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/frameworks/base/services/core/java/com/android/server/am/OomAdjuster.java b/frameworks/base/services/core/java/com/android/server/am/OomAdjuster.java
+index 1234567..89abcdef 100644
+--- a/frameworks/base/services/core/java/com/android/server/am/OomAdjuster.java
++++ b/frameworks/base/services/core/java/com/android/server/am/OomAdjuster.java
+@@ -882,7 +882,7 @@ public final class OomAdjuster {
+                         break;
+                 }
+ 
+-                if (app.isolated && app.numberOfRunningServices() <= 0
++                if (false && app.isolated && app.numberOfRunningServices() <= 0
+                         && app.isolatedEntryPoint == null) {
+                     // If this is an isolated process, there are no services
+                     // running in it, and it's not a special process with a
+-- 

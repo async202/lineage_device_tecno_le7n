@@ -1,0 +1,207 @@
+diff --git a/AndroidManifest.xml b/AndroidManifest.xml
+index d7a57a9..11f81cf 100644
+--- a/AndroidManifest.xml
++++ b/AndroidManifest.xml
+@@ -24,7 +24,7 @@
+     <!-- FM uses AudioPatch which is new in sdk 21 -->
+     <uses-sdk
+         android:minSdkVersion="21"
+-        android:targetSdkVersion="23"
++        android:targetSdkVersion="30"
+         android:usesCleartextTraffic="false" />
+ 
+     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+@@ -43,7 +43,12 @@
+     <application
+         android:hardwareAccelerated="true"
+         android:icon="@mipmap/ic_launcher"
+-        android:label="@string/app_name" >
++        android:label="@string/app_name"
++        android:resizeableActivity="true" >
++
++        <meta-data
++            android:name="android.max_aspect"
++            android:value="2.5" />
+ 
+         <activity
+             android:name=".FmMainActivity"
+diff --git a/src/com/android/fmradio/FmMainActivity.java b/src/com/android/fmradio/FmMainActivity.java
+index 82db51b..232890e 100644
+--- a/src/com/android/fmradio/FmMainActivity.java
++++ b/src/com/android/fmradio/FmMainActivity.java
+@@ -852,7 +852,7 @@ public class FmMainActivity extends Activity implements FmFavoriteEditDialog.Edi
+      * @return true or false indicate antenna available or not
+      */
+     private boolean isAntennaAvailable() {
+-        return mAudioManager.isWiredHeadsetOn();
++        return mAudioManager.isWiredHeadsetOn() || FmUtils.isShortAntennaSupport();
+     }
+ 
+     /**
+diff --git a/src/com/android/fmradio/FmNative.java b/src/com/android/fmradio/FmNative.java
+index da8cbce..5c019ae 100644
+--- a/src/com/android/fmradio/FmNative.java
++++ b/src/com/android/fmradio/FmNative.java
+@@ -151,4 +151,16 @@ public class FmNative {
+      * @return (0, success; 1 failed; 2 not support)
+      */
+     static native int switchAntenna(int antenna);
++
++    // Method declarations for MTK libfmjni, needed for registerNativeMethods
++    static native int readRssi();
++    static native boolean stereoMono();
++    static native boolean setStereoMono(boolean b);
++    static native short readCapArray();
++    static native short readRdsBler();
++    static native short[] emcmd(short[] s);
++    static native boolean emsetth(int a, int b);
++    static native int[] getHardwareVersion();
++    static native boolean setDesenseChannel(float f, int a);
++    static native boolean setDesenseList(int a, float f);
+ }
+diff --git a/src/com/android/fmradio/FmService.java b/src/com/android/fmradio/FmService.java
+index 3323fb0..d4690e3 100644
+--- a/src/com/android/fmradio/FmService.java
++++ b/src/com/android/fmradio/FmService.java
+@@ -293,25 +293,35 @@ public class FmService extends Service implements FmRecorder.OnRecorderStateChan
+                 if ((0 == mValueHeadSetPlug) && isActivityForeground()) {
+                     powerUpAsync(FmUtils.computeFrequency(mCurrentStation));
+                 } else if (1 == mValueHeadSetPlug) {
+-                    mFmServiceHandler.removeMessages(FmListener.MSGID_SCAN_FINISHED);
+-                    mFmServiceHandler.removeMessages(FmListener.MSGID_SEEK_FINISHED);
+-                    mFmServiceHandler.removeMessages(FmListener.MSGID_TUNE_FINISHED);
+-                    mFmServiceHandler.removeMessages(
+-                            FmListener.MSGID_POWERDOWN_FINISHED);
+-                    mFmServiceHandler.removeMessages(
+-                            FmListener.MSGID_POWERUP_FINISHED);
+-                    focusChanged(AudioManager.AUDIOFOCUS_LOSS);
+-
+-                    // Need check to switch to earphone mode for audio will
+-                    // change to AudioSystem.FORCE_NONE
+-                    setForceUse(false);
+-
+-                    // Notify UI change to earphone mode, false means not speaker mode
+-                    Bundle bundle = new Bundle(2);
+-                    bundle.putInt(FmListener.CALLBACK_FLAG,
+-                            FmListener.LISTEN_SPEAKER_MODE_CHANGED);
+-                    bundle.putBoolean(FmListener.KEY_IS_SPEAKER_MODE, false);
+-                    notifyActivityStateChanged(bundle);
++                    if (!FmUtils.isShortAntennaSupport()) {
++                        mFmServiceHandler.removeMessages(FmListener.MSGID_SCAN_FINISHED);
++                        mFmServiceHandler.removeMessages(FmListener.MSGID_SEEK_FINISHED);
++                        mFmServiceHandler.removeMessages(FmListener.MSGID_TUNE_FINISHED);
++                        mFmServiceHandler.removeMessages(
++                                FmListener.MSGID_POWERDOWN_FINISHED);
++                        mFmServiceHandler.removeMessages(
++                                FmListener.MSGID_POWERUP_FINISHED);
++                        focusChanged(AudioManager.AUDIOFOCUS_LOSS);
++
++                        // Need check to switch to earphone mode for audio will
++                        // change to AudioSystem.FORCE_NONE
++                        setForceUse(false);
++
++                        // Notify UI change to earphone mode, false means not speaker mode
++                        Bundle bundle = new Bundle(2);
++                        bundle.putInt(FmListener.CALLBACK_FLAG,
+-                                FmListener.LISTEN_SPEAKER_MODE_CHANGED);
++                        bundle.putInt(FmListener.CALLBACK_FLAG,
++                                FmListener.LISTEN_SPEAKER_MODE_CHANGED);
++                        bundle.putBoolean(FmListener.KEY_IS_SPEAKER_MODE, false);
++                        notifyActivityStateChanged(bundle);
++                    } else {
++                        // Switch to speaker mode when short antenna is supported
++                        setForceUse(true);
++                        Bundle bundle = new Bundle(2);
++                        bundle.putInt(FmListener.CALLBACK_FLAG,
++                                FmListener.LISTEN_SPEAKER_MODE_CHANGED);
++                        bundle.putBoolean(FmListener.KEY_IS_SPEAKER_MODE, true);
++                        notifyActivityStateChanged(bundle);
++                    }
+                 }
+ 
+                 switchAntennaAsync(mValueHeadSetPlug);
+@@ -328,6 +338,10 @@ public class FmService extends Service implements FmRecorder.OnRecorderStateChan
+         public void onReceive(Context context, Intent intent) {
+             // If eject record sdcard, should set this false to not
+             // record.
++            if (Intent.ACTION_MEDIA_EJECT.equals(intent.getAction())
++                    || Intent.ACTION_MEDIA_UNMOUNTED.equals(intent.getAction())) {
++                stopRecording();
++            }
+             updateSdcardStateMap(intent);
+ 
+             if (mFmRecorder == null) {
+@@ -363,7 +377,7 @@ public class FmService extends Service implements FmRecorder.OnRecorderStateChan
+      * @return true, antenna available; false, antenna not available
+      */
+     public boolean isAntennaAvailable() {
+-        return mAudioManager.isWiredHeadsetOn();
++        return mAudioManager.isWiredHeadsetOn() || FmUtils.isShortAntennaSupport();
+     }
+ 
+     private void setForceUse(boolean isSpeaker) {
+@@ -641,6 +655,13 @@ public class FmService extends Service implements FmRecorder.OnRecorderStateChan
+             return false;
+         }
+         mPowerStatus = POWER_UP;
++
++        if (!mAudioManager.isWiredHeadsetOn() && FmUtils.isShortAntennaSupport()) {
++            FmNative.switchAntenna(1);
++        } else {
++            FmNative.switchAntenna(0);
++        }
++
+         // need mute after power up
+         setMute(true);
+ 
+@@ -1291,10 +1312,19 @@ public class FmService extends Service implements FmRecorder.OnRecorderStateChan
+         handlerThread.start();
+         mFmServiceHandler = new FmRadioServiceHandler(handlerThread.getLooper());
+ 
++        if (!mAudioManager.isWiredHeadsetOn() && FmUtils.isShortAntennaSupport()) {
++            mValueHeadSetPlug = 1;
++            mIsSpeakerUsed = true;
++        }
++
+         openDevice();
+         // set speaker to default status, avoid setting->clear data.
+         setForceUse(mIsSpeakerUsed);
+ 
++        if (!mAudioManager.isWiredHeadsetOn() && FmUtils.isShortAntennaSupport()) {
++            switchAntennaAsync(1);
++        }
++
+         initAudioRecordSink();
+         createRenderThread();
+     }
+diff --git a/src/com/android/fmradio/FmUtils.java b/src/com/android/fmradio/FmUtils.java
+index b6219fd..b0dc3e5 100644
+--- a/src/com/android/fmradio/FmUtils.java
++++ b/src/com/android/fmradio/FmUtils.java
+@@ -22,6 +22,7 @@ import android.content.res.Resources;
+ import android.graphics.Bitmap;
+ import android.os.Environment;
+ import android.os.StatFs;
++import android.os.SystemProperties;
+ import android.os.storage.StorageManager;
+ import android.preference.PreferenceManager;
+ import android.util.Log;
+@@ -39,6 +40,18 @@ import java.util.Locale;
+ public class FmUtils {
+     private static final String TAG = "FmUtils";
+ 
++    /**
++     * Check whether built-in short antenna is supported on device
++     *
++     * @return true if short antenna supported
++     */
++    public static boolean isShortAntennaSupport() {
++        return SystemProperties.get("ro.vendor.builtin_fm_antenna_support", "0").equals("1")
++                || SystemProperties.get("persist.internalAntenna.enable", "false").equals("true")
++                || SystemProperties.get("ro.fm.short_ana_sup", "0").equals("1")
++                || SystemProperties.get("persist.vendor.connsys.fm_short_antenna_support", "0").equals("1");
++    }
++
+     // FM station variables
+     public static final int DEFAULT_STATION = 1000;
+     public static final float DEFAULT_STATION_FLOAT = computeFrequency(DEFAULT_STATION);

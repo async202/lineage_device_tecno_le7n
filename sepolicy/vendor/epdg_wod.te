@@ -1,0 +1,38 @@
+type epdg_wod, domain, mtkimsmddomain;
+type epdg_wod_exec, exec_type, file_type, vendor_file_type;
+
+domain_auto_trans(epdg_wod, charon_exec, ipsec)
+domain_auto_trans(epdg_wod, netutils_wrapper_exec, netutils_wrapper)
+domain_auto_trans(epdg_wod, starter_exec, ipsec)
+domain_auto_trans(epdg_wod, stroke_exec, ipsec)
+
+init_daemon_domain(epdg_wod)
+
+net_domain(epdg_wod)
+
+set_prop(epdg_wod, vendor_mtk_persist_wod_prop)
+set_prop(epdg_wod, vendor_mtk_wod_prop)
+
+unix_socket_connect(epdg_wod, netd, init)
+unix_socket_connect(epdg_wod, netd, netd)
+unix_socket_connect(epdg_wod, property, netd)
+
+allow epdg_wod ccci_device:chr_file { ioctl open read write };
+allow epdg_wod charon_exec:file { getattr lock no_x_file_perms open read };
+allow epdg_wod ipsec:process { sigkill signal signull };
+allow epdg_wod ipsec_exec:file { getattr lock no_x_file_perms open read };
+allow epdg_wod self:capability { kill net_admin };
+allow epdg_wod self:capability net_raw;
+allow epdg_wod self:capability sys_module;
+allow epdg_wod self:netlink_route_socket { bind create getattr nlmsg_read nlmsg_write read setopt write };
+allow epdg_wod self:netlink_xfrm_socket { bind create getattr nlmsg_write read setopt write };
+allow epdg_wod self:rawip_socket { create getopt setopt };
+allow epdg_wod self:tun_socket { create relabelfrom relabelto };
+allow epdg_wod self:udp_socket { create ioctl };
+allow epdg_wod starter_exec:file { getattr lock no_x_file_perms open read };
+allow epdg_wod stroke_exec:file { getattr lock no_x_file_perms open read };
+allow epdg_wod tun_device:chr_file { getattr ioctl open read write };
+allow epdg_wod wod_apn_conf_file:dir { add_name open read remove_name search write };
+allow epdg_wod wod_apn_conf_file:file { create getattr open read unlink write };
+allow epdg_wod wod_ipsec_conf_file:dir { add_name open read remove_name search write };
+allow epdg_wod wod_ipsec_conf_file:file { create getattr open read unlink write };

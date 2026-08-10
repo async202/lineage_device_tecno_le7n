@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.tecno.frontflash">
+
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <application
+        android:label="@string/app_name"
+        android:icon="@drawable/ic_front_flash"
+        android:hasCode="true"
+        android:theme="@android:style/Theme.DeviceDefault.Light">
+
+        <service
+            android:name=".FrontFlashTileService"
+            android:label="@string/app_name"
+            android:icon="@drawable/ic_front_flash"
+            android:permission="android.permission.BIND_QUICK_SETTINGS_TILE"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.service.quicksettings.action.QS_TILE" />
+            </intent-filter>
+        </service>
+    </application>
+</manifest>

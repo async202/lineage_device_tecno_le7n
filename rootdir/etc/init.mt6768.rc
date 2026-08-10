@@ -500,10 +500,8 @@ on post-fs-data
     chown root system /dev/sec
 
     # FM Radio device node
-    #TCD:add XLJLHLJYR-21 by shouhui.li 2020.08.05 start
     chmod 0666 /dev/fm
-    #TCD:add XLJLHLJYR-21 by shouhui.li 2020.08.05 end
-    chown media media /dev/fm
+    chown system system /dev/fm
 
     # device apc settings
 
@@ -607,7 +605,9 @@ on post-fs-data
     chmod 0666 /sys/class/main2_light/main2_light/main2_light
 
     #FlashLight
+    chown system camera /sys/devices/virtual/torch/torch/torch_level
     chmod 0666 /sys/devices/virtual/torch/torch/torch_level
+    chown system camera /sys/devices/virtual/sub_torch/sub_torch/sub_torch_level
     chmod 0666 /sys/devices/virtual/sub_torch/sub_torch/sub_torch_level
 
     #CCU
@@ -711,6 +711,8 @@ on early-boot
     write /proc/bootprof "INIT:early-boot"
 
 on boot
+    chmod 0666 /proc/ged
+    chown system system /proc/ged
     write /proc/bootprof "INIT:boot"
 
     write /proc/sys/vm/dirty_writeback_centisecs 300
@@ -733,7 +735,9 @@ on boot
     chmod 0666 /sys/class/leds/blue/brightness
     chmod 0666 /sys/class/leds/green/brightness
     chmod 0666 /sys/class/leds/lcd-backlight/brightness
+    chown system camera /sys/devices/virtual/torch/torch/torch_level
     chmod 0666 /sys/devices/virtual/torch/torch/torch_level
+    chown system camera /sys/devices/virtual/sub_torch/sub_torch/sub_torch_level
     chmod 0666 /sys/devices/virtual/sub_torch/sub_torch/sub_torch_level
     #TCD:add XLJLHLJYR-21 by shouhui.li 2020.08.05 end
 

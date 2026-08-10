@@ -26,6 +26,11 @@ debug.sf.use_phase_offsets_as_durations=1
 drm.service.enabled=true
 ro.netflix.bsp_rev=MTK6768-19055-1
 
+# FM Radio
+ro.vendor.builtin_fm_antenna_support=1
+persist.vendor.connsys.fm_chipid=mt6631
+persist.vendor.connsys.fm_short_antenna_support=1
+
 # Radio
 persist.radio.multisim.config=dsds
 persist.vendor.radio.fd.counter=150

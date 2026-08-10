@@ -1,2 +1,43 @@
 type fpsensor_data_file, file_type, data_file_type;
 
+# Camera
+type sysfs_tran_cam_file, fs_type, sysfs_type;
+type transsion_camera_data_file, file_type, data_file_type, mlstrustedobject;
+type transsion_camera_meghdr_file, file_type, data_file_type, mlstrustedobject;
+type transsion_laser_data_file, file_type, data_file_type, mlstrustedobject;
+type vendor_camera_dump_file, file_type, data_file_type, mlstrustedobject;
+type vendor_watermark_data_file, file_type, data_file_type, mlstrustedobject;
+type vendor_arcsoft_data_file, file_type, data_file_type, mlstrustedobject;
+type vendor_megvii_data_file, file_type, data_file_type, mlstrustedobject;
+
+type data_vendor_AAObitTrue_file, data_file_type, file_type;
+type data_vendor_aaoHwBuf_file, data_file_type, file_type;
+type data_vendor_aao_file, data_file_type, file_type;
+type data_vendor_afo_file, data_file_type, file_type;
+type data_vendor_flash_file, data_file_type, file_type;
+type data_vendor_flicker_file, data_file_type, file_type;
+type data_vendor_pdo_file, data_file_type, file_type;
+type data_vendor_raw_file, data_file_type, file_type;
+type connsyslog_data_vendor_file, data_file_type, file_type;
+type data_vendor_de_md_file, data_file_type, file_type;
+type aee_dipdebug_vendor_file, data_file_type, file_type;
+type aee_exp_vendor_file, data_file_type, file_type;
+type cct_data_file, data_file_type, file_type;
+type thermal_manager_data_file, data_file_type, file_type;
+
+type sysfs_camera_max_bw, fs_type, sysfs_type;
+type sysfs_concurrency_scenario, fs_type, sysfs_type;
+type sysfs_main2_light_file, fs_type, sysfs_type;
+# Torch
+type sysfs_sub_torch_file, fs_type, sysfs_type;
+type sysfs_dual_role_usb, sysfs_type, fs_type;
+type sysfs_headset, sysfs_type, fs_type;
+type sysfs_torch_file, fs_type, sysfs_type;
+type sysfs_wide_torch_file, fs_type, sysfs_type;
+type vcodec_file, file_type, data_file_type;
+
+# NVRAM / NVData / NVCfg
+type nvcfg_file, file_type, data_file_type;
+type nvdata_file, file_type, data_file_type;
+type nvram_data_file, file_type, data_file_type;
+

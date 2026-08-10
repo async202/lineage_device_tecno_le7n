@@ -1,1 +1,11 @@
 allow platform_app proc_ged:file rw_file_perms;
+allowxperm platform_app proc_ged:file ioctl { 0x6700-0x67ff };
+
+allow platform_app sysfs_sub_torch_file:file rw_file_perms;
+allow platform_app sysfs_sub_torch_file:dir search;
+allow system_app sysfs_sub_torch_file:file rw_file_perms;
+allow system_app sysfs_sub_torch_file:dir search;
+
+allow platform_app sysfs_leds:dir search;
+allow priv_app sysfs_leds:dir search;
+allow system_app sysfs_leds:dir search;

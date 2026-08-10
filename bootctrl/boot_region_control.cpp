@@ -82,7 +82,6 @@ static bool mmc_switch_bootpart(int fd, uint8_t *ext_csd, uint8_t bootpart)
         | val << 8
         | EXT_CSD_CMD_SET_NORMAL;
   mmc_ioctl_cmd.flags = MMC_CMD_AC | MMC_RSP_R1B;
-  mmc_ioc_cmd_set_data(mmc_ioctl_cmd, ext_csd);
 
   if (ioctl(fd, MMC_IOC_CMD, &mmc_ioctl_cmd)) {
     LOG(ERROR) << "ioctl error, mmc_switch_bootpart fail";

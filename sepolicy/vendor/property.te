@@ -1,0 +1,32 @@
+type vendor_mtk_ctl_gsm0710muxd_prop, property_type;
+type vendor_mtk_ctl_ril_daemon_mtk_prop, property_type;
+
+# Camera
+type vendor_mtk_camera_prop, property_type;
+type vendor_mtk_logmuch_prop, property_type;
+type vendor_mtk_mediatek_prop, property_type;
+type vendor_mtk_thermal_config_prop, property_type;
+type vendor_transsion_camera_watermark_support_prop, property_type;
+type vendor_mtk_emcamera_prop, property_type;
+type vendor_mtk_persist_wod_prop, property_type;
+type vendor_mtk_ctl_volte_imcb_prop, property_type;
+type vendor_mtk_ctl_volte_stack_prop, property_type;
+type vendor_mtk_ctl_volte_ua_prop, property_type;
+type vendor_mtk_ct_volte_prop, property_type;
+type vendor_mtk_md_volte_prop, property_type;
+type vendor_mtk_persist_epdg_prop, property_type;
+type vendor_mtk_volte_prop, property_type;
+type vendor_mtk_volte_support_prop, property_type;
+type vendor_mtk_wod_prop, property_type;
+type vendor_mtk_md_version_prop, property_type;
+type vendor_mtk_network_prop, property_type;
+type vendor_mtk_operator_id_prop, property_type;
+type vendor_mtk_radio_prop, property_type;
+type vendor_mtk_ril_mux_report_case_prop, property_type;
+type vendor_mtk_md_status_prop, property_type;
+type vendor_mtk_service_rcs_prop, property_type;
+type vendor_mtk_vendor_vt_prop, property_type;
+type vendor_mtk_hvolte_indicator, property_type;
+type vendor_soter_teei_prop, property_type;
+type vendor_mtk_cxp_vendor_prop, property_type;
+type vendor_mtk_operator_prop, property_type;

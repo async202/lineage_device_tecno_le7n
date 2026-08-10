@@ -83,6 +83,7 @@ type gps_data_file, file_type, data_file_type;
 type agpsd_data_file, file_type, data_file_type;
 type agps_device, dev_type;
 type gps_device, dev_type;
+type fm_device, dev_type;
 type mnld_device, dev_type;
 type stpgps_device, dev_type;
 type gps_emi_device, dev_type;

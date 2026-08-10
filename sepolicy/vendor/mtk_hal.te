@@ -8,6 +8,13 @@ permissive hal_wifi_supplicant_default;
 permissive hal_wifi_hostapd_default;
 permissive hal_bluetooth_default;
 
+allow mtk_hal mnt_vendor_file:file { read write open getattr };
+allow mtk_hal hwservicemanager_prop:file { read open getattr map };
+allow mtk_hal device:chr_file { read write open };
+allow mtk_hal self:udp_socket { create ioctl };
+
 set_prop(mtk_hal, ctl_default_prop)
 set_prop(mtk_hal, ctl_start_prop)
 set_prop(mtk_hal, vendor_default_prop)
+set_prop(mtk_hal, vendor_mtk_ctl_gsm0710muxd_prop)
+set_prop(mtk_hal, vendor_mtk_ctl_ril_daemon_mtk_prop)

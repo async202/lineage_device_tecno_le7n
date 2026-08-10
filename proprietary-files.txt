@@ -1822,9 +1822,6 @@ vendor/etc/permissions/android.hardware.faketouch.xml
 vendor/etc/permissions/android.hardware.fingerprint.xml
 vendor/etc/permissions/android.hardware.location.gps.xml
 vendor/etc/permissions/android.hardware.microphone.xml
-vendor/etc/permissions/android.hardware.nfc.hce.xml
-vendor/etc/permissions/android.hardware.nfc.hcef.xml
-vendor/etc/permissions/android.hardware.nfc.xml
 vendor/etc/permissions/android.hardware.opengles.aep.xml
 vendor/etc/permissions/android.hardware.se.omapi.uicc.xml
 vendor/etc/permissions/android.hardware.sensor.accelerometer.xml
@@ -1884,3 +1881,7 @@ vendor/lib/vendor.mediatek.hardware.bluetooth.audio@2.1.so
 vendor/lib64/vendor.mediatek.hardware.bluetooth.audio@2.1.so
 system_ext/lib/vendor.mediatek.hardware.videotelephony@1.0.so
 system_ext/lib64/vendor.mediatek.hardware.videotelephony@1.0.so
+
+# FM Radio
+-system_ext/lib64/libfmjni.so:system/lib64/libfmjni.so
+

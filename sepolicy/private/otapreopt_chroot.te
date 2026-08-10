@@ -1,0 +1,1 @@
+allowxperm otapreopt_chroot loop_device:blk_file ioctl { 0x4c0a };

@@ -1,4 +1,18 @@
-allow hal_usb_default configfs:dir { search read open };
-allow hal_usb_default configfs:file { getattr read open };
-allow hal_usb_default configfs:lnk_file { read };
+permissive hal_usb_default;
+
+allow hal_usb_default configfs:dir create_dir_perms;
+allow hal_usb_default configfs:file rw_file_perms;
+allow hal_usb_default configfs:lnk_file { create unlink read write getattr };
+
+allow hal_usb_default sysfs_dual_role_usb:dir r_dir_perms;
+allow hal_usb_default sysfs_dual_role_usb:file rw_file_perms;
+
+r_dir_file(hal_usb_default, sysfs)
+allow hal_usb_default sysfs:file rw_file_perms;
+allow hal_usb_default sysfs:lnk_file { read getattr };
+
+set_prop(hal_usb_default, system_prop)
+set_prop(hal_usb_default, config_prop)
+
+unix_socket_connect(hal_usb_default, property, init)
 add_hwservice(hal_usb_default, hal_usb_gadget_hwservice)

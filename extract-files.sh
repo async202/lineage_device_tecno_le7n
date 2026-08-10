@@ -56,6 +56,19 @@ fi
 # Initialize the helper
 setup_vendor "${DEVICE}" "${VENDOR}" "${ANDROID_ROOT}" false "${CLEAN_VENDOR}"
 
+function blob_fixup() {
+    case "${1}" in
+        vendor/etc/init/kpoc_charger.rc)
+            sed -i 's|/system/bin/kpoc_charger|/vendor/bin/kpoc_charger|g' "${2}"
+            ;;
+    esac
+}
+
 extract "${MY_DIR}/proprietary-files.txt" "${SRC}" "${KANG}" --section "${SECTION}"
+
+if [ -f "${ANDROID_ROOT}/vendor/${VENDOR}/${DEVICE}/proprietary/priv-app/ImsService/ImsService.apk" ]; then
+    echo "Re-signing ImsService.apk with platform keys (v1, v2, v3) to prevent sharedUserId signature mismatch..."
+    java -jar "${ANDROID_ROOT}/prebuilts/sdk/tools/linux/lib/apksigner.jar" sign --v1-signing-enabled true --v2-signing-enabled true --v3-signing-enabled true --key "${ANDROID_ROOT}/build/target/product/security/platform.pk8" --cert "${ANDROID_ROOT}/build/target/product/security/platform.x509.pem" "${ANDROID_ROOT}/vendor/${VENDOR}/${DEVICE}/proprietary/priv-app/ImsService/ImsService.apk"
+fi
 
 "${MY_DIR}/setup-makefiles.sh"

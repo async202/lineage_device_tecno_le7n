@@ -1,0 +1,4 @@
+allow hal_bootctl_default self:capability sys_rawio;
+allow hal_bootctl_default block_device:dir search;
+allow hal_bootctl_default misc_block_device:blk_file { read write open ioctl getattr };
+allow hal_bootctl_default proc_cmdline:file r_file_perms;

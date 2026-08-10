@@ -1,2 +1,5 @@
 allow hal_fingerprint_default fpsensor_data_file:dir create_dir_perms;
 allow hal_fingerprint_default fpsensor_data_file:file create_file_perms;
+allow hal_fingerprint_default fpsensor_fp_device:chr_file { read write open ioctl getattr map };
+allow hal_fingerprint_default self:netlink_socket create_socket_perms_no_ioctl;
+allow hal_fingerprint_default tee_device:chr_file { read write open ioctl };

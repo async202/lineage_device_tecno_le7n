@@ -1,9 +1,22 @@
 # Radio
-persist.radio.multisim.config=tsts
-persist.vendor.radio.msimmode=tsts
+persist.radio.multisim.config=dsds
+persist.vendor.radio.msimmode=dsds
 persist.vendor.radio.tsd.multisimmode=2
-ro.telephony.sim.count=3
-telephony.active_modems.max_count=3
+ro.telephony.sim.count=2
+telephony.active_modems.max_count=2
+
+# FM Radio
+ro.fm.chip=0x6631
+ro.fm.band=1
+ro.fm.low_band=875
+ro.fm.high_band=1080
+ro.fm.seek_space=1
+ro.fm.max_scan_num=40
+ro.fm.seek_lev=4
+ro.fm.scan_sort=0
+ro.fm.short_ana_sup=1
+ro.fm.rssi_th_l2=-102
+ro.fm.noise_floor_detect=true
 
 # Miscellaneous
 os.charging_animation_type=3
@@ -196,4 +209,3 @@ ro.vendor.os_social_turbo_service=1
 ro.vendor.os_typeface_support=1
 ro.vendor.radio.max.multisim=tsts
 ro.xhide_support=1
-

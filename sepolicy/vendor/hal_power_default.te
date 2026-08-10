@@ -2,3 +2,8 @@ allow hal_power_default hal_mtkpower_hwservice:hwservice_manager { add find };
 allow hal_power_default vendor_data_file:dir { read write add_name search create getattr };
 allow hal_power_default vendor_data_file:file { read write create open getattr };
 allow hal_power_default sysfs_devices_system_cpu:file rw_file_perms;
+allow hal_power_default domain:dir { search getattr };
+allow hal_power_default domain:file { read open getattr };
+allow hal_power_default domain:process getattr;
+binder_call(system_app, hal_power_default)
+binder_call(hal_audio_default, hal_power_default)

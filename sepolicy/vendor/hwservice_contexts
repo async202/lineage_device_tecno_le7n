@@ -2,3 +2,15 @@ vendor.fpsensor.hardware.fpsensorhidlsvc::IFpsensorHidlSvc u:object_r:fp_ext_svc
 vendor.silead.hardware.fingerprintext::ISileadFingerprint u:object_r:silead_fingerprint_hwservice:s0
 vendor.mediatek.hardware.mtkpower::IMtkPower u:object_r:hal_mtkpower_hwservice:s0
 vendor.mediatek.hardware.mtkpower::IMtkPerf u:object_r:hal_mtkpower_hwservice:s0
+vendor.mediatek.hardware.camera.isphal::IISPModule u:object_r:hal_camera_isphal_hwservice:s0
+vendor.mediatek.hardware.pq::IPictureQuality u:object_r:mtk_hal_pq_hwservice:s0
+vendor.mediatek.hardware.camera.postproc::IPostDevice u:object_r:hal_camera_postproc_hwservice:s0
+vendor.mediatek.hardware.camera.bgservice::IBGService u:object_r:hal_camera_bgservice_hwservice:s0
+vendor.mediatek.hardware.camera.atms::IATMs u:object_r:hal_camera_atms_hwservice:s0
+vendor.transsion.hardware.trancam.trancamserver::ITrancamserver u:object_r:hal_camera_trancam_hwservice:s0
+vendor.mediatek.hardware.mtkradioex::IMtkRadioEx u:object_r:hal_mtkradioex_hwservice:s0
+vendor.mediatek.hardware.clientapi::IClientapi u:object_r:volte_clientapi_ua_hwservice:s0
+vendor.mediatek.hardware.imsa::IImsa u:object_r:mtk_hal_imsa_hwservice:s0
+vendor.mediatek.hardware.presence::IPresence u:object_r:volte_uce_ua_hwservice:s0
+vendor.mediatek.hardware.rcs::IRcs u:object_r:volte_rcs_ua_hwservice:s0
+vendor.mediatek.hardware.videotelephony::IVideoTelephony u:object_r:mtk_hal_videotelephony_hwservice:s0

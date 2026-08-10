@@ -1,0 +1,17 @@
+diff --git a/media/libstagefright/wifi-display/source/WifiDisplaySource.cpp b/media/libstagefright/wifi-display/source/WifiDisplaySource.cpp
+index 96aceb1df4..0fbb3a0046 100644
+--- a/media/libstagefright/wifi-display/source/WifiDisplaySource.cpp
++++ b/media/libstagefright/wifi-display/source/WifiDisplaySource.cpp
+@@ -1694,6 +1694,12 @@ void WifiDisplaySource::HDCPObserver::notify(
+ }
+ 
+ status_t WifiDisplaySource::makeHDCP() {
++    char val[PROPERTY_VALUE_MAX];
++    if (property_get("persist.sys.wfd.nohdcp", val, "1") && (!strcmp(val, "1") || !strcmp(val, "true"))) {
++        ALOGI("HDCP disabled by property persist.sys.wfd.nohdcp");
++        return ERROR_UNSUPPORTED;
++    }
++
+     sp<IServiceManager> sm = defaultServiceManager();
+     sp<IBinder> binder = sm->getService(String16("media.player"));
+ 

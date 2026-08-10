@@ -1,0 +1,5 @@
+on property:sys.frontal_flash=1
+    write /sys/devices/virtual/sub_torch/sub_torch/sub_torch_level 2
+
+on property:sys.frontal_flash=0
+    write /sys/devices/virtual/sub_torch/sub_torch/sub_torch_level 0

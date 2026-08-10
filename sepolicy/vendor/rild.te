@@ -1,0 +1,7 @@
+set_prop(rild, vendor_mtk_volte_prop)
+set_prop(rild, vendor_mtk_hvolte_indicator)
+set_prop(rild, vendor_mtk_md_volte_prop)
+set_prop(rild, vendor_mtk_md_status_prop)
+get_prop(rild, vendor_mtk_ct_volte_prop)
+get_prop(rild, vendor_mtk_volte_support_prop)
+allow rild ccci_device:chr_file rw_file_perms;

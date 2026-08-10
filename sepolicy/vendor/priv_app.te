@@ -1,0 +1,5 @@
+
+allow priv_app sysfs_sub_torch_file:file rw_file_perms;
+allow priv_app sysfs_sub_torch_file:dir search;
+allow system_server sysfs_sub_torch_file:file rw_file_perms;
+allow system_server sysfs_sub_torch_file:dir search;

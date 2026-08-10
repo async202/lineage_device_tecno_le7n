@@ -56,6 +56,9 @@ sys.ipo.pwrdncap=2
 vendor.rild.libargs=-d /dev/ttyC0
 ro.telephony.sim.count=2
 
+# FM Radio
+persist.internalAntenna.enable=true
+
 # VoLTE
 persist.dbg.volte_avail_ovr=1
 persist.dbg.vt_avail_ovr=1

@@ -1,0 +1,17 @@
+type mtk_hal_imsa, domain, mtkimsapdomain;
+type mtk_hal_imsa_exec, exec_type, file_type, vendor_file_type;
+type mtk_hal_imsa_hwservice, hwservice_manager_type;
+
+binder_call(mtk_hal_imsa, system_server)
+
+get_prop(mtk_hal_imsa, hwservicemanager_prop)
+
+hal_server_domain(mtk_hal_imsa, hal_imsa)
+
+hwbinder_use(mtk_hal_imsa)
+
+init_daemon_domain(mtk_hal_imsa)
+
+allow mtk_hal_imsa debugfs_tracing:file { open write };
+allow mtk_hal_imsa radio:binder call;
+allow mtk_hal_imsa rild_imsm_socket:sock_file write;
