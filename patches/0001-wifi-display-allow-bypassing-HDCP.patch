@@ -1,3 +1,56 @@
+diff --git a/media/libstagefright/ANetworkSession.cpp b/media/libstagefright/ANetworkSession.cpp
+index e3b77ec99a..adba606d8a 100644
+--- a/media/libstagefright/ANetworkSession.cpp
++++ b/media/libstagefright/ANetworkSession.cpp
+@@ -1365,12 +1365,15 @@ void ANetworkSession::threadLoop() {
+                             sessionsToAdd.push_back(clientSession);
+                         }
+                     } else {
+-                        ALOGE("accept returned error %d (%s)",
+-                              errno, strerror(errno));
++                        if (errno != EAGAIN && errno != EWOULDBLOCK) {
++                            ALOGE("accept returned error %d (%s), stopping server socket %d",
++                                  errno, strerror(errno), s);
++                            break;
++                        }
+                     }
+                 } else {
+                     status_t err = session->readMore();
+-                    if (err != OK) {
++                    if (err != OK && err != -EAGAIN && err != -EWOULDBLOCK) {
+                         ALOGE("readMore on socket %d failed w/ error %d (%s)",
+                               s, err, strerror(-err));
+                     }
+@@ -1379,7 +1382,7 @@ void ANetworkSession::threadLoop() {
+ 
+             if (FD_ISSET(s, &ws)) {
+                 status_t err = session->writeMore();
+-                if (err != OK) {
++                if (err != OK && err != -EAGAIN && err != -EWOULDBLOCK) {
+                     ALOGE("writeMore on socket %d failed w/ error %d (%s)",
+                           s, err, strerror(-err));
+                 }
+diff --git a/media/libstagefright/wifi-display/source/Converter.cpp b/media/libstagefright/wifi-display/source/Converter.cpp
+index 5502b063ab..bb9bda2e86 100644
+--- a/media/libstagefright/wifi-display/source/Converter.cpp
++++ b/media/libstagefright/wifi-display/source/Converter.cpp
+@@ -148,8 +148,14 @@ status_t Converter::initEncoder() {
+     bool isAudio = !strncasecmp(outputMIME.c_str(), "audio/", 6);
+ 
+     if (!mIsPCMAudio) {
+-        mEncoder = MediaCodec::CreateByType(
+-                mCodecLooper, outputMIME.c_str(), true /* encoder */);
++        char val[PROPERTY_VALUE_MAX];
++        if (!isAudio && property_get("media.wfd.video-encoder", val, NULL) && strlen(val) > 0) {
++            ALOGI("Creating WFD video encoder by component name: %s", val);
++            mEncoder = MediaCodec::CreateByComponentName(mCodecLooper, val);
++        } else {
++            mEncoder = MediaCodec::CreateByType(
++                    mCodecLooper, outputMIME.c_str(), true /* encoder */);
++        }
+ 
+         if (mEncoder == NULL) {
+             return ERROR_UNSUPPORTED;
 diff --git a/media/libstagefright/wifi-display/source/WifiDisplaySource.cpp b/media/libstagefright/wifi-display/source/WifiDisplaySource.cpp
 index 96aceb1df4..0fbb3a0046 100644
 --- a/media/libstagefright/wifi-display/source/WifiDisplaySource.cpp
