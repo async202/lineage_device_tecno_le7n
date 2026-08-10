@@ -30,6 +30,19 @@ index e3b77ec99a..adba606d8a 100644
                      ALOGE("writeMore on socket %d failed w/ error %d (%s)",
                            s, err, strerror(-err));
                  }
+diff --git a/media/libstagefright/bqhelper/GraphicBufferSource.cpp b/media/libstagefright/bqhelper/GraphicBufferSource.cpp
+index d031e91f5a..79638e9f1f 100644
+--- a/media/libstagefright/bqhelper/GraphicBufferSource.cpp
++++ b/media/libstagefright/bqhelper/GraphicBufferSource.cpp
+@@ -1180,7 +1180,7 @@ status_t GraphicBufferSource::configure(
+             return err;
+         }
+ 
+-        consumerUsage |= GRALLOC_USAGE_HW_VIDEO_ENCODER;
++        consumerUsage |= GRALLOC_USAGE_HW_VIDEO_ENCODER | GRALLOC_USAGE_SW_READ_OFTEN;
+         mConsumer->setConsumerUsageBits(consumerUsage);
+ 
+         // Set impl. defined format as default. Depending on the usage flags
 diff --git a/media/libstagefright/wifi-display/source/Converter.cpp b/media/libstagefright/wifi-display/source/Converter.cpp
 index 5502b063ab..bb9bda2e86 100644
 --- a/media/libstagefright/wifi-display/source/Converter.cpp
