@@ -1,6 +1,7 @@
 allow radio mwis_service:service_manager { add find };
 allow radio mtk_ims_service:service_manager { add find };
 allow radio vtservice_service:service_manager find;
+allow radio wfo_service:service_manager find;
 binder_call(radio, vtservice)
 binder_call(vtservice, radio)
 allow radio hal_mtkradioex_hwservice:hwservice_manager find;
