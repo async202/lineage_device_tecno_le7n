@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<permissions>
+    <privapp-permissions package="com.android.networkstack">
+        <permission name="android.permission.NETWORK_SETTINGS"/>
+        <permission name="android.permission.MAINLINE_NETWORK_STACK"/>
+    </privapp-permissions>
+    <privapp-permissions package="com.google.android.networkstack">
+        <permission name="android.permission.NETWORK_SETTINGS"/>
+        <permission name="android.permission.MAINLINE_NETWORK_STACK"/>
+    </privapp-permissions>
+</permissions>
