@@ -30,3 +30,5 @@ type vendor_mtk_hvolte_indicator, property_type;
 type vendor_soter_teei_prop, property_type;
 type vendor_mtk_cxp_vendor_prop, property_type;
 type vendor_mtk_operator_prop, property_type;
+type vendor_mtk_pq_prop, property_type;
+type vendor_mtk_pq_ro_prop, property_type;

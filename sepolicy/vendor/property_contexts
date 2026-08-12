@@ -75,4 +75,8 @@ vendor.net.ims. u:object_r:vendor_mtk_md_volte_prop:s0
 vendor.ril.volte.mal.pctid u:object_r:vendor_mtk_operator_id_prop:s0
 vendor.volte_md_status u:object_r:vendor_mtk_md_status_prop:s0
 vendor.soter.teei.init u:object_r:vendor_soter_teei_prop:s0
+persist.vendor.sys.pq. u:object_r:vendor_mtk_pq_prop:s0
+vendor.debug.pq. u:object_r:vendor_mtk_pq_prop:s0
+ro.vendor.mtk_pq_color_mode u:object_r:vendor_mtk_pq_ro_prop:s0
+ro.vendor.mtk_pq_support u:object_r:vendor_mtk_pq_ro_prop:s0
 
