@@ -115,6 +115,7 @@
 /(vendor|system/vendor)/lib(64)?/libpq_cust_base\.so u:object_r:same_process_hal_file:s0
 /(vendor|system/vendor)/lib(64)?/libDefaultFpsActor\.so u:object_r:same_process_hal_file:s0
 /(vendor|system/vendor)/lib(64)?/libNoFpsActor\.so u:object_r:same_process_hal_file:s0
+/(vendor|system/vendor)/bin/hw/vendor\.mediatek\.hardware\.pq@[0-9.]+-service u:object_r:mtk_hal_pq_exec:s0
 
 /dev/mtk_disp_mgr(/.*)? u:object_r:graphics_device:s0
 /dev/mali0(/.*)? u:object_r:gpu_device:s0
