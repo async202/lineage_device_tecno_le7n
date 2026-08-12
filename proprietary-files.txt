@@ -194,6 +194,7 @@ vendor/lib/libbluetooth_audio_session_mediatek.so
 vendor/lib64/libbluetooth_audio_session.so
 vendor/lib64/libbluetooth_audio_session_mediatek.so
 
+
 # Boot
 vendor/bin/hw/android.hardware.boot@1.1-service
 vendor/etc/init/android.hardware.boot@1.1-service.rc

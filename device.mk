@@ -97,9 +97,6 @@ PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
     persist.sys.disable_rescue=true \
     ro.surface_flinger.supports_background_blur=0 \
     persist.debug.wfd.enable=1 \
-    persist.sys.wfd.nohdcp=1 \
-    media.wfd.use-sw-encoder=1 \
-    debug.stagefright.wfd.encoder=c2.android.avc.encoder \
     persist.sys.volte_support=1 \
     telephony.lteOnGsmDevice=1 \
     ro.telephony.default_network=22,22,22,22 \
@@ -264,6 +261,11 @@ PRODUCT_PACKAGES += \
 PRODUCT_PROPERTY_OVERRIDES += vendor.ril.mtk=1
 PRODUCT_PROPERTY_OVERRIDES += ro.vendor.wlan.gen=gen4m
 PRODUCT_PACKAGES += libpcap
+
+# Bluetooth (LDAC)
+PRODUCT_PACKAGES += \
+    libldacBT_enc \
+    libldacBT_abr
 
 # NFC
 PRODUCT_COPY_FILES += \
