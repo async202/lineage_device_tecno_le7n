@@ -1,3 +1,4 @@
 allow system_server proc_ged:file rw_file_perms;
 allow system_server proc:file getattr;
+allow system_server proc_last_kmsg:file r_file_perms;
 allowxperm system_server proc_ged:file ioctl { 0x6700-0x67ff };

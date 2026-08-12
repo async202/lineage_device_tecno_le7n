@@ -41,3 +41,6 @@ type nvcfg_file, file_type, data_file_type;
 type nvdata_file, file_type, data_file_type;
 type nvram_data_file, file_type, data_file_type;
 
+# Proc last kmsg
+type proc_last_kmsg, fs_type, proc_type;
+
