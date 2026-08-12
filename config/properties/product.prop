@@ -209,7 +209,3 @@ ro.vendor.os_social_turbo_service=1
 ro.vendor.os_typeface_support=1
 ro.vendor.radio.max.multisim=tsts
 ro.xhide_support=1
-
-# Wi-Fi Display (Miracast)
-media.wfd.video-encoder=c2.android.avc.encoder
-persist.sys.wfd.nohdcp=1
