@@ -89,6 +89,8 @@
 /(vendor|system/vendor)/bin/hw/android\.hardware\.nfc@1\.2-service-st u:object_r:hal_nfc_default_exec:s0
 /(vendor|system/vendor)/bin/hw/android\.hardware\.thermal@2\.0-service\.mtk u:object_r:hal_thermal_default_exec:s0
 /(vendor|system/vendor)/bin/hw/android\.hardware\.drm@[0-9]+\.[0-9]+-service\.clearkey    u:object_r:hal_drm_default_exec:s0
+/(vendor|system/vendor)/bin/hw/android\.hardware\.drm@[0-9]+\.[0-9]+-service\.widevine    u:object_r:hal_drm_widevine_exec:s0
+/data/vendor/mediadrm(/.*)?                                                                u:object_r:mediadrm_vendor_data_file:s0
 
 /(vendor|system/vendor)/bin/hw/vendor\.silead\.hardware\.fingerprintext@1\.0-service u:object_r:hal_fingerprint_default_exec:s0
 /(vendor|system/vendor)/bin/hw/camerahalserver u:object_r:hal_camera_default_exec:s0

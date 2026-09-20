@@ -2,4 +2,12 @@
 <resources>
     <!-- Whether device has physical keys -->
     <bool name="config_showNavigationBar">true</bool>
+
+    <!-- Biometric Sensors: ID 0, Modality 2 (Fingerprint), Strength 15 (Strong) -->
+    <string-array name="config_biometric_sensors" translatable="false">
+        <item>0:2:15</item>
+    </string-array>
+
+    <!-- Side-mounted power button fingerprint sensor -->
+    <bool name="config_is_powerbutton_fps" translatable="false">true</bool>
 </resources>

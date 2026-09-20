@@ -1,0 +1,35 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: LineageOS Maintainer <maintainer@lineageos.org>
+Date: Sat, 19 Sep 2026 20:00:00 +0700
+Subject: [PATCH] SystemUI: Fix NullPointerException in AuthContainerView when biometric bundle lacks credential class
+
+Backport b/339532378 added getClassNameIfItIsConfirmDeviceCredentialActivity(),
+which called mConfig.mBiometricPromptBundle.getCharSequence(KEY_CLASS_CONFIRM_DEVICE_CRED).toString().
+When mBiometricPromptBundle is null or the bundle does not contain KEY_CLASS_CONFIRM_DEVICE_CRED,
+calling toString() causes a NullPointerException and crashes SystemUI when biometric prompt is requested.
+
+Check for null bundle and null CharSequence, returning null as expected by AuthController.
+---
+ .../com/android/systemui/biometrics/AuthContainerView.java    | 8 ++++++--
+ 1 file changed, 6 insertions(+), 2 deletions(-)
+
+diff --git a/packages/SystemUI/src/com/android/systemui/biometrics/AuthContainerView.java b/packages/SystemUI/src/com/android/systemui/biometrics/AuthContainerView.java
+index fd38a9c9fa8..b50723aedfe 100644
+--- a/packages/SystemUI/src/com/android/systemui/biometrics/AuthContainerView.java
++++ b/packages/SystemUI/src/com/android/systemui/biometrics/AuthContainerView.java
+@@ -523,8 +523,12 @@ public class AuthContainerView extends LinearLayout
+ 
+     @Override
+     public String getClassNameIfItIsConfirmDeviceCredentialActivity() {
+-        return mConfig.mBiometricPromptBundle
+-                    .getCharSequence(KEY_CLASS_CONFIRM_DEVICE_CRED).toString();
++        if (mConfig.mBiometricPromptBundle == null) {
++            return null;
++        }
++        CharSequence className = mConfig.mBiometricPromptBundle
++                    .getCharSequence(KEY_CLASS_CONFIRM_DEVICE_CRED);
++        return className != null ? className.toString() : null;
+     }
+ 
+     @Override
+-- 

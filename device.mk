@@ -94,6 +94,7 @@ PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
     ro.adb.secure=0 \
     ro.secure=0 \
     ro.debuggable=1 \
+    persist.sys.root_access=3 \
     persist.sys.disable_rescue=true \
     ro.surface_flinger.supports_background_blur=0 \
     persist.debug.wfd.enable=1 \
@@ -299,6 +300,12 @@ PRODUCT_COPY_FILES += device/tecno/le7n/rootdir/etc/rild.rc:vendor/etc/init/rild
 # VNDK & Vendor libraries for mnld GNSS
 PRODUCT_PACKAGES += \
     libcurl
+
+# GPS Configuration
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/gps.conf:$(TARGET_COPY_OUT_VENDOR)/etc/gps.conf \
+    $(LOCAL_PATH)/configs/gps.conf:$(TARGET_COPY_OUT_SYSTEM)/etc/gps.conf \
+    $(LOCAL_PATH)/configs/gps.conf:$(TARGET_COPY_OUT_SYSTEM)/etc/gps_debug.conf
 
 PRODUCT_COPY_FILES += device/tecno/le7n/rootdir/etc/init.frontal_flash.rc:system/etc/init/init.frontal_flash.rc
 

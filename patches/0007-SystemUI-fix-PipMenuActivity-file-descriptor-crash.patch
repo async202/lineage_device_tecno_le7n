@@ -1,0 +1,35 @@
+diff --git a/packages/SystemUI/src/com/android/systemui/pip/phone/PipMenuActivityController.java b/packages/SystemUI/src/com/android/systemui/pip/phone/PipMenuActivityController.java
+index 31d292fa3fd..2d09b68b7a6 100644
+--- a/packages/SystemUI/src/com/android/systemui/pip/phone/PipMenuActivityController.java
++++ b/packages/SystemUI/src/com/android/systemui/pip/phone/PipMenuActivityController.java
+@@ -156,6 +156,9 @@ public class PipMenuActivityController {
+                         mOnAnimationEndRunnable.run();
+                         mOnAnimationEndRunnable = null;
+                     }
++                    if (mToActivityMessenger != null) {
++                        updateMenuActions();
++                    }
+                     // Mark the menu as invisible once the activity finishes as well
+                     if (mToActivityMessenger == null) {
+                         final boolean resize = msg.arg1 != 0;
+@@ -457,7 +460,10 @@ public class PipMenuActivityController {
+                 Intent intent = new Intent(mContext, PipMenuActivity.class);
+                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                 intent.putExtra(EXTRA_CONTROLLER_MESSENGER, mMessenger);
+-                intent.putExtra(EXTRA_ACTIONS, resolveMenuActions());
++                // Do NOT pass EXTRA_ACTIONS in the start Intent because Bitmap icons in RemoteAction
++                // may contain Ashmem File Descriptors, which triggers ActivityStarter's
++                // "File descriptors passed in Intent" check.
++                // Actions are delivered via mToActivityMessenger in MESSAGE_UPDATE_ACTIVITY_CALLBACK.
+                 if (stackBounds != null) {
+                     intent.putExtra(EXTRA_STACK_BOUNDS, stackBounds);
+                 }
+@@ -475,7 +481,7 @@ public class PipMenuActivityController {
+             } else {
+                 Log.e(TAG, "No PIP tasks found");
+             }
+-        } catch (RemoteException e) {
++        } catch (RemoteException | RuntimeException e) {
+             setStartActivityRequested(false);
+             Log.e(TAG, "Error showing PIP menu activity", e);
+         }
