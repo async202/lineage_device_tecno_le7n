@@ -135,6 +135,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.vendor.radio.volte_reg_status=1 \
     persist.vendor.radio.ims_registered=1 \
     persist.sys.cust.lte_config=1 \
+    persist.sys.radio.force_lte_ca=true \
     persist.vendor.radio.volte_support2=1 \
     persist.vendor.radio.msimmode=dsds \
     persist.vendor.radio.mtk_ps1_rat=L/W/G \

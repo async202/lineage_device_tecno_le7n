@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Status bar height -->
+    <dimen name="status_bar_height_portrait">36dp</dimen>
+    <dimen name="status_bar_height_landscape">28dp</dimen>
+
+    <!-- Quick QS header height -->
+    <dimen name="quick_qs_offset_height">36dp</dimen>
+    <dimen name="quick_qs_total_height">164dp</dimen>
+
+    <!-- Rounded corner radius for display corners -->
+    <dimen name="rounded_corner_radius">28dp</dimen>
+
+    <!-- Screen brightness floats -->
+    <item name="config_screenBrightnessSettingMinimumFloat" format="float" type="dimen">0.00392157</item>
+    <item name="config_screenBrightnessSettingMaximumFloat" format="float" type="dimen">1.0</item>
+    <item name="config_screenBrightnessSettingDefaultFloat" format="float" type="dimen">0.4</item>
+
+    <!-- Resolver max collapsed height -->
+    <dimen name="resolver_max_collapsed_height">342dp</dimen>
+    <dimen name="resolver_max_collapsed_height_with_tabs">390dp</dimen>
+</resources>
