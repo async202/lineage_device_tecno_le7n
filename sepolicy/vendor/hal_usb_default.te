@@ -1,4 +1,5 @@
 permissive hal_usb_default;
+hal_server_domain(hal_usb_default, hal_usb_gadget)
 
 allow hal_usb_default configfs:dir create_dir_perms;
 allow hal_usb_default configfs:file rw_file_perms;

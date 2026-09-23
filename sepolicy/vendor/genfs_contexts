@@ -4,3 +4,11 @@ genfscon sysfs /devices/platform/soc/soc:pwm_leds/leds/lcd-backlight u:object_r:
 genfscon sysfs /devices/platform/leds-mt65xx/leds u:object_r:sysfs_leds:s0
 genfscon sysfs /devices/platform/disp_leds/leds u:object_r:sysfs_leds:s0
 genfscon sysfs /devices/platform/pwmleds/leds u:object_r:sysfs_leds:s0
+
+# Vibrator
+genfscon sysfs /devices/platform/odm/odm:vibrator@0 u:object_r:sysfs_vibrator:s0
+genfscon sysfs /devices/platform/soc/soc:vibrator u:object_r:sysfs_vibrator:s0
+genfscon sysfs /devices/platform/regulator_vibrator u:object_r:sysfs_vibrator:s0
+genfscon sysfs /devices/platform/vibrator u:object_r:sysfs_vibrator:s0
+genfscon sysfs /devices/platform/vibrator@0 u:object_r:sysfs_vibrator:s0
+genfscon sysfs /devices/virtual/timed_output/vibrator u:object_r:sysfs_vibrator:s0

@@ -196,6 +196,7 @@
 /sys/devices/virtual/sub_torch(/.*)? u:object_r:sysfs_sub_torch_file:s0
 /sys/devices/virtual/torch(/.*)? u:object_r:sysfs_torch_file:s0
 /sys/devices/virtual/wide_torch(/.*)? u:object_r:sysfs_wide_torch_file:s0
+/sys/class/leds/vibrator(/.*)?   u:object_r:sysfs_vibrator:s0
 /(system\/vendor|vendor)/bin/epdg_wod u:object_r:epdg_wod_exec:s0
 /(system\/vendor|vendor)/bin/hw/vendor\.mediatek\.hardware\.clientapi@1\.0-service u:object_r:volte_clientapi_ua_exec:s0
 /(system\/vendor|vendor)/bin/hw/vendor\.mediatek\.hardware\.rcs@1\.0-service u:object_r:volte_rcs_ua_exec:s0
@@ -222,7 +223,7 @@
 /dev/socket/volte_ua(/.*)? u:object_r:volte_ua_socket:s0
 /dev/socket/volte_ut(/.*)? u:object_r:volte_ut_socket:s0
 /dev/socket/volte_vt(/.*)? u:object_r:volte_vt_socket:s0
-/dev/socket/wfca(/.*)? u:object_r:wfca_socket:s0
+/dev/socket/wfca.* u:object_r:wfca_socket:s0
 /dev/socket/wo_epdg_action(/.*)? u:object_r:wo_epdg_action_socket:s0
 /dev/socket/wo_epdg_ipsec(/.*)? u:object_r:wo_epdg_ipsec_socket:s0
 /dev/socket/wo_epdg_sim(/.*)? u:object_r:wo_epdg_sim_socket:s0

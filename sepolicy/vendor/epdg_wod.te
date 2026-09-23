@@ -36,3 +36,7 @@ allow epdg_wod wod_apn_conf_file:dir { add_name open read remove_name search wri
 allow epdg_wod wod_apn_conf_file:file { create getattr open read unlink write };
 allow epdg_wod wod_ipsec_conf_file:dir { add_name open read remove_name search write };
 allow epdg_wod wod_ipsec_conf_file:file { create getattr open read unlink write };
+
+# Allow netutils_wrapper to use fd and unix stream socket from epdg_wod
+allow netutils_wrapper epdg_wod:fd use;
+allow netutils_wrapper epdg_wod:unix_stream_socket { read write };

@@ -1,3 +1,4 @@
 type gsm0710muxd, domain;
 type gsm0710muxd_exec, exec_type, vendor_file_type, file_type;
 init_daemon_domain(gsm0710muxd)
+set_prop(gsm0710muxd, ctl_stop_prop)

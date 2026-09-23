@@ -1,4 +1,5 @@
 set_prop(tee, vendor_soter_teei_prop)
+set_prop(tee, vendor_default_prop)
 
 # Allow teei_daemon to create TA data directories
 allow tee tee_data_file:dir { create setattr };
