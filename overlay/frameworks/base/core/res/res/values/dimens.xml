@@ -11,6 +11,9 @@
     <!-- Rounded corner radius for display corners -->
     <dimen name="rounded_corner_radius">28dp</dimen>
 
+    <!-- Toast Y offset -->
+    <dimen name="toast_y_offset">72dp</dimen>
+
     <!-- Screen brightness floats -->
     <item name="config_screenBrightnessSettingMinimumFloat" format="float" type="dimen">0.00392157</item>
     <item name="config_screenBrightnessSettingMaximumFloat" format="float" type="dimen">1.0</item>
