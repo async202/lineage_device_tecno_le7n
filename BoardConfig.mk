@@ -38,14 +38,34 @@ TARGET_SCREEN_DENSITY := 480
 # Kernel
 BOARD_BOOT_HEADER_VERSION := 2
 BOARD_KERNEL_BASE := 0x40078000
-BOARD_KERNEL_CMDLINE := bootopt=64S3,32N2,64N2 buildvariant=user androidboot.init_fatal_reboot_target=fastboot androidboot.selinux=permissive
+BOARD_KERNEL_CMDLINE := bootopt=64S3,32N2,64N2 buildvariant=user androidboot.selinux=permissive
 BOARD_KERNEL_PAGESIZE := 2048
 BOARD_MKBOOTIMG_ARGS += --header_version $(BOARD_BOOT_HEADER_VERSION)
-BOARD_KERNEL_IMAGE_NAME := Image
+BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
 BOARD_INCLUDE_DTB_IN_BOOTIMG := true
-BOARD_KERNEL_SEPARATED_DTBO := true
+BOARD_PREBUILT_DTBOIMAGE := $(DEVICE_PATH)/prebuilts/dtbo.img
+
+TARGET_KERNEL_ARCH := arm64
+TARGET_KERNEL_HEADER_ARCH := arm64
 TARGET_KERNEL_CONFIG := le7n_defconfig
 TARGET_KERNEL_SOURCE := kernel/tecno/le7n
+TARGET_KERNEL_CLANG_COMPILE := true
+TARGET_KERNEL_CLANG_VERSION := r383902
+KERNEL_MAKE_FLAGS := \
+    LLVM=1 \
+    LLVM_IAS=1 \
+    AR=llvm-ar \
+    NM=llvm-nm \
+    OBJCOPY=llvm-objcopy \
+    OBJDUMP=llvm-objdump \
+    STRIP=llvm-strip \
+    READELF=llvm-readelf \
+    HOSTCC=clang \
+    HOSTCXX=clang++ \
+    HOSTAR=llvm-ar \
+    HOSTLD=ld.lld
+KERNEL_LD := LD=ld.lld
+
 BOARD_RAMDISK_OFFSET := 0x07c08000
 BOARD_KERNEL_TAGS_OFFSET := 0x0bc08000
 BOARD_KERNEL_OFFSET := 0x00008000
@@ -58,8 +78,7 @@ BOARD_MKBOOTIMG_ARGS += \
     --second_offset $(BOARD_KERNEL_SECOND_OFFSET) \
     --dtb_offset $(BOARD_DTB_OFFSET)
 
-# Kernel - prebuilt
-TARGET_FORCE_PREBUILT_KERNEL := true
+# Kernel - prebuilt fallback (only if TARGET_FORCE_PREBUILT_KERNEL is explicitly true)
 ifeq ($(TARGET_FORCE_PREBUILT_KERNEL),true)
 ifeq ($(TARGET_KERNEL_VARIANT),xxksu)
 TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/prebuilts/kernel-xxksu
@@ -69,8 +88,6 @@ endif
 TARGET_PREBUILT_DTB := $(DEVICE_PATH)/prebuilts/dtb.img
 BOARD_MKBOOTIMG_ARGS += --dtb $(TARGET_PREBUILT_DTB)
 BOARD_INCLUDE_DTB_IN_BOOTIMG := 
-BOARD_PREBUILT_DTBOIMAGE := $(DEVICE_PATH)/prebuilts/dtbo.img
-BOARD_KERNEL_SEPARATED_DTBO := 
 endif
 
 # Partitions
@@ -111,6 +128,7 @@ TARGET_BOARD_PLATFORM := mt6768
 BOARD_USES_MTK_HARDWARE := true
 BOARD_HAS_MTK_HARDWARE := true
 TARGET_USES_HARDWARE_MTK_GRALLOC := true
+TARGET_ADDITIONAL_GRALLOC_10_USAGE_BITS := 0x2000U
 
 # Properties
 TARGET_SYSTEM_PROP += $(DEVICE_PATH)/config/properties/system.prop
@@ -126,7 +144,7 @@ TARGET_USERIMAGES_USE_F2FS := true
 TARGET_RECOVERY_PIXEL_FORMAT := RGBX_8888
 
 # Security patch level
-VENDOR_SECURITY_PATCH := 2021-03-05
+VENDOR_SECURITY_xPATCH := 2021-03-05
 
 # Verified Boot
 BOARD_AVB_ENABLE := true

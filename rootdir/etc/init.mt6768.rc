@@ -191,6 +191,10 @@ on late-fs
 
 on post-fs-data
     write /proc/bootprof "INIT:post-fs-data"
+    rm /data/vendor/dmesg_init_live.txt
+    rm /data/vendor/logcat_init_live.txt
+    start live_dmesg
+    start live_logcat
 
     # boot time fs tune
     write /sys/block/mmcblk0/queue/iostats 0
@@ -253,9 +257,6 @@ on post-fs-data
     mkdir /data/vendor/flicker
     chown root system /data/vendor/flicker
     chmod 0771 /data/vendor/flicker
-
-    # Create mediadrm folder
-    mkdir /data/vendor/mediadrm 0770 media mediadrm
 
     # Set SELinux security contexts on upgrade or policy update.
     restorecon_recursive /mnt/vendor/nvdata
@@ -1076,6 +1077,19 @@ service osi /system/bin/osi
     disabled
     oneshot
     #seclabel u:r:osi:s0
+
+# Live dmesg service
+service live_dmesg /system/bin/sh -c "dmesg -w > /data/vendor/dmesg_init_live.txt"
+    class late_start
+    user root
+    group root
+    seclabel u:r:toolbox:s0
+
+service live_logcat /system/bin/sh -c "logcat -b all -v threadtime -f /data/vendor/logcat_init_live.txt"
+    class late_start
+    user root
+    group root
+    seclabel u:r:logpersist:s0
 
 #BSP:add custom factory reset KFLHLEYJ-8 by wang.qin 20201026 start
 # on property:persist.vendor.tran.wipedata=1 && property:ro.boot.atm=enable
