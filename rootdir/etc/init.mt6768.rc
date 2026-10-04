@@ -715,6 +715,7 @@ on early-boot
     write /proc/bootprof "INIT:early-boot"
 
 on boot
+    stop console
     chmod 0666 /proc/ged
     chown system system /proc/ged
     write /proc/bootprof "INIT:boot"

@@ -16,6 +16,7 @@ $(call inherit-product, vendor/lineage/config/common_full_phone.mk)
 PRODUCT_DEVICE := le7n
 PRODUCT_NAME := lineage_le7n
 PRODUCT_BRAND := TECNO
+PRODUCT_MODEL := TECNO LE7n
 PRODUCT_MANUFACTURER := tecno
 
 PRODUCT_GMS_CLIENTID_BASE := android-transsion
@@ -23,3 +24,6 @@ PRODUCT_GMS_CLIENTID_BASE := android-transsion
 PRODUCT_BUILD_PROP_OVERRIDES += \
     BUILD_DESCRIPTION="sys_tssi_64_tecno-user 11 RP1A.200720.011 100645 release-keys" \
     BUILD_FINGERPRINT="TECNO/TSSI/le7n:11/RP1A.200720.011/210420V289:user/release-keys"
+
+PRODUCT_PROPERTY_OVERRIDES += \
+    lineage.updater.uri=https://raw.githubusercontent.com/async202/lineageOTA/main/{device}.json
