@@ -1,0 +1,216 @@
+#
+# SPDX-FileCopyrightText: The LineageOS Project
+# SPDX-License-Identifier: Apache-2.0
+#
+
+# ADB
+persist.adb.nonblocking_ffs=1
+
+# Audio
+ro.vendor.audio.single.mic.support=1
+persist.vendor.audio.single.mic.support=1
+persist.vendor.audio.speech.mic.mode=0
+persist.vendor.audio.evs.support=1
+persist.vendor.audio.speech.evs.support=1
+persist.vendor.audio.volte.enable=1
+ro.vendor.mtk_audio_alac_support=1
+ro.vendor.mtk_audio_ape_support=1
+ro.vendor.mtk_audio_tuning_tool_ver=V2.2
+ro.vendor.mtk_besloudness_support=1
+ro.vendor.tran_dirac.support=1
+
+# Bluetooth
+ro.vendor.mtk.bt_sap_enable=true
+
+# Camera
+camera.disable_zsl_mode=1
+ro.camera.sub_flash=1
+vendor.camera.sub_flash=1
+ro.vendor.camera.sub_flash=1
+persist.vendor.camera.sub_flash=1
+vendor.camera.mdp.cz.enable=1
+vendor.camera.mdp.dre.enable=0
+ro.vendor.camera3.zsl.default=140
+ro.vendor.camera_tran_fake_stereo_support=1
+ro.vendor.camera_tran_hal_server_support=1
+ro.vendor.midtest.dual_camera_arcsoft=1
+ro.vendor.midtest.dual_camera_support=1
+ro.vendor.midtest.four_camera_dummy=1
+ro.vendor.midtest.four_camera_support=1
+ro.vendor.midtest.ls_calibration_support=1
+ro.vendor.midtest.thr_camera_support=1
+ro.mtk_cam_stereo_camera_support=1
+ro.vendor.mtk_camera_app_version=3
+ro.vendor.mtk_slow_motion_support=1
+persist.vendor.camera3.pipeline.bufnum.base.imgo=4
+persist.vendor.camera3.pipeline.bufnum.base.lcso=4
+persist.vendor.camera3.pipeline.bufnum.base.rrzo=4
+persist.vendor.camera3.pipeline.bufnum.base.rsso=5
+persist.vendor.camera3.pipeline.bufnum.min.high_ram.fdyuv=5
+persist.vendor.camera3.pipeline.bufnum.min.high_ram.imgo=7
+persist.vendor.camera3.pipeline.bufnum.min.high_ram.lcso=7
+persist.vendor.camera3.pipeline.bufnum.min.high_ram.rrzo=7
+persist.vendor.camera3.pipeline.bufnum.min.high_ram.rsso=7
+persist.vendor.camera3.pipeline.bufnum.min.low_ram.fdyuv=5
+persist.vendor.camera3.pipeline.bufnum.min.low_ram.imgo=6
+persist.vendor.camera3.pipeline.bufnum.min.low_ram.lcso=6
+persist.vendor.camera3.pipeline.bufnum.min.low_ram.rrzo=6
+persist.vendor.camera3.pipeline.bufnum.min.low_ram.rsso=6
+
+# Display / Graphics
+ro.hardware.egl=mali
+ro.opengles.version=196610
+ro.vendor.mtk_aal_support=1
+ro.vendor.mtk_blulight_def_support=1
+ro.vendor.mtk_pq_color_mode=1
+ro.vendor.mtk_pq_support=2
+
+# SurfaceFlinger
+ro.surface_flinger.force_hwc_copy_for_virtual_displays=true
+ro.surface_flinger.max_frame_buffer_acquired_buffers=3
+ro.surface_flinger.primary_display_orientation=ORIENTATION_0
+
+# DRM
+drm.service.enabled=true
+ro.netflix.bsp_rev=MTK6768-19055-1
+ro.vendor.mtk_sec_video_path_support=1
+ro.vendor.mtk_widevine_drm_l3_support=1
+
+# FM Radio
+persist.vendor.connsys.fm_chipid=mt6631
+persist.vendor.connsys.fm_short_antenna_support=1
+ro.vendor.builtin_fm_antenna_support=1
+ro.vendor.mtk_fm_short_antenna_support=1
+
+# IMS / VoLTE / VoWiFi / ViLTE
+persist.vendor.ims_support=1
+persist.vendor.mims_support=2
+persist.vendor.mtk.volte.enable=1
+persist.vendor.mtk_ct_volte_support=1
+persist.vendor.mtk_dynamic_ims_switch=1
+persist.vendor.mtk_wfc_support=1
+persist.vendor.volte.enable=1
+persist.vendor.volte_support=1
+ro.vendor.md_auto_setup_ims=1
+vendor.net.ims.ccmni=ccmni0
+vendor.net.ims.name=ccmni-ims
+vendor.ril.volte.enable=1
+vendor.ril.volte.status=1
+
+# Media
+ro.vendor.mtk_config_max_dram_size=0x800000000
+ro.vendor.mtk_vdec_waitkeyframeforplay=9
+ro.vendor.pref_scale_enable_cfg=1
+vendor.mtk.vdec.waitkeyframeforplay=9
+
+# Memory / Dalvik
+dalvik.vm.heapgrowthlimit=256m
+dalvik.vm.heapmaxfree=8m
+dalvik.vm.heapminfree=4m
+dalvik.vm.heapsize=512m
+dalvik.vm.heapstartsize=16m
+dalvik.vm.heaptargetutilization=0.75
+dalvik.vm.mtk-stack-trace-file=/data/anr/mtk_traces.txt
+
+# Navigation / GNSS
+ro.vendor.mtk_agps_app=1
+ro.vendor.mtk_gps_support=1
+ro.vendor.mtk_log_hide_gps=0
+
+# Neural Networks / APU
+debug.mtk_tflite.target_nnapi=29
+ro.vendor.mtk_nn.option=D,E,F,Z
+ro.vendor.mtk_nn_quant_preferred=1
+ro.vendor.mtk_nn_support=1
+
+# NFC
+ro.vendor.mtk_nfc_addon_support=1
+ro.vendor.mtk_uicc_clf=1
+
+# Operator Config
+persist.vendor.operator.optr=OP18
+persist.vendor.operator.seg=DEFAULT
+persist.vendor.operator.spec=SEGDEFAULT
+persist.vendor.mtk_operator_id=OP18
+ro.vendor.operator.optr=OP18
+ro.vendor.operator.seg=DEFAULT
+ro.vendor.operator.spec=SEGDEFAULT
+ro.vendor.mtk_operator_id=OP18
+
+# Radio & Telephony
+persist.radio.multisim.config=dsds
+persist.vendor.radio.disable_precond=1
+persist.vendor.radio.disable_prcd=1
+persist.vendor.radio.fd.counter=15
+persist.vendor.radio.ims_act_state=1
+persist.vendor.radio.ims_audio_precond=0
+persist.vendor.radio.ims.capability.vilte=1
+persist.vendor.radio.ims.capability.volte=1
+persist.vendor.radio.ims.capability.vowfi=1
+persist.vendor.radio.ims.capability.vt=1
+persist.vendor.radio.ims.capability.wfc=1
+persist.vendor.radio.ims_registered=1
+persist.vendor.radio.ims_video_precond=0
+persist.vendor.radio.msimmode=dsds
+persist.vendor.radio.mtk_dsbp_support=2
+persist.vendor.radio.mtk_ps1_rat=L/W/G
+persist.vendor.radio.mtk_ps2_rat=L/W/G
+persist.vendor.radio.mtk_ps3_rat=W/G
+persist.vendor.radio.smart.data.switch=1
+persist.vendor.radio.vilte_cap=1
+persist.vendor.radio.volte_cap=1
+persist.vendor.radio.volte.enable=1
+persist.vendor.radio.volte_reg_status=1
+persist.vendor.radio.volte_support=1
+persist.vendor.radio.volte_support2=1
+persist.vendor.radio.vowfi_cap=1
+ro.telephony.iwlan_operation_mode=default
+ro.vendor.mtk_c2k_lte_mode=0
+ro.vendor.mtk_data_config=1
+ro.vendor.mtk_eccci_c2k=1
+ro.vendor.mtk_embms_support=1
+ro.vendor.mtk_exchange_support=1
+ro.vendor.mtk_external_sim_only_slots=4
+ro.vendor.mtk_external_sim_support=0
+ro.vendor.mtk_lte_support=1
+ro.vendor.mtk_md1_support=9
+ro.vendor.mtk_md_world_mode_support=1
+ro.vendor.mtk_modem_monitor_support=1
+ro.vendor.mtk_non_dsda_rsim_support=1
+ro.vendor.mtk_protocol1_rat_config=Lf/Lt/W/G
+persist.vendor.mtk_sim_switch_policy=2
+ro.vendor.mtk_sim_hot_swap_common_slot=1
+ro.vendor.mtk_single_bin_modem_support=1
+ro.vendor.mtk_world_phone_policy=0
+ro.vendor.radio.max.multisim=tsts
+telephony.active_modems.max_count=2
+
+# RIL
+vendor.ril.mtk=1
+vendor.rild.libargs=-d /dev/ttyC0
+ro.vendor.mtk_ril_mode=c6m_1rild
+ro.vendor.mtk_rild_read_imsi=1
+
+# Storage
+ro.vendor.mtk_emmc_support=1
+ro.vendor.mtk_f2fs_enable=1
+
+# System
+init.userspace_reboot.is_supported=true
+persist.vendor.tran_psi_adjust_kill_oom=false
+
+# TEE / Security
+ro.vendor.mtk_microtrust_tee_support=1
+ro.vendor.trans_pay_tee=1
+
+# USB
+vendor.usb.acm_cnt=0
+vendor.usb.acm_enable=0
+vendor.usb.controller=musb-hdrc
+
+# Wi-Fi
+ro.vendor.mtk_wapi_support=1
+ro.vendor.mtk_wappush_support=1
+ro.vendor.mtk_wfd_support=0
+ro.vendor.wlan.gen=gen4m
+wifi.concurrent.interface=ap0
